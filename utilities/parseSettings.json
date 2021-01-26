@@ -1,0 +1,34 @@
+{
+  "spreadsheetId": "11JdAmp1RTyY4R6s3dWutOL2lhaQEBahvK0tGMEXHPBw",
+  "startRow": 2,
+  "pages": [{
+    "sheet": "book1",
+    "output": "../Resources/properties/database/library/A1.json"
+  }],
+  "dataStruct": [
+    {
+      "index": 0,
+      "output": "enWord"
+    },
+    {
+      "index": 1,
+      "output": "EnTranscription"
+    },
+    {
+      "index": 3,
+      "output": "EnDescription"
+    },
+    {
+      "index": 4,
+      "output": "EnSentence"
+    },
+    {
+      "index": 5,
+      "output": "RuWord"
+    },
+    {
+      "index": 6,
+      "output": "RuSentence"
+    }
+  ]
+}
