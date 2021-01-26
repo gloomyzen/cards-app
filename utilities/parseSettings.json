@@ -1,9 +1,9 @@
 {
   "spreadsheetId": "11JdAmp1RTyY4R6s3dWutOL2lhaQEBahvK0tGMEXHPBw",
-  "startRow": 2,
+  "findDiapason": "A2:G",
   "pages": [{
     "sheet": "book1",
-    "output": "../Resources/properties/database/library/A1.json"
+    "output": "../Resources/properties/database/library/courses/A1.json"
   }],
   "dataStruct": [
     {

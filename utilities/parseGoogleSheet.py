@@ -8,9 +8,6 @@ import json
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
-SPREADSHEET_ID = ''
-START_ROW = 1
-RANGE_NAME = 'book1!A2:G'  # todo fill this data dynamic!
 
 def getSpreadSheetId():
     with open('parseSettings.json') as json_file:
@@ -19,21 +16,38 @@ def getSpreadSheetId():
             print("spreadsheetId is not valid!")
         return data['spreadsheetId']
 
-def getStartRow():
+
+def getFindRange():
     with open('parseSettings.json') as json_file:
         data = json.load(json_file)
-        if not data['startRow']:
-            print("startRow is not valid!")
-        return data['startRow']
+        if not data['findDiapason']:
+            print("findDiapason is not valid!")
+        return data['findDiapason']
 
-def parseSheet(spreadsheetId, startRow):
+
+def getDataStruct():
+    struct = list()
+    with open('parseSettings.json') as json_file:
+        data = json.load(json_file)
+        for page in data['dataStruct']:
+            # struct.append({'index':page['index'], 'output':page['output']})
+            struct.append(page)
+        return struct
+
+
+def parseSheet(spreadsheetId, findRange, dataStruct):
     with open('parseSettings.json') as json_file:
         data = json.load(json_file)
     for page in data['pages']:
-        print('sheet: ' + page['sheet'])
-        print('output: ' + page['output'])
+        sheetName = page['sheet']
+        outputFilePath = page['output']
+        currentRange = sheetName + '!' + findRange
+        print('currentRange: ' + currentRange)
+        print('len: %s' % (len(dataStruct)))
+        parseData(spreadsheetId, currentRange, dataStruct, outputFilePath)
 
-def parseData():
+
+def parseData(spreadsheetId, findRange, dataStruct, outputFilePath):
     creds = None
     if os.path.exists('token.pickle'):
         with open('token.pickle', 'rb') as token:
@@ -52,23 +66,37 @@ def parseData():
 
     # Call the Sheets API
     sheet = service.spreadsheets()
-    result = sheet.values().get(spreadsheetId=SPREADSHEET_ID,
-                                range=RANGE_NAME).execute()
+    result = sheet.values().get(spreadsheetId=spreadsheetId,
+                                range=findRange).execute()
     values = result.get('values', [])
 
+    jsonData = []
     if not values:
         print('No data found.')
     else:
-        print('Name, Major:')
-        for row in values:
-            print('%s, %s' % (row[0], row[4]))
+        for item in values:
+            jsonRow = {}
+            for row in dataStruct:
+                index = row['index']
+                try:
+                    jsonRow.update({row['output']: item[index]})
+                except:
+                    jsonRow.update({row['output']: ''})
+
+            print(jsonRow)
+            jsonData.append(jsonRow)
+
+    with open(outputFilePath, 'w') as outfile:
+        json.dump(jsonData, outfile)
 
 def main():
     spreadsheetId = getSpreadSheetId()
     # print('%s' % (spreadsheetId))
-    startRow = getStartRow()
+    findRange = getFindRange()
     # print('%s' % (startRow))
-    parseSheet(spreadsheetId, startRow)
+    dataStruct = getDataStruct()
+    parseSheet(spreadsheetId, findRange, dataStruct)
+
 
 if __name__ == '__main__':
     main()
