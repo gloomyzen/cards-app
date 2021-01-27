@@ -12,13 +12,26 @@
 namespace cardsApp {
 	namespace localProfile {
 
-	class localProfileBlock : public common::profileModule::profileBlockInterface {
-	public:
-		localProfileBlock();
-		~localProfileBlock();
+		struct sLocalProfileCourse {
+			int id;
+			std::vector<int> goodQuestion;
+			std::vector<int> mediumQuestion;
+			std::vector<int> badQuestion;
 
-		bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &) override;
-		bool save(rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &) override;
+			bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &);
+
+		};
+
+		class localProfileBlock : public common::profileModule::profileBlockInterface {
+		public:
+			localProfileBlock();
+			~localProfileBlock();
+
+			bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &) override;
+			bool save(rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &) override;
+
+		private:
+			std::map<int, sLocalProfileCourse*> localCourses;
 		};
 	}
 }
