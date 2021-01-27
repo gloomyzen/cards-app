@@ -3,6 +3,9 @@
 #include "common/coreModule/gameManager.h"
 #include "common/coreModule/scenes/scenesFactory/scenesFactoryInstance.h"
 #include "common/coreModule/resources/settings/settingManager.h"
+#include "common/profileModule/profileManager.h"
+//all profile block header
+#include "localProfile/localProfileBlock.h"
 
 #define USE_AUDIO_ENGINE 1
 
@@ -77,8 +80,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #endif
 
 	register_all_packages();
-	GET_SCENES_FACTORY().registerState("battleScene", [](Layer* node)->Layer*{
+	GET_SCENES_FACTORY().registerState("loadingScreenScene", [](Layer* node)->Layer*{
 		//todo
+		// 1. register all profile
+		// 2. execute profile
+		GET_PROFILE().registerBlock("local", [](){
+			return new cardsApp::localProfile::localProfileBlock();
+		});
+		GET_PROFILE().executeLoad();
+		// 3. register all databases
+		// 4. execute database
+		// 5 run next scene
+			auto seq = Sequence::create(DelayTime::create(7.f), CallFunc::create([](){
+				GET_GAME_MANAGER().changeState("mapScene");
+			}), nullptr);
+		node->runAction(seq);
 
 		return node;
 	});
@@ -89,7 +105,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		return node;
 	});
 
-	GET_GAME_MANAGER().run("mapScene");
+	GET_GAME_MANAGER().run("loadingScreenScene");
 
 	return true;
 }

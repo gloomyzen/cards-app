@@ -1,15 +1,11 @@
 {
-  "location": {
-    "forest": [
+  "local": {
+    "courses": [
       {
         "id": 1,
-        "quest": 20001,
-        "questProgress": [
-          {
-            "id": 10001,
-            "count": 1
-          }
-        ]
+        "good": [1, 2, 3],
+        "medium": [4, 5, 6],
+        "bad": [7, 8]
       }
     ]
   }
