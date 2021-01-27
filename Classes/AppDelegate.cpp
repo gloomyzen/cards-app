@@ -1,7 +1,6 @@
 #include "common/coreModule/resources/resourceManager.h"
 #include "AppDelegate.h"
 #include "common/coreModule/gameManager.h"
-#include "common/coreModule/enums/statesEnums.h"
 #include "common/coreModule/scenes/scenesFactory/scenesFactoryInstance.h"
 #include "common/coreModule/resources/settings/settingManager.h"
 
@@ -78,19 +77,19 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #endif
 
 	register_all_packages();
-	GET_SCENES_FACTORY().registerState(common::coreModule::eGameStates::BATTLE_SCENE, [](Layer* node)->Layer*{
+	GET_SCENES_FACTORY().registerState("battleScene", [](Layer* node)->Layer*{
 		//todo
 
 		return node;
 	});
 
-	GET_SCENES_FACTORY().registerState(common::coreModule::eGameStates::MAP_SCENE, [](Layer* node)->Layer*{
+	GET_SCENES_FACTORY().registerState("mapScene", [](Layer* node)->Layer*{
 		//todo
 
 		return node;
 	});
 
-	GET_GAME_MANAGER().run(common::coreModule::eGameStates::MAP_SCENE);
+	GET_GAME_MANAGER().run("mapScene");
 
 	return true;
 }
