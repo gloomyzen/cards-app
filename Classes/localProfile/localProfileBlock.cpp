@@ -8,7 +8,7 @@ localProfileBlock::localProfileBlock() {}
 
 localProfileBlock::~localProfileBlock() {}
 
-bool localProfileBlock::load(const GenericValue<UTF8<char>>::ConstObject& data) {
+bool localProfileBlock::load(const GenericValue<UTF8<char>>::ConstObject &data) {
 	auto coursesArray = data.FindMember("courses");
 	if (!coursesArray->value.IsArray()) {
 		return true;
@@ -26,26 +26,7 @@ bool localProfileBlock::load(const GenericValue<UTF8<char>>::ConstObject& data) 
 	return true;
 }
 
-bool localProfileBlock::save(Value& data, Document::AllocatorType& allocator) {
-	data.SetArray();
-	for (auto item : localCourses) {
-		rapidjson::Value obj;
-		obj.SetObject();
-		obj.AddMember("id", item.second->id, allocator);
-
-		data.PushBack(obj, allocator);
-	}
-	return false;
-}
-
-sLocalProfileCourse *localProfileBlock::getCourse(int id) {
-	if (localCourses.find(id) != localCourses.end()) {
-		return localCourses.find(id)->second;
-	}
-	return nullptr;
-}
-
-bool sLocalProfileCourse::load(const GenericValue<UTF8<char>>::ConstObject& data) {
+bool sLocalProfileCourse::load(const GenericValue<UTF8<char>>::ConstObject &data) {
 	auto _id = data.FindMember("id");
 	auto _goodQuestion = data.FindMember("goodQuestion");
 	auto _mediumQuestion = data.FindMember("mediumQuestion");
@@ -82,6 +63,44 @@ bool sLocalProfileCourse::load(const GenericValue<UTF8<char>>::ConstObject& data
 	return true;
 }
 
-bool sLocalProfileCourse::save(Value &, Document::AllocatorType&) {
-	return false;
+bool localProfileBlock::save(Value &data, Document::AllocatorType &allocator) {
+	data.SetArray();
+	for (auto item : localCourses) {
+		rapidjson::Value obj;
+		obj.SetObject();
+		if (item.second->save(obj, allocator)) {
+			data.PushBack(obj, allocator);
+		}
+	}
+	return true;
+}
+
+bool sLocalProfileCourse::save(Value &data, Document::AllocatorType &allocator) {
+	data.AddMember("id", id, allocator);
+	rapidjson::Value goodQuestionArray;
+	goodQuestionArray.SetArray();
+	for (auto item : goodQuestion) {
+		goodQuestionArray.PushBack(item, allocator);
+	}
+	data.AddMember("goodQuestion", goodQuestionArray, allocator);
+	rapidjson::Value mediumQuestionArray;
+	mediumQuestionArray.SetArray();
+	for (auto item : mediumQuestion) {
+		mediumQuestionArray.PushBack(item, allocator);
+	}
+	data.AddMember("goodQuestion", mediumQuestionArray, allocator);
+	rapidjson::Value badQuestionArray;
+	badQuestionArray.SetArray();
+	for (auto item : badQuestion) {
+		badQuestionArray.PushBack(item, allocator);
+	}
+	data.AddMember("goodQuestion", badQuestionArray, allocator);
+	return true;
+}
+
+sLocalProfileCourse *localProfileBlock::getCourse(int id) {
+	if (localCourses.find(id) != localCourses.end()) {
+		return localCourses.find(id)->second;
+	}
+	return nullptr;
 }
