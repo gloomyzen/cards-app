@@ -19,6 +19,7 @@ namespace cardsApp {
 			std::vector<int> badQuestion;
 
 			bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &);
+			bool save(rapidjson::Value &, rapidjson::Document::AllocatorType&);
 
 		};
 
@@ -28,7 +29,14 @@ namespace cardsApp {
 			~localProfileBlock();
 
 			bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &) override;
-			bool save(rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &) override;
+			bool save(rapidjson::Value &, rapidjson::Document::AllocatorType&) override;
+
+			std::map<int, sLocalProfileCourse*>& getAllCourses() {
+				return localCourses;
+			}
+
+			sLocalProfileCourse* getCourse(int);
+
 
 		private:
 			std::map<int, sLocalProfileCourse*> localCourses;
