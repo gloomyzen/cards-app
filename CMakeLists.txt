@@ -106,7 +106,7 @@ else()
     target_link_libraries(${APP_NAME} -Wl,--whole-archive cpp_android_spec -Wl,--no-whole-archive)
 endif()
 
-#target_compile_features(${APP_NAME} PUBLIC cxx_std_17)
+target_compile_features(${APP_NAME} PUBLIC cxx_std_17)
 #target_compile_options(${APP_NAME} PUBLIC -Wall)
 
 include(${CMAKE_SOURCE_DIR}/lib/project_dependency.cmake)
