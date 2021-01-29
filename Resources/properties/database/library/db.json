@@ -3,12 +3,12 @@
     {
       "id": 1,
       "name": "4000 words, A1 level",
-      "path": "courses/A1.json"
+      "path": "properties/database/library/courses/A1.json"
     },
     {
       "id": 2,
       "name": "Useful English",
-      "path": "courses/useful1.json"
+      "path": "properties/database/library/courses/useful1.json"
     }
   ]
 }
