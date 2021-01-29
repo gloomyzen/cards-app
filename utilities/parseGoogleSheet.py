@@ -42,8 +42,8 @@ def parseSheet(spreadsheetId, findRange, dataStruct):
         sheetName = page['sheet']
         outputFilePath = page['output']
         currentRange = sheetName + '!' + findRange
-        print('currentRange: ' + currentRange)
-        print('len: %s' % (len(dataStruct)))
+        # print('currentRange: ' + currentRange)
+        # print('len: %s' % (len(dataStruct)))
         parseData(spreadsheetId, currentRange, dataStruct, outputFilePath)
 
 

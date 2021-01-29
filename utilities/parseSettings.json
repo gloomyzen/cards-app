@@ -1,10 +1,16 @@
 {
   "spreadsheetId": "11JdAmp1RTyY4R6s3dWutOL2lhaQEBahvK0tGMEXHPBw",
   "findDiapason": "A2:G",
-  "pages": [{
-    "sheet": "book1",
-    "output": "../Resources/properties/database/library/courses/A1.json"
-  }],
+  "pages": [
+    {
+      "sheet": "bookA1",
+      "output": "../Resources/properties/database/library/courses/A1.json"
+    },
+    {
+      "sheet": "usefulEnglish1",
+      "output": "../Resources/properties/database/library/courses/useful1.json"
+    }
+  ],
   "dataStruct": [
     {
       "index": 0,

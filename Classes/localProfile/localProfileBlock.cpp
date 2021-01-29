@@ -64,14 +64,17 @@ bool sLocalProfileCourse::load(const GenericValue<UTF8<char>>::ConstObject &data
 }
 
 bool localProfileBlock::save(Value &data, Document::AllocatorType &allocator) {
-	data.SetArray();
+	Value array;
+	array.SetArray();
 	for (auto item : localCourses) {
 		rapidjson::Value obj;
 		obj.SetObject();
 		if (item.second->save(obj, allocator)) {
-			data.PushBack(obj, allocator);
+			array.PushBack(obj, allocator);
 		}
 	}
+	rapidjson::Value key("courses", allocator);
+	data.AddMember(key, array, allocator);
 	return true;
 }
 
