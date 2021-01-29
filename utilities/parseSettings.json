@@ -18,23 +18,23 @@
     },
     {
       "index": 1,
-      "output": "EnTranscription"
+      "output": "enTranscription"
     },
     {
       "index": 3,
-      "output": "EnDescription"
+      "output": "enDescription"
     },
     {
       "index": 4,
-      "output": "EnSentence"
+      "output": "enSentence"
     },
     {
       "index": 5,
-      "output": "RuWord"
+      "output": "ruWord"
     },
     {
       "index": 6,
-      "output": "RuSentence"
+      "output": "ruSentence"
     }
   ]
 }

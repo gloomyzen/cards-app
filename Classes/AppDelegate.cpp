@@ -3,9 +3,13 @@
 #include "common/coreModule/gameManager.h"
 #include "common/coreModule/scenes/scenesFactory/scenesFactoryInstance.h"
 #include "common/coreModule/resources/settings/settingManager.h"
-#include "common/profileModule/profileManager.h"
 //all profile block header
+#include "common/profileModule/profileManager.h"
 #include "localProfile/localProfileBlock.h"
+//all databases header
+#include "common/databaseModule/databaseInterface.h"
+#include "common/databaseModule/databaseManager.h"
+#include "databasesModule/coursesDatabase.h"
 
 #define USE_AUDIO_ENGINE 1
 
@@ -84,11 +88,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		//todo
 		// 1. register all profile
 		// 2. execute profile
-		GET_PROFILE().registerBlock("local", [](){
-			return new cardsApp::localProfile::localProfileBlock();
-		});
+		GET_PROFILE().registerBlock("local", [](){ return new cardsApp::localProfile::localProfileBlock(); });
 		GET_PROFILE().executeLoad();
 		// 3. register all databases
+		GET_DATABASE_MANAGER().registerDatabase("properties/database/library/db.json", new cardsApp::databasesModule::coursesDatabase());
+		GET_DATABASE_MANAGER().executeLoadData();
 		// 4. execute database
 		// 5 run next scene
 			auto seq = Sequence::create(DelayTime::create(7.f), CallFunc::create([](){
