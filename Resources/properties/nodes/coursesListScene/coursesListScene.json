@@ -1,0 +1,10 @@
+{
+  "type": "node",
+  "name": "coursesListScene",
+  "child": [
+    {
+      "type": "scrollView",
+      "name": "scrollContainer"
+    }
+  ]
+}

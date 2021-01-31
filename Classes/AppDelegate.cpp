@@ -12,6 +12,8 @@
 #include "databasesModule/coursesDatabase.h"
 #include "databasesModule/ipaDatabase.h"
 
+#include "coursesListModule/coursesListScene.h"
+
 #define USE_AUDIO_ENGINE 1
 
 #if USE_AUDIO_ENGINE
@@ -85,29 +87,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #endif
 
 	register_all_packages();
-	GET_SCENES_FACTORY().registerState("loadingScreenScene", [](Layer* node)->Layer*{
-		//todo
-		// 1. register all profile
-		// 2. execute profile
-		GET_PROFILE().registerBlock("local", [](){ return new cardsApp::localProfile::localProfileBlock(); });
-		GET_PROFILE().executeLoad();
-		// 3. register all databases
-		GET_DATABASE_MANAGER().registerDatabase("properties/database/library/db.json", new cardsApp::databasesModule::coursesDatabase());
-		GET_DATABASE_MANAGER().registerDatabase("properties/database/dictionary/db.json", new cardsApp::databasesModule::ipaDatabase());
-		GET_DATABASE_MANAGER().executeLoadData();
-		// 4. execute database
-		// 5 run next scene
-			auto seq = Sequence::create(DelayTime::create(7.f), CallFunc::create([](){
-				GET_GAME_MANAGER().changeState("mapScene");
-			}), nullptr);
-		node->runAction(seq);
-
+	// register all profile
+	GET_PROFILE().registerBlock("local", [](){ return new cardsApp::localProfile::localProfileBlock(); });
+	GET_PROFILE().executeLoad();
+	// register all databases
+	GET_DATABASE_MANAGER().registerDatabase("properties/database/library/db.json", new cardsApp::databasesModule::coursesDatabase());
+	GET_DATABASE_MANAGER().registerDatabase("properties/database/dictionary/db.json", new cardsApp::databasesModule::ipaDatabase());
+	GET_DATABASE_MANAGER().executeLoadData();
+	GET_SCENES_FACTORY().registerState("coursesListScene", [](Layer* node)->Layer*{
+		auto scene = new cardsApp::coursesListModule::coursesListScene();
+		node->addChild(scene);
 		return node;
 	});
 
 	GET_SCENES_FACTORY().registerState("mapScene", [](Layer* node)->Layer*{
 		//todo
-
 		return node;
 	});
 
