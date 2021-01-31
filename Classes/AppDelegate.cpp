@@ -10,6 +10,7 @@
 #include "common/databaseModule/databaseInterface.h"
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
+#include "databasesModule/ipaDatabase.h"
 
 #define USE_AUDIO_ENGINE 1
 
@@ -92,6 +93,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		GET_PROFILE().executeLoad();
 		// 3. register all databases
 		GET_DATABASE_MANAGER().registerDatabase("properties/database/library/db.json", new cardsApp::databasesModule::coursesDatabase());
+		GET_DATABASE_MANAGER().registerDatabase("properties/database/dictionary/db.json", new cardsApp::databasesModule::ipaDatabase());
 		GET_DATABASE_MANAGER().executeLoadData();
 		// 4. execute database
 		// 5 run next scene

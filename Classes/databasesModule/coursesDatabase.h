@@ -2,6 +2,8 @@
 #define CARDS_APP_COURSESDATABASE_H
 
 #include "common/databaseModule/databaseInterface.h"
+#include "json/document.h"
+#include "json/ostreamwrapper.h"
 #include "cocos2d.h"
 #include <string>
 #include <map>
