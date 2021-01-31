@@ -13,7 +13,6 @@ namespace cardsApp {
 		struct sCourseCard {
 			int id;
 			std::string enWord;
-			std::string enTranscription;
 			std::string enDescription;
 			std::string enSentence;
 			std::string ruWord;

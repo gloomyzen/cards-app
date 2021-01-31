@@ -7,8 +7,18 @@
     },
     {
       "id": 2,
-      "name": "Useful English",
+      "name": "Useful English #1",
       "path": "properties/database/library/courses/useful1"
+    },
+    {
+      "id": 3,
+      "name": "Useful English #2",
+      "path": "properties/database/library/courses/useful2"
+    },
+    {
+      "id": 4,
+      "name": "English Phrases",
+      "path": "properties/database/library/courses/phrases"
     }
   ]
 }

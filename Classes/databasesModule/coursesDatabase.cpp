@@ -54,7 +54,6 @@ bool sCourseBook::load(const rapidjson::Document &data) {
 			continue;
 		}
 		auto _enWord = it->FindMember("enWord");
-		auto _enTranscription = it->FindMember("enTranscription");
 		auto _enDescription = it->FindMember("enDescription");
 		auto _enSentence = it->FindMember("enSentence");
 		auto _ruWord = it->FindMember("ruWord");
@@ -69,9 +68,6 @@ bool sCourseBook::load(const rapidjson::Document &data) {
 		item->enWord = _enWord->value.GetString();
 		item->ruWord = _ruWord->value.GetString();
 
-		if (_enTranscription != it->MemberEnd() && _enTranscription->value.IsString())  {
-			item->enTranscription = _enTranscription->value.GetString();
-		}
 		if (_enDescription != it->MemberEnd() && _enDescription->value.IsString())  {
 			item->enDescription = _enDescription->value.GetString();
 		}

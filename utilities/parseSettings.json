@@ -1,6 +1,6 @@
 {
   "spreadsheetId": "11JdAmp1RTyY4R6s3dWutOL2lhaQEBahvK0tGMEXHPBw",
-  "findDiapason": "A2:G",
+  "findDiapason": "A2:E",
   "pages": [
     {
       "sheet": "bookA1",
@@ -9,6 +9,14 @@
     {
       "sheet": "usefulEnglish1",
       "output": "../Resources/properties/database/library/courses/useful1.json"
+    },
+    {
+      "sheet": "NewWords",
+      "output": "../Resources/properties/database/library/courses/useful2.json"
+    },
+    {
+      "sheet": "Phrases",
+      "output": "../Resources/properties/database/library/courses/phrases.json"
     }
   ],
   "dataStruct": [
@@ -18,22 +26,18 @@
     },
     {
       "index": 1,
-      "output": "enTranscription"
-    },
-    {
-      "index": 3,
       "output": "enDescription"
     },
     {
-      "index": 4,
+      "index": 2,
       "output": "enSentence"
     },
     {
-      "index": 5,
+      "index": 3,
       "output": "ruWord"
     },
     {
-      "index": 6,
+      "index": 4,
       "output": "ruSentence"
     }
   ]
