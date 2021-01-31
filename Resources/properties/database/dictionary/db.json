@@ -1,0 +1,108 @@
+{
+  "letters": [
+    {
+      "letter": "a",
+      "path": "properties/database/dictionary/a"
+    },
+    {
+      "letter": "b",
+      "path": "properties/database/dictionary/b"
+    },
+    {
+      "letter": "c",
+      "path": "properties/database/dictionary/c"
+    },
+    {
+      "letter": "d",
+      "path": "properties/database/dictionary/d"
+    },
+    {
+      "letter": "e",
+      "path": "properties/database/dictionary/e"
+    },
+    {
+      "letter": "f",
+      "path": "properties/database/dictionary/f"
+    },
+    {
+      "letter": "g",
+      "path": "properties/database/dictionary/g"
+    },
+    {
+      "letter": "h",
+      "path": "properties/database/dictionary/h"
+    },
+    {
+      "letter": "i",
+      "path": "properties/database/dictionary/i"
+    },
+    {
+      "letter": "j",
+      "path": "properties/database/dictionary/j"
+    },
+    {
+      "letter": "k",
+      "path": "properties/database/dictionary/k"
+    },
+    {
+      "letter": "l",
+      "path": "properties/database/dictionary/l"
+    },
+    {
+      "letter": "m",
+      "path": "properties/database/dictionary/m"
+    },
+    {
+      "letter": "n",
+      "path": "properties/database/dictionary/n"
+    },
+    {
+      "letter": "o",
+      "path": "properties/database/dictionary/o"
+    },
+    {
+      "letter": "p",
+      "path": "properties/database/dictionary/p"
+    },
+    {
+      "letter": "q",
+      "path": "properties/database/dictionary/q"
+    },
+    {
+      "letter": "r",
+      "path": "properties/database/dictionary/r"
+    },
+    {
+      "letter": "s",
+      "path": "properties/database/dictionary/s"
+    },
+    {
+      "letter": "t",
+      "path": "properties/database/dictionary/t"
+    },
+    {
+      "letter": "u",
+      "path": "properties/database/dictionary/u"
+    },
+    {
+      "letter": "v",
+      "path": "properties/database/dictionary/v"
+    },
+    {
+      "letter": "w",
+      "path": "properties/database/dictionary/w"
+    },
+    {
+      "letter": "x",
+      "path": "properties/database/dictionary/x"
+    },
+    {
+      "letter": "y",
+      "path": "properties/database/dictionary/y"
+    },
+    {
+      "letter": "z",
+      "path": "properties/database/dictionary/z"
+    }
+  ]
+}

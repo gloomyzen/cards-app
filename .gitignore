@@ -149,4 +149,5 @@ venv
 ##Update assets
 utilities/credentials.json
 utilities/token.pickle
+utilities/ipa.xml
 Resources/properties/database/library/courses/*
