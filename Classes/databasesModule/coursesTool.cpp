@@ -1,4 +1,5 @@
 #include "coursesTool.h"
+#include "common/debugModule/logManager.h"
 
 using namespace cardsApp::databasesModule;
 using namespace cardsApp::localProfile;
@@ -12,11 +13,22 @@ coursesTool::coursesTool() {
 
 coursesTool::~coursesTool() {}
 
-void coursesTool::getCoursesWithProgress() {
-//	auto courseDb->getCourses();
-	auto test = ipaDb->findString("auto");
-	auto light = ipaDb->findString("light");
-	auto key = ipaDb->findString("key");
-	auto ship = ipaDb->findString("ship");
-	auto test2 = "";
+std::map<int, std::pair<int, sCourseBook*>> coursesTool::getCoursesWithProgress() {
+	std::map<int, std::pair<int, sCourseBook*>> result;
+	if (courseDb == nullptr || ipaDb == nullptr || localProfile == nullptr) {
+		LOG_ERROR("coursesTool::getCoursesWithProgress: databases is not loaded!");
+		return result;
+	}
+
+	auto list = courseDb->getCourses();
+	for (const auto& [id, book] : list) {
+		auto currentCourse = localProfile->getCourse(book->id);
+		if (currentCourse == nullptr) {
+			result.insert({id, {0, book}});
+		} else {
+			auto progress = 100 / static_cast<float>(book->cards.size()) * static_cast<float>(currentCourse->goodQuestion.size());
+			result.insert({id, {progress, book}});
+		}
+	}
+	return result;
 }

@@ -13,6 +13,7 @@
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "databasesModule/ipaDatabase.h"
+#include <tuple>
 
 namespace cardsApp {
 	namespace databasesModule {
@@ -21,7 +22,7 @@ namespace cardsApp {
 		public:
 			coursesTool();
 			~coursesTool();
-			void getCoursesWithProgress();
+			std::map<int, std::pair<int, sCourseBook*>> getCoursesWithProgress();
 
 		private:
 			cardsApp::databasesModule::coursesDatabase* courseDb = nullptr;
