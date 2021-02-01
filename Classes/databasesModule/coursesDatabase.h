@@ -33,6 +33,7 @@ namespace cardsApp {
 			coursesDatabase();
 			~coursesDatabase() = default;
 			void load(const rapidjson::Document&) override;
+			std::map<int, sCourseBook*> getCourses() { return coursesDb; }
 
 		private:
 			std::map<int, sCourseBook*> coursesDb;

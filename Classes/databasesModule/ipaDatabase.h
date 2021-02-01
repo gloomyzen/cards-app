@@ -19,7 +19,9 @@ namespace cardsApp {
 			ipaDatabase();
 			~ipaDatabase() = default;
 			void load(const rapidjson::Document&) override;
+			std::string findString(const std::string&) const;
 
+		protected:
 			bool loadDictionary(const std::string&, const rapidjson::Document&);
 
 		private:

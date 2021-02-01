@@ -9,6 +9,8 @@ def main():
     for s in itemlist:
         item = s.getElementsByTagName('Data')
         key = item[0].firstChild.data
+        if ' ' in key:
+            continue
         val = item[1].firstChild.data
         dictionary[key[0].lower()].append({'key': key, 'val': val})
         # print(item[0].firstChild.data)

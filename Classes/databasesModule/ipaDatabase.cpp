@@ -1,6 +1,7 @@
 #include "ipaDatabase.h"
 #include "common/debugModule/logManager.h"
 #include "common/coreModule/resources/resourceManager.h"
+#include "common/utilityModule/stringUtility.h"
 
 using namespace cardsApp::databasesModule;
 
@@ -54,4 +55,21 @@ bool ipaDatabase::loadDictionary(const std::string &mapKey, const rapidjson::Doc
 	}
 	stringMapDb.insert({mapKey, tempLetter});
 	return true;
+}
+
+std::string ipaDatabase::findString(const std::string& word) const {
+	auto string = common::utilityModule::stringUtility::trim(word);
+	if (string.empty())
+		return std::string();
+	std::string letter = string.substr(0, 1);
+	if (letter.empty())
+		return std::string();
+	if (stringMapDb.find(letter) != stringMapDb.end()) {
+		auto dictionary = stringMapDb.find(letter)->second;
+		if (dictionary.find(word) != dictionary.end()) {
+			return dictionary.find(word)->second;
+		}
+	}
+
+	return std::string();
 }
