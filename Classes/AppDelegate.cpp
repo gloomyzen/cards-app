@@ -13,6 +13,8 @@
 #include "databasesModule/ipaDatabase.h"
 //all scenes
 #include "coursesListModule/coursesListScene.h"
+//all widgets
+#include "interfaceModule/customNodeTypes.h"
 
 #define USE_AUDIO_ENGINE 1
 
@@ -94,6 +96,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	GET_DATABASE_MANAGER().registerDatabase({"coursesDb", "properties/database/library/db.json"}, new cardsApp::databasesModule::coursesDatabase());
 	GET_DATABASE_MANAGER().registerDatabase({"ipaDb", "properties/database/dictionary/db.json"}, new cardsApp::databasesModule::ipaDatabase());
 	GET_DATABASE_MANAGER().executeLoadData();
+	cardsApp::interfaceModule::customNodeTypes::registerAllCustomNodes();
 	GET_SCENES_FACTORY().registerState("coursesListScene", [](Layer* node)->Layer*{
 		auto scene = new cardsApp::coursesListModule::coursesListScene();
 		node->addChild(scene);
