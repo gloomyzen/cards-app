@@ -11,7 +11,7 @@
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "databasesModule/ipaDatabase.h"
-
+//all scenes
 #include "coursesListModule/coursesListScene.h"
 
 #define USE_AUDIO_ENGINE 1
@@ -94,7 +94,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	GET_DATABASE_MANAGER().registerDatabase({"coursesDb", "properties/database/library/db.json"}, new cardsApp::databasesModule::coursesDatabase());
 	GET_DATABASE_MANAGER().registerDatabase({"ipaDb", "properties/database/dictionary/db.json"}, new cardsApp::databasesModule::ipaDatabase());
 	GET_DATABASE_MANAGER().executeLoadData();
-	auto test = GET_DATABASE_MANAGER().getDatabase<cardsApp::databasesModule::coursesDatabase>("coursesDb");
 	GET_SCENES_FACTORY().registerState("coursesListScene", [](Layer* node)->Layer*{
 		auto scene = new cardsApp::coursesListModule::coursesListScene();
 		node->addChild(scene);
