@@ -24,7 +24,7 @@ namespace cardsApp {
 		struct sCourseBook {
 			int id;
 			std::string name;
-			std::map<int, sCourseCard*> courses;
+			std::map<int, sCourseCard*> cards;
 			bool load(const rapidjson::Document&);
 		};
 

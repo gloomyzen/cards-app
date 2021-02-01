@@ -77,8 +77,8 @@ bool sCourseBook::load(const rapidjson::Document &data) {
 		if (_ruSentence != it->MemberEnd() && _ruSentence->value.IsString())  {
 			item->ruSentence = _ruSentence->value.GetString();
 		}
-		courses.insert({item->id, item});
+		cards.insert({item->id, item});
 	}
 
-	return !courses.empty();
+	return !cards.empty();
 }
