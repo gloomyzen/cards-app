@@ -4,7 +4,31 @@
   "child": [
     {
       "type": "scrollView",
-      "name": "scrollContainer"
+      "name": "scrollContainer",
+      "child": [
+        {
+          "type": "grid",
+          "name": "gridContainer",
+          "child": [
+            {
+              "type": "cardWidget",
+              "name": "card1"
+            },
+            {
+              "type": "cardWidget",
+              "name": "card2"
+            },
+            {
+              "type": "cardWidget",
+              "name": "card3"
+            },
+            {
+              "type": "cardWidget",
+              "name": "card4"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -18,5 +18,17 @@
       "containerSize": [640, 1235],
       "scrollPosPercent": [50, 50]
     }
+  },
+  "gridContainer": {
+    "gridComponent": {
+      "marginX": [ 5, 5 ],
+      "marginY": [ 5, 5 ],
+      "paddingX": [ 5, 5 ],
+      "paddingY": [ 5, 5 ],
+      "col": 1,
+      "row": 4,
+      "direction": "horizontal",
+      "align": "left"
+    }
   }
 }

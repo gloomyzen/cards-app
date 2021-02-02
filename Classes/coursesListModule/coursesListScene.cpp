@@ -25,10 +25,10 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 		//todo remove after testing
 		databasesModule::coursesTool tool;
 		auto list = tool.getCoursesWithProgress();
-		for (auto item : list) {
-			auto card = new cardWidget();
-			scrollView->addChild(card);
-		}
+//		for (auto item : list) {
+//			auto card = new cardWidget();
+//			scrollView->addChild(card);
+//		}
 //		auto liquid = Liquid::create(5.0, {32, 24}, 5, 8);
 //		grid->runAction(liquid);
 //		auto gridProp = grid->getGrid();
