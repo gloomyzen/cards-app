@@ -2,7 +2,12 @@
   "cardWidget": {
     "transformComponent": {
       "anchor": [ 0.5, 0.5 ],
-      "pivot": [ 0.5, 0.5 ]
+      "pivot": [ 0.5, 0.5 ],
+      "scale": 2
+    },
+    "spriteComponent": {
+      "image": "images/widgets/cardWidget/card_temp.png",
+      "pixel": true
     }
   }
 }

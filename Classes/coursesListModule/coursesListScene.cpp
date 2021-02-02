@@ -1,7 +1,9 @@
 #include "coursesListScene.h"
 #include "databasesModule/coursesTool.h"
+#include "interfaceModule/widgets/cardWidget.h"
 
 using namespace cardsApp::coursesListModule;
+using namespace cardsApp::interfaceModule;
 using namespace cocos2d;
 
 coursesListScene::coursesListScene() {
@@ -22,7 +24,18 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 	result.emplace_back([this]() {
 		//todo remove after testing
 		databasesModule::coursesTool tool;
-		tool.getCoursesWithProgress();
+		auto list = tool.getCoursesWithProgress();
+		auto grid = NodeGrid::create();
+		addChild(grid);
+		for (auto item : list) {
+			auto card = new cardWidget();
+			grid->addChild(card);
+		}
+//		auto liquid = Liquid::create(5.0, {32, 24}, 5, 8);
+//		grid->runAction(liquid);
+//		auto gridProp = grid->getGrid();
+		auto liquidAction = Liquid::create(10, cocos2d::Size(10, 10), 2, 5);
+		grid->runAction(liquidAction);
 
 		return eTasksStatus::STATUS_OK;
 	});

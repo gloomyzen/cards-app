@@ -6,7 +6,7 @@
 
 namespace cardsApp::interfaceModule {
 
-	class cardWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
+	class cardWidget : public common::coreModule::nodeProperties<cocos2d::Sprite> {
 	public:
 		cardWidget();
 		~cardWidget() = default;
