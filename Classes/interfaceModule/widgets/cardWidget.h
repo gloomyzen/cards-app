@@ -12,10 +12,6 @@ namespace cardsApp::interfaceModule {
 		~cardWidget() = default;
 
 		CREATE_FUNC(cardWidget);
-
-		static Node *createNode() {
-			return cardWidget::create();
-		}
 	};
 }//cardsApp::interfaceModule
 

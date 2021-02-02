@@ -25,17 +25,15 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 		//todo remove after testing
 		databasesModule::coursesTool tool;
 		auto list = tool.getCoursesWithProgress();
-		auto grid = NodeGrid::create();
-		addChild(grid);
 		for (auto item : list) {
 			auto card = new cardWidget();
-			grid->addChild(card);
+			scrollView->addChild(card);
 		}
 //		auto liquid = Liquid::create(5.0, {32, 24}, 5, 8);
 //		grid->runAction(liquid);
 //		auto gridProp = grid->getGrid();
-		auto liquidAction = Liquid::create(10, cocos2d::Size(10, 10), 2, 5);
-		grid->runAction(liquidAction);
+//		auto liquidAction = Liquid::create(10, cocos2d::Size(10, 10), 2, 5);
+//		grid->runAction(liquidAction);
 
 		return eTasksStatus::STATUS_OK;
 	});

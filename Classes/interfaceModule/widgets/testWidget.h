@@ -13,10 +13,6 @@ namespace cardsApp::interfaceModule {
 
 			CREATE_FUNC(testWidget);
 
-			static Node *createNode() {
-				return testWidget::create();
-			}
-
 			bool init() {
 				if (!Node::init()) {
 					return false;
