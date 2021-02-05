@@ -12,20 +12,37 @@
           "child": [
             {
               "type": "cardWidget",
-              "name": "card1"
+              "name": "card"
             },
             {
               "type": "cardWidget",
-              "name": "card2"
+              "name": "card"
             },
             {
               "type": "cardWidget",
-              "name": "card3"
+              "name": "card"
             },
             {
               "type": "cardWidget",
-              "name": "card4"
+              "name": "card"
+            },
+            {
+              "type": "cardWidget",
+              "name": "card"
+            },
+            {
+              "type": "cardWidget",
+              "name": "card"
+            },
+            {
+              "type": "cardWidget",
+              "name": "card"
+            },
+            {
+              "type": "cardWidget",
+              "name": "card"
             }
+
           ]
         }
       ]
