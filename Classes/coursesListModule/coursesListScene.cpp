@@ -1,6 +1,7 @@
 #include "coursesListScene.h"
 #include "databasesModule/coursesTool.h"
 #include "interfaceModule/widgets/cardWidget.h"
+#include "common/coreModule/nodes/widgets/gridNode.h"
 
 using namespace cardsApp::coursesListModule;
 using namespace cardsApp::interfaceModule;
@@ -34,6 +35,10 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 //		auto gridProp = grid->getGrid();
 //		auto liquidAction = Liquid::create(10, cocos2d::Size(10, 10), 2, 5);
 //		grid->runAction(liquidAction);
+
+		if (auto grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"))) {
+			grid->updateGridTransform();
+		}
 
 		return eTasksStatus::STATUS_OK;
 	});
