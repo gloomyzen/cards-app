@@ -68,19 +68,3 @@ jobs:
           make -j 4
           echo "BUILD_SUCCESS=true" >> $GITHUB_ENV
 #          make test todo
-
-      - name: Discord succes notification
-        if: env.BUILD_SUCCESS == 'true'
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: '✅[SUCCESS](Linux Tests) The project {{ EVENT_PAYLOAD.repository.full_name }} has been built.'
-
-      - name: Discord fail notification
-        if: env.BUILD_SUCCESS != 'true'
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: '❌[FAIL](Linux Tests) The project {{ EVENT_PAYLOAD.repository.full_name }} was built with errors.'
