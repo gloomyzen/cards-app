@@ -23,22 +23,19 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 	});
 
 	result.emplace_back([this]() {
-		//todo remove after testing
 		databasesModule::coursesTool tool;
-		auto list = tool.getCoursesWithProgress();
-//		for (auto item : list) {
-//			auto card = new cardWidget();
-//			scrollView->addChild(card);
-//		}
-//		auto liquid = Liquid::create(5.0, {32, 24}, 5, 8);
-//		grid->runAction(liquid);
-//		auto gridProp = grid->getGrid();
-//		auto liquidAction = Liquid::create(10, cocos2d::Size(10, 10), 2, 5);
-//		grid->runAction(liquidAction);
-
-		if (auto grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"))) {
-			grid->updateGridTransform();
+		auto grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"));
+		if (grid == nullptr) {
+			LOG_ERROR("coursesListScene::getTasks: grid not found!");
+			return eTasksStatus::STATUS_ERROR_BREAK;
 		}
+		auto list = tool.getCoursesWithProgress();
+		for (auto item : list) {
+			auto card = new cardWidget();
+			grid->addChild(card);
+		}
+		grid->updateGridTransform();
+		scrollView->setInnerContainerSize( grid->getContentSize() );
 
 		return eTasksStatus::STATUS_OK;
 	});
