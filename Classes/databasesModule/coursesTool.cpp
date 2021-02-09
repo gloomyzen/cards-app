@@ -15,7 +15,7 @@ coursesTool::~coursesTool() {}
 
 std::map<int, std::pair<int, sCourseBook*>> coursesTool::getCoursesWithProgress() {
 	std::map<int, std::pair<int, sCourseBook*>> result;
-	if (courseDb == nullptr || ipaDb == nullptr || localProfile == nullptr) {
+	if (courseDb == nullptr || localProfile == nullptr) {
 		LOG_ERROR("coursesTool::getCoursesWithProgress: databases is not loaded!");
 		return result;
 	}

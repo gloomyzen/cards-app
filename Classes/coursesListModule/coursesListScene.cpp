@@ -32,7 +32,7 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 		auto list = tool.getCoursesWithProgress();
 		for (auto item : list) {
 			auto card = new cardWidget();
-			card->initCard(item.second.second);
+			card->initCard(item.second);
 			grid->addChild(card);
 		}
 		grid->updateGridTransform();
