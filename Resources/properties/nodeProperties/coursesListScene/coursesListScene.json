@@ -29,9 +29,9 @@
       "marginY": [ 5, 5 ],
       "paddingX": [ 5, 5 ],
       "paddingY": [ 5, 5 ],
-      "col": 2,
+      "col": 1,
       "row": 4,
-      "direction": "horizontal",
+      "direction": "vertical",
       "align": "left"
     }
   }

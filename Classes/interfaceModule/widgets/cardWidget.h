@@ -4,6 +4,7 @@
 #include "databasesModule/coursesDatabase.h"
 #include "cocos2d.h"
 #include "common/coreModule/nodes/nodeProperties.h"
+#include "interfaceModule/widgets/cardProgressBar.h"
 
 namespace cardsApp::interfaceModule {
 
@@ -15,6 +16,9 @@ namespace cardsApp::interfaceModule {
 		CREATE_FUNC(cardWidget);
 
 		void initCard(cardsApp::databasesModule::sCourseBook *pBook);
+
+	protected:
+		cardProgressBar* progressBar = nullptr;
 	};
 }//cardsApp::interfaceModule
 

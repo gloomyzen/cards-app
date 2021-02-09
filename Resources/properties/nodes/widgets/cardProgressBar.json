@@ -1,0 +1,10 @@
+{
+  "type": "sprite",
+  "name": "cardProgressBar",
+  "child": [
+    {
+      "type": "sprite",
+      "name": "progressBar"
+    }
+  ]
+}

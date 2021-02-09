@@ -13,6 +13,10 @@
     {
       "type": "label",
       "name": "progressLabel"
+    },
+    {
+      "type": "cardProgressBar",
+      "name": "cardProgressBar"
     }
   ]
 }

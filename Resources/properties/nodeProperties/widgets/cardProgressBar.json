@@ -1,0 +1,25 @@
+{
+  "cardProgressBar": {
+    "transformComponent": {
+      "pivot": [ 0.5, 0.2 ],
+      "anchor": [ 0.5, 0.0 ]
+    },
+    "spriteComponent": {
+      "image": "images/widgets/cardProgressBar/progressBar_bg.png",
+      "pixel": true
+    }
+  },
+  "progressBar": {
+    "transformComponent": {
+      "pivot": [ 0.0, 0.0 ],
+      "anchor": [ 0.0, 0.0 ]
+    },
+    "spriteComponent": {
+      "image": "images/widgets/cardProgressBar/progressBar.png",
+      "pixel": true
+    },
+    "colorComponent": {
+      "color": [39, 174, 96]
+    }
+  }
+}
