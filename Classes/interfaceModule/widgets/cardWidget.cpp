@@ -6,3 +6,7 @@ cardWidget::cardWidget() {
 	this->setName("cardWidget");
 	loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
 }
+
+void cardWidget::initCard(cardsApp::databasesModule::sCourseBook *pBook) {
+	//
+}

@@ -1,4 +1,18 @@
 {
   "type": "sprite",
-  "name": "cardWidget"
+  "name": "cardWidget",
+  "child": [
+    {
+      "type": "label",
+      "name": "countCardsLabel"
+    },
+    {
+      "type": "label",
+      "name": "nameLabel"
+    },
+    {
+      "type": "label",
+      "name": "progressLabel"
+    }
+  ]
 }
