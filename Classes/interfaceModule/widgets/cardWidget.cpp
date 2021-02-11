@@ -14,9 +14,9 @@ void cardWidget::initCard(std::pair<int, cardsApp::databasesModule::sCourseBook*
 		progressBar->setProgress(pair.first);
 	}
 	if (auto label = dynamic_cast<cocos2d::Label*>(findNode("nameLabel"))) {
-		label->setString(pair.second->name);
+		label->setString(STRING_FORMAT("1-%d", static_cast<int>(pair.second->cards.size())));
 	}
 	if (auto label = dynamic_cast<cocos2d::Label*>(findNode("countCardsLabel"))) {
-		label->setString(STRING_FORMAT("1-%d", static_cast<int>(pair.second->cards.size())));
+		label->setString(pair.second->name);
 	}
 }

@@ -4,12 +4,13 @@
 #include "databasesModule/coursesDatabase.h"
 #include "cocos2d.h"
 #include "common/coreModule/nodes/nodeProperties.h"
+#include "common/coreModule/nodes/widgets/soundButton.h"
 #include "interfaceModule/widgets/cardProgressBar.h"
 #include <tuple>
 
 namespace cardsApp::interfaceModule {
 
-	class cardWidget : public common::coreModule::nodeProperties<cocos2d::Sprite> {
+	class cardWidget : public common::coreModule::soundButton {
 	public:
 		cardWidget();
 		~cardWidget() = default;
