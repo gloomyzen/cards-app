@@ -1,0 +1,9 @@
+{
+  "windowViewer": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ],
+      "stretch": [ 1.0, 1.0 ]
+    }
+  }
+}
