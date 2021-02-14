@@ -2,6 +2,7 @@
 #include "databasesModule/coursesTool.h"
 #include "interfaceModule/widgets/cardWidget.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
+#include "common/coreModule/gameManager.h"
 
 using namespace cardsApp::coursesListModule;
 using namespace cardsApp::interfaceModule;
@@ -32,6 +33,9 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 		auto list = tool.getCoursesWithProgress();
 		for (auto item : list) {
 			auto card = new cardWidget();
+			card->setOnTouchEnded([](cocos2d::Touch* touch, cocos2d::Event* event) {
+				GET_GAME_MANAGER().requestWindow("coursePreview");
+			});
 			card->initCard(item.second);
 			grid->addChild(card);
 		}
