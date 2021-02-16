@@ -9,5 +9,17 @@
       "image": "images/windows/windowBase/bg.png",
       "polygon": false
     }
+  },
+
+  "node": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ],
+      "size": [ 200, 200 ]
+    },
+    "spriteComponent": {
+      "image": "images/windows/windowBase/bg.png",
+      "polygon": false
+    }
   }
 }
