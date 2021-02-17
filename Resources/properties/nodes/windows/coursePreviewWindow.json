@@ -1,0 +1,16 @@
+{
+  "type": "node",
+  "name": "coursePreviewWindow",
+  "child": [
+    {
+      "type": "sprite",
+      "name": "bg",
+      "child": [
+        {
+          "type": "soundButton",
+          "name": "closeBtn"
+        }
+      ]
+    }
+  ]
+}

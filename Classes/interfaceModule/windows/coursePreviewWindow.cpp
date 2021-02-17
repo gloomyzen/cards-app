@@ -4,7 +4,8 @@
 using namespace cardsApp::interfaceModule;
 
 coursePreviewWindow::coursePreviewWindow() {
-
+	this->setName("coursePreviewWindow");
+	loadProperty("windows/" + this->getName(), dynamic_cast<Node*>(this));
 }
 
 coursePreviewWindow::~coursePreviewWindow() {
