@@ -2,9 +2,11 @@
 #define CARDS_APP_COURSEPREVIEWWINDOW_H
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 #include "common/coreModule/nodes/nodeProperties.h"
 #include "common/coreModule/scenes/windows/windowBase.h"
 #include "databasesModule/coursesDatabase.h"
+#include "common/coreModule/nodes/widgets/soundButton.h"
 #include <map>
 
 namespace cardsApp::interfaceModule {
@@ -17,6 +19,9 @@ namespace cardsApp::interfaceModule {
 
 	private:
 		void showList(std::map<int, cardsApp::databasesModule::sCourseCard*>);
+
+		common::coreModule::soundButton* closeBtn = nullptr;
+		cocos2d::ui::ScrollView* scrollView = nullptr;
 	};
 }//cardsApp::interfaceModule
 

@@ -9,6 +9,10 @@
         {
           "type": "soundButton",
           "name": "closeBtn"
+        },
+        {
+          "type": "scrollView",
+          "name": "scrollContainer"
         }
       ]
     }
