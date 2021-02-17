@@ -1,10 +1,4 @@
 {
   "type": "sprite",
-  "name": "windowBase",
-  "child": [
-    {
-      "type": "sprite",
-      "name": "node"
-    }
-  ]
+  "name": "windowBase"
 }
