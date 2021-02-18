@@ -39,11 +39,19 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 	return result;
 }
 
-void coursePreviewWindow::showList(std::map<int, cardsApp::databasesModule::sCourseCard *>) {
+void coursePreviewWindow::showList(std::map<int, cardsApp::databasesModule::sCourseCard *> cards) {
 	if (!scrollView)
 		return;
 	auto grid = new gridNode();
 	grid->setName("grid");
 	loadComponent("windows/" + this->getName(), grid);
 	scrollView->addChild(grid);
+	for (auto item : cards) {
+		auto label = new Label();
+		label->setName("label");
+		loadComponent("windows/" + this->getName(), label);
+		label->setString(item.second->enWord);
+		grid->addChild(label);
+	}
+	grid->updateGridTransform();
 }

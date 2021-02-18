@@ -36,7 +36,7 @@
       "text": "Label Node Text",
       "fontType": "ttf",
       "fontSize": 24.0,
-      "fontFile": "fonts/Marker Felt.ttf",
+      "fontFile": "fonts/arial.ttf",
       "bold": true,
       "italics": true,
       "alight": "center",

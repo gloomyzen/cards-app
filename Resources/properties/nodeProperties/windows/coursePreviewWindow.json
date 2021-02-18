@@ -54,5 +54,20 @@
       "col": 1,
       "direction": "vertical"
     }
+  },
+  "label": {
+    "transformComponent": {
+      "anchor": [ 0.5, 1.0 ],
+      "pivot": [ 0.5, 1.0 ]
+    },
+    "labelComponent": {
+      "fontType": "ttf",
+      "fontSize": 24.0,
+      "fontFile": "fonts/arial.ttf",
+      "bold": true,
+      "italics": true,
+      "alight": "center",
+      "maxLineWidth": 200
+    }
   }
 }
