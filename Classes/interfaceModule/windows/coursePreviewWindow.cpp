@@ -54,4 +54,5 @@ void coursePreviewWindow::showList(std::map<int, cardsApp::databasesModule::sCou
 		grid->addChild(label);
 	}
 	grid->updateGridTransform();
+	scrollView->setInnerContainerSize( grid->getContentSize() );
 }

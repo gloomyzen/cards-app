@@ -43,8 +43,8 @@
   },
   "grid": {
     "transformComponent": {
-      "anchor": [ 0.5, 1.0 ],
-      "pivot": [ 0.5, 1.0 ]
+      "pivot": [ 0.0, 0.0 ],
+      "anchor": [ 0.0, 1.0 ]
     },
     "gridComponent": {
       "marginX": [ 5, 5 ],
@@ -57,8 +57,8 @@
   },
   "label": {
     "transformComponent": {
-      "anchor": [ 0.5, 1.0 ],
-      "pivot": [ 0.5, 1.0 ]
+      "anchor": [ 0.0, 1.0 ],
+      "pivot": [ 0.0, 1.0 ]
     },
     "labelComponent": {
       "fontType": "ttf",
@@ -66,7 +66,7 @@
       "fontFile": "fonts/arial.ttf",
       "bold": true,
       "italics": true,
-      "alight": "center",
+      "alight": "left",
       "maxLineWidth": 200
     }
   }
