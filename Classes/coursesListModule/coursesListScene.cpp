@@ -36,8 +36,8 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 			auto card = new cardWidget();
 			auto cards = item.second.second->cards;
 			card->setOnTouchEnded([cards](cocos2d::Touch* touch, cocos2d::Event* event) {
-				auto window = GET_GAME_MANAGER().requestWindow("coursePreview");
-				window->setData("cards", cards);
+				if (auto window = GET_GAME_MANAGER().requestWindow("coursePreview"))
+					window->setData("cards", cards);
 			});
 			card->initCard(item.second);
 			grid->addChild(card);
