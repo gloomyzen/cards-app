@@ -39,6 +39,12 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 		if (cardsId) {
 			showList(cardsId);
 		}
+		auto courseName = getData("courseName", std::string());
+		if (!courseName.empty()) {
+			if (auto label = dynamic_cast<Label*>(findNode("windowTitle"))) {
+				label->setString(courseName);
+			}
+		}
 
 		return eTasksStatus::STATUS_OK;
 	});

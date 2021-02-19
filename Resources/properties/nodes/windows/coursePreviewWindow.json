@@ -7,6 +7,10 @@
       "name": "bg",
       "child": [
         {
+          "type": "label",
+          "name": "windowTitle"
+        },
+        {
           "type": "soundButton",
           "name": "closeBtn"
         },

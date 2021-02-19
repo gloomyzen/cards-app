@@ -16,6 +16,24 @@
       "polygon": false
     }
   },
+  "windowTitle": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 1.0 ],
+      "position": [0, -40]
+    },
+    "labelComponent": {
+      "fontType": "ttf",
+      "fontSize": 24.0,
+      "fontFile": "fonts/arial.ttf",
+      "bold": true,
+      "italics": false,
+      "alight": "center"
+    },
+    "colorComponent": {
+      "color": [255, 255, 255, 110]
+    }
+  },
   "closeBtn": {
     "transformComponent": {
       "pivot": [ 1.0, 1.0 ],
@@ -67,7 +85,7 @@
       "bold": true,
       "italics": true,
       "alight": "left",
-      "maxLineWidth": 200
+      "maxLineWidth": 400
     },
     "colorComponent": {
       "color": [255, 255, 255]
