@@ -34,10 +34,10 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 		auto list = tool.getCoursesWithProgress();
 		for (auto item : list) {
 			auto card = new cardWidget();
-			auto cards = item.second.second->cards;
-			card->setOnTouchEnded([cards](cocos2d::Touch* touch, cocos2d::Event* event) {
+			auto cardsId = item.first;
+			card->setOnTouchEnded([cardsId](cocos2d::Touch* touch, cocos2d::Event* event) {
 				if (auto window = GET_GAME_MANAGER().requestWindow("coursePreview"))
-					window->setData("cards", cards);
+					window->setData("cardsId", cardsId);
 			});
 			card->initCard(item.second);
 			grid->addChild(card);

@@ -43,6 +43,14 @@ void coursesDatabase::load(const rapidjson::Document &data) {
 
 }
 
+sCourseBook *coursesDatabase::getCourseById(int id) {
+	auto find = coursesDb.find(id);
+	if (find != coursesDb.end()) {
+		return find->second;
+	}
+	return nullptr;
+}
+
 bool sCourseBook::load(const rapidjson::Document &data) {
 	if (!data.IsArray()) {
 		LOG_ERROR(STRING_FORMAT("sCourseBook::load: course '%d' - '%s' is not array!", id, name.c_str()));

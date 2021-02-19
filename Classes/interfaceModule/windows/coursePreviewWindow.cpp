@@ -2,12 +2,17 @@
 #include "common/debugModule/logManager.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
 
+#include "common/databaseModule/databaseInterface.h"
+#include "common/databaseModule/databaseManager.h"
+#include "databasesModule/coursesDatabase.h"
+
 using namespace cardsApp::interfaceModule;
 using namespace common::coreModule;
 
 coursePreviewWindow::coursePreviewWindow() {
 	this->setName("coursePreviewWindow");
 	loadProperty("windows/" + this->getName(), dynamic_cast<Node*>(this));
+	setHandleMissClick(false);
 }
 
 coursePreviewWindow::~coursePreviewWindow() {
@@ -30,8 +35,10 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 	});
 
 	result.emplace_back([this]() {
-		auto cards = getData("cards", std::map<int, cardsApp::databasesModule::sCourseCard*>());
-		showList(cards);
+		auto cardsId = getData("cardsId", 0);
+		if (cardsId) {
+			showList(cardsId);
+		}
 
 		return eTasksStatus::STATUS_OK;
 	});
@@ -39,19 +46,22 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 	return result;
 }
 
-void coursePreviewWindow::showList(std::map<int, cardsApp::databasesModule::sCourseCard *> cards) {
+void coursePreviewWindow::showList(int cardsId) {
 	if (!scrollView)
 		return;
+	auto coursesDb = GET_DATABASE_MANAGER().getDatabase<databasesModule::coursesDatabase>("coursesDb");
+	auto cards = coursesDb->getCourseById(cardsId);
 	auto grid = new gridNode();
 	grid->setName("grid");
 	loadComponent("windows/" + this->getName(), grid);
 	scrollView->addChild(grid);
-	for (auto item : cards) {
+	int cntWords = cards->cards.size();
+	for (auto item : cards->cards) {
 		auto label = new Label();
 		label->setName("label");
 		loadComponent("windows/" + this->getName(), label);
-		label->setString(item.second->enWord);
 		grid->addChild(label);
+		label->setString(STRING_FORMAT("%d. %s", cntWords--, item.second->enWord.c_str()));
 	}
 	grid->updateGridTransform();
 	scrollView->setInnerContainerSize( grid->getContentSize() );

@@ -18,7 +18,7 @@ namespace cardsApp::interfaceModule {
 		std::deque<nodeTasks> getTasks() override;
 
 	private:
-		void showList(std::map<int, cardsApp::databasesModule::sCourseCard*>);
+		void showList(int);
 
 		common::coreModule::soundButton* closeBtn = nullptr;
 		cocos2d::ui::ScrollView* scrollView = nullptr;
