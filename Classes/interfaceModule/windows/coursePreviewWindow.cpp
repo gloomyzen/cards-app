@@ -55,4 +55,9 @@ void coursePreviewWindow::showList(std::map<int, cardsApp::databasesModule::sCou
 	}
 	grid->updateGridTransform();
 	scrollView->setInnerContainerSize( grid->getContentSize() );
+	if (scrollView->getContentSize().height < grid->getContentSize().height) {
+		scrollView->setScrollBarEnabled(true);
+		scrollView->setScrollBarColor(cocos2d::Color3B(255, 255, 255));
+		scrollView->setScrollBarAutoHideEnabled(false);
+	}
 }

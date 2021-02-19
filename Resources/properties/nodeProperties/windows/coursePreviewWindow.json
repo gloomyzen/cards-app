@@ -43,7 +43,7 @@
   },
   "grid": {
     "transformComponent": {
-      "pivot": [ 0.0, 0.0 ],
+      "pivot": [ 0.0, 1.0 ],
       "anchor": [ 0.0, 1.0 ]
     },
     "gridComponent": {
@@ -57,8 +57,8 @@
   },
   "label": {
     "transformComponent": {
-      "anchor": [ 0.0, 1.0 ],
-      "pivot": [ 0.0, 1.0 ]
+      "anchor": [ 0.0, 0.0 ],
+      "pivot": [ 0.0, 0.0 ]
     },
     "labelComponent": {
       "fontType": "ttf",
