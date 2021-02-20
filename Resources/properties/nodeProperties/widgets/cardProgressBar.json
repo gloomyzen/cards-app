@@ -5,8 +5,7 @@
       "anchor": [ 0.5, 0.0 ]
     },
     "spriteComponent": {
-      "image": "images/widgets/cardProgressBar/progressBar_bg.png",
-      "pixel": true
+      "image": "images/widgets/cardProgressBar/progressBar_bg.png"
     }
   },
   "progressBar": {
@@ -15,8 +14,7 @@
       "anchor": [ 0.0, 0.0 ]
     },
     "spriteComponent": {
-      "image": "images/widgets/cardProgressBar/progressBar.png",
-      "pixel": true
+      "image": "images/widgets/cardProgressBar/progressBar.png"
     },
     "colorComponent": {
       "color": [39, 174, 96]
