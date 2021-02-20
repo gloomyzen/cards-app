@@ -19,7 +19,7 @@
       "text": "1-20",
       "fontType": "ttf",
       "fontSize": 14.0,
-      "fontFile": "fonts/arial.ttf",
+      "fontFile": "fonts/SFProText_Regular.ttf",
       "alight": "left"
     },
     "colorComponent": {
@@ -36,7 +36,7 @@
       "text": "B1",
       "fontType": "ttf",
       "fontSize": 24.0,
-      "fontFile": "fonts/arial.ttf",
+      "fontFile": "fonts/SFProText_Regular.ttf",
       "alight": "left",
       "bold": true
     },
@@ -54,7 +54,7 @@
       "text": "45%",
       "fontType": "ttf",
       "fontSize": 24.0,
-      "fontFile": "fonts/arial.ttf",
+      "fontFile": "fonts/SFProText_Regular.ttf",
       "alight": "right",
       "bold": true
     },

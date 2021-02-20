@@ -25,7 +25,7 @@
     "labelComponent": {
       "fontType": "ttf",
       "fontSize": 24.0,
-      "fontFile": "fonts/arial.ttf",
+      "fontFile": "fonts/SFProText_Regular.ttf",
       "bold": true,
       "italics": false,
       "alight": "center"
@@ -81,7 +81,7 @@
     "labelComponent": {
       "fontType": "ttf",
       "fontSize": 24.0,
-      "fontFile": "fonts/arial.ttf",
+      "fontFile": "fonts/SFProText_Regular.ttf",
       "bold": true,
       "italics": true,
       "alight": "left",
@@ -112,7 +112,7 @@
       "text": "Let's go!",
       "fontType": "ttf",
       "fontSize": 24.0,
-      "fontFile": "fonts/arial.ttf",
+      "fontFile": "fonts/SFProText_Regular.ttf",
       "bold": true,
       "italics": false,
       "alight": "center"

@@ -62,3 +62,4 @@ NDK 21.0.6011959
 #Credits
 - International Phonetic Alphabet (IPA) Free Font - https://www.wfonts.com/font/ipa-font
 - International Phonetic Alphabet (IPA) Free Dictionary - https://sourceforge.net/projects/free-english-to-ipa-database/
+- SF Pro Text Regular Font - https://fontsfree.net/sf-pro-text-regular-font-download.html
