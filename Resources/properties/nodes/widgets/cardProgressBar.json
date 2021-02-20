@@ -3,7 +3,7 @@
   "name": "cardProgressBar",
   "child": [
     {
-      "type": "sprite",
+      "type": "scale9sprite",
       "name": "progressBar"
     }
   ]

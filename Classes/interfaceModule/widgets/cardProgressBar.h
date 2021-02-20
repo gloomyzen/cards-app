@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "common/coreModule/nodes/nodeProperties.h"
+#include "ui/CocosGUI.h"
 
 namespace cardsApp::interfaceModule {
 
@@ -16,7 +17,9 @@ namespace cardsApp::interfaceModule {
 		void setProgress(int i = 0);
 
 	protected:
-		cocos2d::Sprite* progressBar = nullptr;
+		cocos2d::ui::Scale9Sprite* progressBar = nullptr;
+
+		cocos2d::Size progressBarSize;
 	};
 }
 

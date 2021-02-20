@@ -14,7 +14,8 @@
       "anchor": [ 0.0, 0.0 ]
     },
     "spriteComponent": {
-      "image": "images/widgets/cardProgressBar/progressBar.png"
+      "image": "images/widgets/cardProgressBar/progressBar.png",
+      "polygon": false
     },
     "colorComponent": {
       "color": [39, 174, 96]
