@@ -2,23 +2,45 @@
   "cardProgressBar": {
     "transformComponent": {
       "pivot": [ 0.5, 0.2 ],
-      "anchor": [ 0.5, 0.0 ]
+      "anchor": [ 0.5, 0.0 ],
+      "size": [238, 8]
+    }
+  },
+  "bg": {
+    "transformComponent": {
+      "pivot": [ 0.5, 0.2 ],
+      "anchor": [ 0.5, 0.0 ],
+      "size": [238, 8]
     },
-    "spriteComponent": {
-      "image": "images/widgets/cardProgressBar/progressBar_bg.png"
+    "scale9spriteComponent": {
+      "image": "images/widgets/cardProgressBar/progressBar_bg.png",
+      "size": [238, 8],
+      "slice9": {
+        "x": 5,
+        "y": 4,
+        "width": 1,
+        "height": 0
+      }
     }
   },
   "progressBar": {
     "transformComponent": {
-      "pivot": [ 0.0, 0.0 ],
-      "anchor": [ 0.0, 0.0 ]
-    },
-    "spriteComponent": {
-      "image": "images/widgets/cardProgressBar/progressBar.png",
-      "polygon": false
+      "pivot": [ 0.0, 0.5 ],
+      "anchor": [ 0.0, 0.5 ],
+      "size": [238, 8]
     },
     "colorComponent": {
       "color": [39, 174, 96]
+    },
+    "scale9spriteComponent": {
+      "image": "images/widgets/cardProgressBar/progressBar.png",
+      "size": [238, 8],
+      "slice9": {
+        "x": 5,
+        "y": 4,
+        "width": 1,
+        "height": 0
+      }
     }
   }
 }
