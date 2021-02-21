@@ -1,0 +1,10 @@
+{
+  "type": "node",
+  "name": "examWindow",
+  "child": [
+    {
+      "type": "scale9sprite",
+      "name": "bg"
+    }
+  ]
+}
