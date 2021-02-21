@@ -3,10 +3,24 @@
     "transformComponent": {
       "anchor": [ 0.0, 0.0 ],
       "pivot": [ 0.0, 0.0 ],
+      "size": [286, 119],
       "scale": 2
+    }
+  },
+  "cardBg": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ]
     },
-    "spriteComponent": {
-      "image": "images/widgets/cardWidget/card.png"
+    "scale9spriteComponent": {
+      "size": [286, 119],
+      "image": "images/widgets/cardWidget/card.png",
+      "slice9": {
+        "x": 14,
+        "y": 14,
+        "width": 1,
+        "height": 1
+      }
     }
   },
   "countCardsLabel": {

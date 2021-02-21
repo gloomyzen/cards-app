@@ -1,7 +1,11 @@
 {
-  "type": "sprite",
+  "type": "node",
   "name": "cardWidget",
   "child": [
+    {
+      "type": "scale9sprite",
+      "name": "cardBg"
+    },
     {
       "type": "label",
       "name": "countCardsLabel"

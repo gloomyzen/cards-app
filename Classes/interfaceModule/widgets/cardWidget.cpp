@@ -6,6 +6,7 @@ cardWidget::cardWidget() {
 	this->setName("cardWidget");
 	loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
 	progressBar = dynamic_cast<cardProgressBar*>(findNode("cardProgressBar"));
+	bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
 }
 
 void cardWidget::initCard(std::pair<int, cardsApp::databasesModule::sCourseBook*> pair) {
