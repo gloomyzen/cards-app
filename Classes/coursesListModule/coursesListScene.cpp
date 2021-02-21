@@ -37,7 +37,7 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 			auto cardsId = item.first;
 			auto courseName = item.second.second->name;
 			card->setOnTouchEnded([cardsId, courseName](cocos2d::Touch* touch, cocos2d::Event* event) {
-				if (auto window = GET_GAME_MANAGER().requestWindow("coursePreview")) {
+				if (auto window = GET_GAME_MANAGER().requestWindow("coursePreviewWindow")) {
 					window->setData("cardsId", cardsId);
 					window->setData("courseName", courseName);
 				}
