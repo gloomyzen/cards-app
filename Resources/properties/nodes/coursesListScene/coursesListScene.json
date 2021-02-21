@@ -3,6 +3,10 @@
   "name": "coursesListScene",
   "child": [
     {
+      "type": "scale9sprite",
+      "name": "bg"
+    },
+    {
       "type": "scrollView",
       "name": "scrollContainer",
       "child": [

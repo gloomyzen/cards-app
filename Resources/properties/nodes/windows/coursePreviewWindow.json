@@ -3,30 +3,28 @@
   "name": "coursePreviewWindow",
   "child": [
     {
-      "type": "sprite",
-      "name": "bg",
+      "type": "scale9sprite",
+      "name": "bg"
+    },
+    {
+      "type": "label",
+      "name": "windowTitle"
+    },
+    {
+      "type": "soundButton",
+      "name": "closeBtn"
+    },
+    {
+      "type": "scrollView",
+      "name": "scrollContainer"
+    },
+    {
+      "type": "soundButton",
+      "name": "btn",
       "child": [
         {
           "type": "label",
-          "name": "windowTitle"
-        },
-        {
-          "type": "soundButton",
-          "name": "closeBtn"
-        },
-        {
-          "type": "scrollView",
-          "name": "scrollContainer"
-        },
-        {
-          "type": "soundButton",
-          "name": "btn",
-          "child": [
-            {
-              "type": "label",
-              "name": "btnText"
-            }
-          ]
+          "name": "btnText"
         }
       ]
     }
