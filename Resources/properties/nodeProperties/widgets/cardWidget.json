@@ -14,7 +14,7 @@
     },
     "scale9spriteComponent": {
       "size": [286, 119],
-      "image": "images/widgets/cardWidget/card.png",
+      "image": "images/general/cardBg.png",
       "slice9": {
         "x": 14,
         "y": 14,

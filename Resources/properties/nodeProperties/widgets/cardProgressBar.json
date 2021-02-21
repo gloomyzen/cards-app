@@ -13,7 +13,7 @@
       "size": [238, 8]
     },
     "scale9spriteComponent": {
-      "image": "images/widgets/cardProgressBar/progressBar_bg.png",
+      "image": "images/general/progressBar_bg.png",
       "size": [238, 8],
       "slice9": {
         "x": 5,
@@ -33,7 +33,7 @@
       "color": [39, 174, 96]
     },
     "scale9spriteComponent": {
-      "image": "images/widgets/cardProgressBar/progressBar.png",
+      "image": "images/general/progressBar.png",
       "size": [238, 8],
       "slice9": {
         "x": 5,
