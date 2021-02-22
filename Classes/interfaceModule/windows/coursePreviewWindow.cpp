@@ -78,9 +78,9 @@ void coursePreviewWindow::showList(int cardsId) {
 		scrollView->setScrollBarAutoHideEnabled(false);
 	}
 	if (auto btn = dynamic_cast<soundButton*>(findNode("btn"))) {
-		btn->setOnTouchEnded([](cocos2d::Touch* touch, cocos2d::Event* event) {
+		btn->setOnTouchEnded([cardsId](cocos2d::Touch* touch, cocos2d::Event* event) {
 			if (auto window = GET_GAME_MANAGER().requestWindow("examWindow", true)) {
-//				window->setData()
+				window->setData("cardsId", cardsId);
 			}
 		});
 	}

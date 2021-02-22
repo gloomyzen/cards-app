@@ -26,5 +26,14 @@ std::deque<nodeTasks> examWindow::getTasks() {
 		return eTasksStatus::STATUS_OK;
 	});
 
+	result.emplace_back([this]() {
+		auto cardsId = getData("cardsId", 0);
+//		if (cardsId) {
+//			initCard(cardsId);
+//		}
+
+		return eTasksStatus::STATUS_OK;
+	});
+
 	return result;
 }
