@@ -23,13 +23,12 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 	std::deque<nodeTasks> result;
 
 	result.emplace_back([this]() {
-		closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"));
+		auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"));
 		if (closeBtn) {
 			closeBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) {
 				closeWindow();
 			});
 		}
-		scrollView = dynamic_cast<ui::ScrollView*>(findNode("scrollContainer"));
 
 		return eTasksStatus::STATUS_OK;
 	});
@@ -53,8 +52,10 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 }
 
 void coursePreviewWindow::showList(int cardsId) {
-	if (!scrollView)
+	auto scrollView = dynamic_cast<ui::ScrollView*>(findNode("scrollContainer"));
+	if (!scrollView) {
 		return;
+	}
 	auto coursesDb = GET_DATABASE_MANAGER().getDatabase<databasesModule::coursesDatabase>("coursesDb");
 	auto cards = coursesDb->getCourseById(cardsId);
 	auto grid = new gridNode();

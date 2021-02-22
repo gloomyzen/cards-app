@@ -19,9 +19,6 @@ namespace cardsApp::interfaceModule {
 
 	private:
 		void showList(int);
-
-		common::coreModule::soundButton* closeBtn = nullptr;
-		cocos2d::ui::ScrollView* scrollView = nullptr;
 	};
 }//cardsApp::interfaceModule
 

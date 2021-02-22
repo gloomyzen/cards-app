@@ -5,6 +5,10 @@
     {
       "type": "scale9sprite",
       "name": "bg"
+    },
+    {
+      "type": "soundButton",
+      "name": "closeBtn"
     }
   ]
 }
