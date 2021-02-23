@@ -60,13 +60,13 @@ void coursePreviewWindow::showList(int cardsId, std::string name) {
 	grid->setName("grid");
 	loadComponent("windows/" + this->getName(), grid);
 	scrollView->addChild(grid);
-	int cntWords = cards->cards.size();
+	int cntWords = 0;
 	for (auto item : cards->cards) {
 		auto label = new Label();
 		label->setName("label");
 		loadComponent("windows/" + this->getName(), label);
 		grid->addChild(label);
-		label->setString(STRING_FORMAT("%d. %s", cntWords--, item.second->enWord.c_str()));
+		label->setString(STRING_FORMAT("%d. %s", ++cntWords, item.second->enWord.c_str()));
 	}
 	grid->updateGridTransform();
 	scrollView->setInnerContainerSize( grid->getContentSize() );

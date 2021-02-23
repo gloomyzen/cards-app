@@ -79,8 +79,8 @@
   },
   "label": {
     "transformComponent": {
-      "anchor": [ 0.0, 0.0 ],
-      "pivot": [ 0.0, 0.0 ]
+      "anchor": [ 0.0, 1.0 ],
+      "pivot": [ 0.0, 1.0 ]
     },
     "labelComponent": {
       "fontType": "ttf",

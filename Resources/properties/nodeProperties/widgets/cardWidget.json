@@ -1,8 +1,8 @@
 {
   "cardWidget": {
     "transformComponent": {
-      "anchor": [ 0.0, 0.0 ],
-      "pivot": [ 0.0, 0.0 ],
+      "anchor": [ 0.0, 1.0 ],
+      "pivot": [ 0.0, 1.0 ],
       "size": [572, 238],
       "scale": 1
     }

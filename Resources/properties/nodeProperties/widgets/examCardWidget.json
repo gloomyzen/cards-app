@@ -42,8 +42,8 @@
   },
   "firstWord": {
     "transformComponent": {
-      "pivot": [ 0.5, 0.0 ],
-      "anchor": [ 0.5, 0.0 ]
+      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 1.0 ]
     },
     "labelComponent": {
       "text": "test title",
@@ -59,9 +59,8 @@
   },
   "icon": {
     "transformComponent": {
-      "pivot": [ 0.5, 0.0 ],
-      "anchor": [ 0.5, 0.0 ],
-      "position": [0, 0]
+      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 1.0 ]
     },
     "spriteComponent": {
       "image": "images/widgets/examCardWidget/icon.png"

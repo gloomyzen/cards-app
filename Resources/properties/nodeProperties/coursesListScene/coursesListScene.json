@@ -26,24 +26,24 @@
     "transformComponent": {
       "anchor": [ 0.5, 0.5 ],
       "pivot": [ 0.5, 0.5 ],
-      "stretch": [ 1.0, 1.0 ],
-      "position": [0, -28]
+      "stretch": [ 1.0, 1.0 ]
     },
     "scrollViewComponent": {
       "direction": "vertical",
       "inertialScroll": true,
       "containerSize": [640, 1235],
-      "scrollPosPercent": [50, 0]
+      "scrollPosPercent": [50, 0],
+      "bounce": false
     }
   },
   "gridContainer": {
     "transformComponent": {
-      "anchor": [ 0.5, 1.0 ],
-      "pivot": [ 0.5, 1.0 ]
+      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 1.0 ]
     },
     "gridComponent": {
       "marginX": [ 5, 5 ],
-      "marginY": [ 5, 5 ],
+      "marginY": [ 15, 15 ],
       "paddingX": [ 0, 0 ],
       "paddingY": [ 5, 5 ],
       "col": 1,
