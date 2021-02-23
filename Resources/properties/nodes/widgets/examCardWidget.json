@@ -7,8 +7,18 @@
       "name": "cardBg"
     },
     {
-      "type": "label",
-      "name": "firstWord"
+      "type": "grid",
+      "name": "gridContainer",
+      "child": [
+        {
+          "type": "label",
+          "name": "firstWord"
+        },
+        {
+          "type": "sprite",
+          "name": "icon"
+        }
+      ]
     }
   ]
 }

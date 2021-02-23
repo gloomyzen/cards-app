@@ -14,7 +14,6 @@ namespace cardsApp::interfaceModule {
 	public:
 		examCardWidget();
 		~examCardWidget() = default;
-
 		CREATE_FUNC(examCardWidget);
 
 		void setData(int, databasesModule::sCourseCard*);

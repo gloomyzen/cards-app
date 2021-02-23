@@ -23,21 +23,48 @@
       }
     }
   },
+  "gridContainer": {
+    "transformComponent": {
+      "anchor": [ 0.5, 1.0 ],
+      "pivot": [ 0.5, 1.0 ],
+      "position": [0, 281]
+    },
+    "gridComponent": {
+      "marginX": [ 5, 5 ],
+      "marginY": [ 5, 5 ],
+      "paddingX": [ 0, 0 ],
+      "paddingY": [ 5, 5 ],
+      "col": 1,
+      "row": 4,
+      "direction": "vertical",
+      "align": "left"
+    }
+  },
   "firstWord": {
     "transformComponent": {
-      "pivot": [ 0.0, 1.0 ],
-      "anchor": [ 0.0, 0.0 ],
-      "position": [22, -38]
+      "pivot": [ 0.5, 0.0 ],
+      "anchor": [ 0.5, 0.0 ]
     },
     "labelComponent": {
-      "text": "1-20",
+      "text": "test title",
       "fontType": "ttf",
-      "fontSize": 14.0,
+      "fontSize": 28.0,
       "fontFile": "fonts/SFProText_Regular.ttf",
-      "alight": "left"
+      "alight": "center",
+      "bold": true
     },
     "colorComponent": {
       "color": [70, 70, 70]
+    }
+  },
+  "icon": {
+    "transformComponent": {
+      "pivot": [ 0.5, 0.0 ],
+      "anchor": [ 0.5, 0.0 ],
+      "position": [0, 0]
+    },
+    "spriteComponent": {
+      "image": "images/widgets/examCardWidget/icon.png"
     }
   }
 }
