@@ -43,7 +43,7 @@
     },
     "gridComponent": {
       "marginX": [ 5, 5 ],
-      "marginY": [ 15, 15 ],
+      "marginY": [ 25, 35 ],
       "paddingX": [ 0, 0 ],
       "paddingY": [ 5, 5 ],
       "col": 1,

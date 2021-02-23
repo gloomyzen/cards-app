@@ -3,8 +3,7 @@
     "transformComponent": {
       "anchor": [ 0.5, 0.5 ],
       "pivot": [ 0.5, 0.5 ],
-      "size": [286, 119],
-      "scale": 1
+      "size": [572, 884]
     }
   },
   "cardBg": {
@@ -25,8 +24,8 @@
   },
   "gridContainer": {
     "transformComponent": {
-      "anchor": [ 0.5, 1.0 ],
-      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 0.0 ],
+      "pivot": [ 0.5, 0.25 ],
       "position": [0, 281]
     },
     "gridComponent": {
@@ -46,12 +45,12 @@
       "anchor": [ 0.5, 1.0 ]
     },
     "labelComponent": {
-      "text": "test title",
       "fontType": "ttf",
-      "fontSize": 28.0,
+      "fontSize": 48.0,
       "fontFile": "fonts/SFProText_Regular.ttf",
       "alight": "center",
-      "bold": true
+      "bold": true,
+      "maxLineWidth": 1000
     },
     "colorComponent": {
       "color": [70, 70, 70]
@@ -64,6 +63,22 @@
     },
     "spriteComponent": {
       "image": "images/widgets/examCardWidget/icon.png"
+    }
+  },
+  "label": {
+    "transformComponent": {
+      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 1.0 ]
+    },
+    "labelComponent": {
+      "fontType": "ttf",
+      "fontSize": 28.0,
+      "fontFile": "fonts/SFProText_Regular.ttf",
+      "alight": "center",
+      "maxLineWidth": 1000
+    },
+    "colorComponent": {
+      "color": [70, 70, 70]
     }
   }
 }
