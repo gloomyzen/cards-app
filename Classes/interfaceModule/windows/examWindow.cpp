@@ -3,6 +3,7 @@
 #include "common/databaseModule/databaseInterface.h"
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
+#include "interfaceModule/widgets/examCardWidget.h"
 #include <tuple>
 
 using namespace cardsApp::interfaceModule;
@@ -69,5 +70,11 @@ void examWindow::goToNextCard() {
 		//todo go to result window
 	}
 	auto cardHolder = findNode("cardHolder");
-
+	cardHolder->removeAllChildren();
+	auto card = new examCardWidget();
+	cardHolder->addChild(card);
+	card->setData(currentCards.front().first, currentCards.front().second);
+	card->setTouchClb([](){
+		//todo разворот карты
+	});
 }

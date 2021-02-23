@@ -3,8 +3,8 @@
     "transformComponent": {
       "anchor": [ 0.0, 0.0 ],
       "pivot": [ 0.0, 0.0 ],
-      "size": [286, 119],
-      "scale": 2
+      "size": [572, 238],
+      "scale": 1
     }
   },
   "cardBg": {
@@ -13,11 +13,11 @@
       "pivot": [ 0.5, 0.5 ]
     },
     "scale9spriteComponent": {
-      "size": [286, 119],
+      "size": [572, 238],
       "image": "images/general/cardBg.png",
       "slice9": {
-        "x": 14,
-        "y": 14,
+        "x": 34,
+        "y": 34,
         "width": 1,
         "height": 1
       }
@@ -27,12 +27,12 @@
     "transformComponent": {
       "pivot": [ 0.0, 1.0 ],
       "anchor": [ 0.0, 0.0 ],
-      "position": [22, -38]
+      "position": [48, -58]
     },
     "labelComponent": {
       "text": "1-20",
       "fontType": "ttf",
-      "fontSize": 14.0,
+      "fontSize": 28.0,
       "fontFile": "fonts/SFProText_Regular.ttf",
       "alight": "left"
     },
@@ -44,12 +44,12 @@
     "transformComponent": {
       "pivot": [ 0.0, 1.0 ],
       "anchor": [ 0.0, 0.0 ],
-      "position": [22, -76]
+      "position": [48, -128]
     },
     "labelComponent": {
       "text": "B1",
       "fontType": "ttf",
-      "fontSize": 24.0,
+      "fontSize": 48.0,
       "fontFile": "fonts/SFProText_Regular.ttf",
       "alight": "left",
       "bold": true
@@ -62,12 +62,12 @@
     "transformComponent": {
       "pivot": [ 1.0, 1.0 ],
       "anchor": [ 1.0, 0.0 ],
-      "position": [-24, -76]
+      "position": [-55, -128]
     },
     "labelComponent": {
       "text": "45%",
       "fontType": "ttf",
-      "fontSize": 24.0,
+      "fontSize": 48.0,
       "fontFile": "fonts/SFProText_Regular.ttf",
       "alight": "right",
       "bold": true

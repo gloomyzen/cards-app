@@ -1,0 +1,43 @@
+{
+  "examCardWidget": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ],
+      "size": [286, 119],
+      "scale": 1
+    }
+  },
+  "cardBg": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ]
+    },
+    "scale9spriteComponent": {
+      "size": [572, 884],
+      "image": "images/general/cardBg.png",
+      "slice9": {
+        "x": 34,
+        "y": 34,
+        "width": 1,
+        "height": 1
+      }
+    }
+  },
+  "firstWord": {
+    "transformComponent": {
+      "pivot": [ 0.0, 1.0 ],
+      "anchor": [ 0.0, 0.0 ],
+      "position": [22, -38]
+    },
+    "labelComponent": {
+      "text": "1-20",
+      "fontType": "ttf",
+      "fontSize": 14.0,
+      "fontFile": "fonts/SFProText_Regular.ttf",
+      "alight": "left"
+    },
+    "colorComponent": {
+      "color": [70, 70, 70]
+    }
+  }
+}

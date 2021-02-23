@@ -3,18 +3,18 @@
     "transformComponent": {
       "pivot": [ 0.5, 0.2 ],
       "anchor": [ 0.5, 0.0 ],
-      "size": [238, 8]
+      "size": [476, 16]
     }
   },
   "bg": {
     "transformComponent": {
       "pivot": [ 0.5, 0.2 ],
       "anchor": [ 0.5, 0.0 ],
-      "size": [238, 8]
+      "size": [476, 16]
     },
     "scale9spriteComponent": {
-      "image": "images/general/progressBar_bg.png",
-      "size": [238, 8],
+      "image": "images/general/progressBarGray.png",
+      "size": [476, 16],
       "slice9": {
         "x": 5,
         "y": 4,
@@ -27,17 +27,17 @@
     "transformComponent": {
       "pivot": [ 0.0, 0.5 ],
       "anchor": [ 0.0, 0.5 ],
-      "size": [238, 8]
+      "size": [476, 16]
     },
     "colorComponent": {
       "color": [39, 174, 96]
     },
     "scale9spriteComponent": {
-      "image": "images/general/progressBar.png",
-      "size": [238, 8],
+      "image": "images/general/progressBarGreen.png",
+      "size": [476, 16],
       "slice9": {
-        "x": 5,
-        "y": 4,
+        "x": 8,
+        "y": 8,
         "width": 1,
         "height": 0
       }
