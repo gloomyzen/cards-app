@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "common/coreModule/scenes/windows/windowBase.h"
+#include "databasesModule/coursesDatabase.h"
 
 namespace cardsApp::interfaceModule {
 
@@ -12,6 +13,11 @@ namespace cardsApp::interfaceModule {
 		~examWindow();
 		std::deque<nodeTasks> getTasks() override;
 
+	private:
+		void initExam(int id);
+		void goToNextCard();
+
+		std::vector<std::pair<int, databasesModule::sCourseCard*>> currentCards;
 	};
 }
 

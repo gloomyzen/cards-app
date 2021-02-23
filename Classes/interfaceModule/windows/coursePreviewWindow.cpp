@@ -35,11 +35,9 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 
 	result.emplace_back([this]() {
 		auto cardsId = getData("cardsId", 0);
-		if (cardsId) {
-			showList(cardsId);
-		}
 		auto courseName = getData("courseName", std::string());
-		if (!courseName.empty()) {
+		if (cardsId && !courseName.empty()) {
+			showList(cardsId, courseName);
 			if (auto label = dynamic_cast<Label*>(findNode("windowTitle"))) {
 				label->setString(courseName);
 			}
@@ -51,7 +49,7 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 	return result;
 }
 
-void coursePreviewWindow::showList(int cardsId) {
+void coursePreviewWindow::showList(int cardsId, std::string name) {
 	auto scrollView = dynamic_cast<ui::ScrollView*>(findNode("scrollContainer"));
 	if (!scrollView) {
 		return;
@@ -78,9 +76,10 @@ void coursePreviewWindow::showList(int cardsId) {
 		scrollView->setScrollBarAutoHideEnabled(false);
 	}
 	if (auto btn = dynamic_cast<soundButton*>(findNode("btn"))) {
-		btn->setOnTouchEnded([cardsId](cocos2d::Touch* touch, cocos2d::Event* event) {
+		btn->setOnTouchEnded([cardsId, name](cocos2d::Touch* touch, cocos2d::Event* event) {
 			if (auto window = GET_GAME_MANAGER().requestWindow("examWindow", true)) {
 				window->setData("cardsId", cardsId);
+				window->setData("courseName", name);
 			}
 		});
 	}

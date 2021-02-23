@@ -32,5 +32,29 @@
       "image": "images/windows/coursePreviewWindow/close_btn.png",
       "polygon": false
     }
+  },
+  "windowTitle": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 1.0 ],
+      "position": [0, -40]
+    },
+    "labelComponent": {
+      "fontType": "ttf",
+      "fontSize": 24.0,
+      "fontFile": "fonts/SFProText_Regular.ttf",
+      "bold": true,
+      "italics": false,
+      "alight": "center"
+    },
+    "colorComponent": {
+      "color": [255, 255, 255, 110]
+    }
+  },
+  "cardHolder": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ]
+    }
   }
 }

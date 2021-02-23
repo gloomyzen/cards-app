@@ -9,6 +9,14 @@
     {
       "type": "soundButton",
       "name": "closeBtn"
+    },
+    {
+      "type": "label",
+      "name": "windowTitle"
+    },
+    {
+      "type": "node",
+      "name": "cardHolder"
     }
   ]
 }
