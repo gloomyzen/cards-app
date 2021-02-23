@@ -43,6 +43,7 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
 				}
 			});
 			card->initCard(item.second);
+			card->setSwallowTouches(false);
 			grid->addChild(card);
 		}
 		grid->updateGridTransform();
