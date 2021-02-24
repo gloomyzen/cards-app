@@ -82,6 +82,13 @@ target_link_libraries(dragonbones_target PRIVATE cocos2d)
 target_link_libraries(project_dependency INTERFACE dragonbones_target)
 
 #------------------------------------------------------------------------------
+#                               ICU
+#------------------------------------------------------------------------------
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/)
+find_package(ICU 67.1.0 COMPONENTS uc i18n REQUIRED)
+target_link_libraries(project_dependency INTERFACE ${ICU_LIBRARIES})
+include_directories(${ICU_INCLUDE_DIRS})
+#------------------------------------------------------------------------------
 #                               Build Interface for all dependency
 #------------------------------------------------------------------------------
 target_include_directories(project_dependency INTERFACE

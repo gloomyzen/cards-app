@@ -1,6 +1,8 @@
 #include "examCardWidget.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
-#include <cctype>
+#include <unicode/unistr.h>
+#include <unicode/ustream.h>
+#include <unicode/locid.h>
 
 using namespace cardsApp::interfaceModule;
 
