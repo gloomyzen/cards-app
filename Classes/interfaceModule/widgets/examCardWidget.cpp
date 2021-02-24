@@ -16,10 +16,15 @@ void examCardWidget::setData(int, cardsApp::databasesModule::sCourseCard* card) 
 		if (str.empty()) {
 			return str;
 		}
-		std::transform(str.begin(), str.end(), str.begin(), [](unsigned char c){
-			return std::tolower(c);
-		});
-//		str[0] = static_cast<std::string::value_type>(toupper(str[0]));
+		str = "test";
+//		std::transform(str.begin(), str.end(), str.begin(), [](unsigned char c){
+//			return std::tolower(c);
+//		});
+		icu::UnicodeString ustring(str.c_str());
+		icu::UnicodeString temp = ustring;
+//		icu::BreakIterator* bi = icu_67::BreakIterator::cre
+		temp.toUpper();
+		temp.toUTF8String(str);
 		return str;
 	};
 	auto grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"));

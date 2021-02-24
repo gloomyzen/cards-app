@@ -74,10 +74,6 @@ if (NOT EXISTS ${CMAKE_SOURCE_DIR}/lib/dragonBones/DragonBonesHeaders.h)
     message(FATAL_ERROR "DragonBones not found, check folder lib/dragonBones.")
 endif()
 include(${CMAKE_SOURCE_DIR}/cmake/DragonBones.cmake)
-
-#target_include_directories(dragonbones_target INTERFACE
-#        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/lib/dragonBones/>
-#        )
 target_link_libraries(dragonbones_target PRIVATE cocos2d)
 target_link_libraries(project_dependency INTERFACE dragonbones_target)
 
@@ -88,6 +84,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/)
 find_package(ICU 67.1.0 COMPONENTS uc i18n REQUIRED)
 target_link_libraries(project_dependency INTERFACE ${ICU_LIBRARIES})
 include_directories(${ICU_INCLUDE_DIRS})
+
 #------------------------------------------------------------------------------
 #                               Build Interface for all dependency
 #------------------------------------------------------------------------------
