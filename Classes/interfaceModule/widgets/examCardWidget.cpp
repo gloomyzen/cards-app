@@ -1,8 +1,6 @@
 #include "examCardWidget.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
-#include <unicode/unistr.h>
-#include <unicode/ustream.h>
-#include <unicode/locid.h>
+#include <boost/locale.hpp>
 
 using namespace cardsApp::interfaceModule;
 
@@ -12,20 +10,13 @@ examCardWidget::examCardWidget() {
 }
 
 void examCardWidget::setData(int, cardsApp::databasesModule::sCourseCard* card) {
-	auto capitalize = [](std::string str){
-		if (str.empty()) {
-			return str;
-		}
-		str = "test";
-//		std::transform(str.begin(), str.end(), str.begin(), [](unsigned char c){
-//			return std::tolower(c);
-//		});
-		icu::UnicodeString ustring(str.c_str());
-		icu::UnicodeString temp = ustring;
-//		icu::BreakIterator* bi = icu_67::BreakIterator::cre
-		temp.toUpper();
-		temp.toUTF8String(str);
-		return str;
+	auto capitalize = [](std::string line)  {
+		boost::locale::generator gen;
+		std::locale loc=gen("");
+		std::locale::global(loc);
+		std::cout.imbue(loc);
+		line = boost::locale::to_title(line);
+		return line;
 	};
 	auto grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"));
 	if (auto label = dynamic_cast<cocos2d::Label*>(findNode("firstWord"))) {
