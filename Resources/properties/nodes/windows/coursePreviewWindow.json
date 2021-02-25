@@ -19,14 +19,8 @@
       "name": "scrollContainer"
     },
     {
-      "type": "soundButton",
-      "name": "btn",
-      "child": [
-        {
-          "type": "label",
-          "name": "btnText"
-        }
-      ]
+      "type": "cardBtnWidget",
+      "name": "cardBtnWidget"
     }
   ]
 }

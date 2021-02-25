@@ -5,6 +5,7 @@
 #include "common/databaseModule/databaseInterface.h"
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
+#include "interfaceModule/widgets/cardBtnWidget.h"
 
 using namespace cardsApp::interfaceModule;
 using namespace common::coreModule;
@@ -75,7 +76,7 @@ void coursePreviewWindow::showList(int cardsId, std::string name) {
 		scrollView->setScrollBarColor(cocos2d::Color3B(255, 255, 255));
 		scrollView->setScrollBarAutoHideEnabled(false);
 	}
-	if (auto btn = dynamic_cast<soundButton*>(findNode("btn"))) {
+	if (auto btn = dynamic_cast<cardBtnWidget*>(findNode("cardBtnWidget"))) {
 		btn->setOnTouchEnded([cardsId, name](cocos2d::Touch* touch, cocos2d::Event* event) {
 			if (auto window = GET_GAME_MANAGER().requestWindow("examWindow", true)) {
 				window->setData("cardsId", cardsId);

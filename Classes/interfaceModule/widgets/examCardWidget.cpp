@@ -24,7 +24,7 @@ void examCardWidget::setData(int, cardsApp::databasesModule::sCourseCard* card) 
 			if (it == splitVec.begin()) {
 				result += STRING_FORMAT(" %s", boost::locale::to_title(*it).c_str());
 			} else {
-				result += STRING_FORMAT(" %s", boost::locale::to_lower(*it).c_str());
+				result += STRING_FORMAT(" %s", (*it).c_str());
 			}
 		}
 

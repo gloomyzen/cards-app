@@ -95,34 +95,11 @@
       "color": [255, 255, 255]
     }
   },
-  "btn": {
+  "cardBtnWidget": {
     "transformComponent": {
-      "pivot": [ 0.5, 0.00 ],
+      "pivot": [ 0.5, 0.0 ],
       "anchor": [ 0.5, 0.5 ],
-      "position": [0, 86],
-      "scale": [1.5, 1.5]
-    },
-    "spriteComponent": {
-      "image": "images/windows/coursePreviewWindow/btn.png",
-      "polygon": false
-    }
-  },
-  "btnText": {
-    "transformComponent": {
-      "anchor": [ 0.5, 0.5 ],
-      "pivot": [ 0.5, 0.5 ]
-    },
-    "labelComponent": {
-      "text": "Let's go!",
-      "fontType": "ttf",
-      "fontSize": 24.0,
-      "fontFile": "fonts/SFProText_Regular.ttf",
-      "bold": true,
-      "italics": false,
-      "alight": "center"
-    },
-    "colorComponent": {
-      "color": [0, 0, 0]
+      "position": [0, 86]
     }
   }
 }
