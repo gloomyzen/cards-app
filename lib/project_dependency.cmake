@@ -80,6 +80,12 @@ target_link_libraries(project_dependency INTERFACE dragonbones_target)
 #------------------------------------------------------------------------------
 #                               Boost
 #------------------------------------------------------------------------------
+#set (Boost_DEBUG ON)
+set (Boost_ARCHITECTURE "-x32 -arm -x86")
+set (Boost_USE_STATIC_LIBS ON)
+set (Boost_USE_MULTITHREADED ON)
+set (Boost_DETAILED_FAILURE_MSG ON)
+set (BOOST_ROOT "/usr/local/Cellar/boost")
 find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system locale)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIR})
@@ -88,11 +94,6 @@ if(Boost_FOUND)
 else()
     message (FATAL_ERROR "Cannot find Boost")
 endif()
-set (Boost_DEBUG ON)
-set (Boost_ARCHITECTURE "-x32")
-set (Boost_USE_STATIC_LIBS ON)
-set (Boost_USE_MULTITHREADED ON)
-set (Boost_DETAILED_FAILURE_MSG ON)
 target_link_libraries(project_dependency INTERFACE ${Boost_LIBRARIES})
 
 #------------------------------------------------------------------------------

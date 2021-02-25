@@ -3,12 +3,18 @@
 #include <boost/locale.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/iterator/filter_iterator.hpp>
+#include "cocos-ext.h"
 
 using namespace cardsApp::interfaceModule;
 
 examCardWidget::examCardWidget() {
 	this->setName("examCardWidget");
 	loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
+	bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
+	setOnTouchBegan([this](cocos2d::Touch* touch, cocos2d::Event* event) {
+		if (cardTouchClb)
+			cardTouchClb();
+	});
 }
 
 void examCardWidget::setData(int, cardsApp::databasesModule::sCourseCard* card) {
