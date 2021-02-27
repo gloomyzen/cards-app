@@ -78,28 +78,6 @@ target_link_libraries(dragonbones_target PRIVATE cocos2d)
 target_link_libraries(project_dependency INTERFACE dragonbones_target)
 
 #------------------------------------------------------------------------------
-#                               Boost
-#------------------------------------------------------------------------------
-#set (Boost_DEBUG ON)
-set (Boost_ARCHITECTURE "-x32 -arm64 -x86 -armv7")
-set (Boost_USE_STATIC_LIBS ON)
-set (Boost_USE_MULTITHREADED ON)
-set (Boost_DETAILED_FAILURE_MSG ON)
-#if (ANDROID OR IOS)
-    set (Boost_INCLUDE_DIR "/usr/local/boost-1.75.0/include")
-    set (Boost_LIBRARY_DIR "/usr/local/boost-1.75.0/lib")
-#endif()
-find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system locale)
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIR})
-    link_directories(${Boost_LIBRARY_DIR})
-    message("-- Boost found: ${Boost_VERSION_STRING}")
-else()
-    message (FATAL_ERROR "Cannot find Boost")
-endif()
-target_link_libraries(project_dependency PRIVATE ${Boost_LIBRARIES})
-
-#------------------------------------------------------------------------------
 #                               Build Interface for all dependency
 #------------------------------------------------------------------------------
 target_include_directories(project_dependency INTERFACE
