@@ -1,7 +1,7 @@
 #include "examCardWidget.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
 #include "cocos-ext.h"
-#include "utilityModule/stringFormat.h"
+#include "common/utilityModule/stringUtility.h"
 
 using namespace cardsApp::interfaceModule;
 
@@ -16,15 +16,16 @@ examCardWidget::examCardWidget() {
 }
 
 void examCardWidget::setData(int, cardsApp::databasesModule::sCourseCard *card) {
+	using namespace common::utilityModule;
 	auto grid = dynamic_cast<common::coreModule::gridNode *>(findNode("gridContainer"));
 	if (auto label = dynamic_cast<cocos2d::Label *>(findNode("firstWord"))) {
-		label->setString(utilityModule::stringFormat::capitalizeString(card->ruWord, utilityModule::stringFormat::eLocaleType::RU));
+		label->setString(stringUtility::capitalizeString(card->ruWord, stringUtility::eLocaleType::RU));
 	}
 	if (!card->ruSentence.empty()) {
 		auto label = new cocos2d::Label();
 		label->setName("label");
 		loadComponent("widgets/" + this->getName(), label);
-		label->setString(cardsApp::utilityModule::stringFormat::capitalizeString(card->ruSentence, utilityModule::stringFormat::eLocaleType::RU));
+		label->setString(stringUtility::capitalizeString(card->ruSentence, stringUtility::eLocaleType::RU));
 		grid->addChild(label);
 	}
 	grid->updateGridTransform();
