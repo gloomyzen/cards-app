@@ -71,10 +71,12 @@ void examWindow::goToNextCard() {
 	}
 	auto cardHolder = findNode("cardHolder");
 	cardHolder->removeAllChildren();
+	cardHolder->setOpacity(255);
 	auto card = new examCardWidget();
 	cardHolder->addChild(card);
 	card->setData(currentCards.front().first, currentCards.front().second);
-	card->setTouchClb([](){
-		//todo разворот карты
+	card->setTouchClb([cardHolder](){
+		cardHolder->runAction(FadeOut::create(.12));
+
 	});
 }
