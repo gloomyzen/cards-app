@@ -1,0 +1,70 @@
+{
+  "examCardWidget": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ],
+      "size": [572, 884]
+    }
+  },
+  "cardBg": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ]
+    },
+    "scale9spriteComponent": {
+      "size": [572, 884],
+      "image": "images/general/cardBg.png",
+      "slice9": {
+        "x": 34,
+        "y": 34,
+        "width": 1,
+        "height": 1
+      }
+    }
+  },
+  "gridContainer": {
+    "transformComponent": {
+      "pivot": [ 0.5, 0.5 ],
+      "anchor": [ 0.5, 0.2 ]
+    },
+    "gridComponent": {
+      "col": 1,
+      "row": 4,
+      "direction": "vertical",
+      "align": "left"
+    }
+  },
+  "firstWord": {
+    "transformComponent": {
+      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 1.0 ]
+    },
+    "labelComponent": {
+      "fontType": "ttf",
+      "fontSize": 48.0,
+      "fontFile": "fonts/SFProText_Regular.ttf",
+      "alight": "center",
+      "bold": true,
+      "maxLineWidth": 1000
+    },
+    "colorComponent": {
+      "color": [70, 70, 70]
+    }
+  },
+  "label": {
+    "transformComponent": {
+      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 1.0 ]
+    },
+    "labelComponent": {
+      "fontType": "ttf",
+      "fontSize": 28.0,
+      "fontFile": "fonts/SFProText_Regular.ttf",
+      "alight": "center",
+      "maxLineWidth": 1000
+    },
+    "colorComponent": {
+      "color": [70, 70, 70]
+    }
+  }
+}

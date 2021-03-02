@@ -4,6 +4,7 @@
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "interfaceModule/widgets/examCardWidget.h"
+#include "interfaceModule/widgets/resultCardWidget.h"
 #include <tuple>
 
 using namespace cardsApp::interfaceModule;
@@ -76,7 +77,13 @@ void examWindow::goToNextCard() {
 	cardHolder->addChild(card);
 	card->setData(currentCards.front().first, currentCards.front().second);
 	card->setTouchClb([cardHolder](){
-		cardHolder->runAction(FadeOut::create(.12));
-
+		auto fadeOut = FadeOut::create(.12);
+		auto clb = cocos2d::CallFunc::create([cardHolder](){
+			auto newCard = new resultCardWidget();
+			cardHolder->addChild(newCard);
+		});
+		auto fadeIn = FadeIn::create(.12);
+		auto seq = Sequence::create(fadeOut, clb, fadeIn, nullptr);
+		cardHolder->runAction(seq);
 	});
 }

@@ -1,0 +1,20 @@
+{
+  "type": "node",
+  "name": "examCardWidget",
+  "child": [
+    {
+      "type": "scale9sprite",
+      "name": "cardBg"
+    },
+    {
+      "type": "grid",
+      "name": "gridContainer",
+      "child": [
+        {
+          "type": "label",
+          "name": "firstWord"
+        }
+      ]
+    }
+  ]
+}
