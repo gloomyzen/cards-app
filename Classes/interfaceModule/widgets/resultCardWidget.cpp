@@ -67,10 +67,9 @@ void resultCardWidget::insertImage(cocos2d::network::HttpClient* sender, cocos2d
 	auto* image = new cocos2d::Image ();
 	image->initWithImageData ( reinterpret_cast<const unsigned char*>(&(buffer->front())), buffer->size());
 	auto* texture = new cocos2d::Texture2D ();
-	texture->initWithImage (image);
-	auto sprite = cocos2d::Sprite::createWithTexture(texture);
-	sprite->setTexture(texture);
-	grid->addChild(sprite, 0);
+	texture->initWithImage(image);
+	auto sprite = dynamic_cast<cocos2d::Sprite*>(findNode("picture"));
+	sprite->initWithTexture(texture);
 	sprite->setAnchorPoint(cocos2d::Vec2(0.5f, 0.5f));
 	sprite->setPivotPoint(cocos2d::Vec2(0.5f, 0.5f));
 

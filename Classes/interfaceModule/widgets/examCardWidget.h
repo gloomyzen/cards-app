@@ -17,7 +17,7 @@ namespace cardsApp::interfaceModule {
 		CREATE_FUNC(examCardWidget);
 
 		void setData(databasesModule::sCourseCard*);
-		void setTouchClb(std::function<void()> clb) { cardTouchClb = std::move(clb); }
+		void setTouchClb(std::function<void()> clb) { cardTouchClb = clb; }
 
 	private:
 		std::function<void()> cardTouchClb = nullptr;
