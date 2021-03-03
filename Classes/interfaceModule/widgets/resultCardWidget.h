@@ -9,9 +9,19 @@ namespace cardsApp::interfaceModule {
 
 	class resultCardWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
 	public:
+		enum class eCardSwipeDirection {
+			LEFT = 0,
+			RIGHT,
+			};
 		resultCardWidget();
 		~resultCardWidget() = default;
 		CREATE_FUNC(resultCardWidget);
+
+		void setData(int, databasesModule::sCourseCard*);
+		void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
+
+	private:
+		std::function<void(eCardSwipeDirection)> cardSwipeClb = nullptr;
 	};
 }
 
