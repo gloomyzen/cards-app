@@ -15,7 +15,7 @@ examCardWidget::examCardWidget() {
 	});
 }
 
-void examCardWidget::setData(int, cardsApp::databasesModule::sCourseCard *card) {
+void examCardWidget::setData(cardsApp::databasesModule::sCourseCard *card) {
 	using namespace common::utilityModule;
 	auto grid = dynamic_cast<common::coreModule::gridNode *>(findNode("gridContainer"));
 	if (auto label = dynamic_cast<cocos2d::Label *>(findNode("firstWord"))) {

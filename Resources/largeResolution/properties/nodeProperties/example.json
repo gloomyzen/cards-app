@@ -27,7 +27,7 @@
       "fontSize": 24.0,
       "fontFile": "fonts/arial.ttf",
       "bold": true,
-      "italics": true,
+      "italic": true,
       "alight": "center",
       "maxLineWidth": 200
     }

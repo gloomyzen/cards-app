@@ -17,7 +17,7 @@ namespace cardsApp::interfaceModule {
 		~resultCardWidget() = default;
 		CREATE_FUNC(resultCardWidget);
 
-		void setData(int, databasesModule::sCourseCard*);
+		void setData(databasesModule::sCourseCard*);
 		void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
 
 	private:

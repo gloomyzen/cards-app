@@ -66,5 +66,22 @@
     "colorComponent": {
       "color": [70, 70, 70]
     }
+  },
+  "labelDescription": {
+    "transformComponent": {
+      "pivot": [ 0.5, 1.0 ],
+      "anchor": [ 0.5, 1.0 ]
+    },
+    "labelComponent": {
+      "fontType": "ttf",
+      "fontSize": 28.0,
+      "fontFile": "fonts/SFProText_Regular.ttf",
+      "alight": "center",
+      "maxLineWidth": 1000,
+      "italic": true
+    },
+    "colorComponent": {
+      "color": [70, 70, 70]
+    }
   }
 }
