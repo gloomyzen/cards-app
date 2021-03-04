@@ -4,7 +4,6 @@
 #include "cocos2d.h"
 #include "common/coreModule/nodes/nodeProperties.h"
 #include "databasesModule/coursesDatabase.h"
-#include "cocos/network/HttpClient.h"
 
 namespace cardsApp::interfaceModule {
 
@@ -22,9 +21,6 @@ namespace cardsApp::interfaceModule {
 		void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
 
 	private:
-		void sendRequest(const std::string& name);
-		void insertImage(cocos2d::network::HttpClient *sender, cocos2d::network::HttpResponse *response);
-
 		std::function<void(eCardSwipeDirection)> cardSwipeClb = nullptr;
 	};
 }
