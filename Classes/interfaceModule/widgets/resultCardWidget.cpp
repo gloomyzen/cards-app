@@ -1,6 +1,7 @@
 #include "resultCardWidget.h"
 #include "common/utilityModule/stringUtility.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
+#include "common/debugModule/logManager.h"
 
 using namespace cardsApp::interfaceModule;
 using namespace common::utilityModule;
@@ -9,6 +10,7 @@ resultCardWidget::resultCardWidget() {
 	this->setName("resultCardWidget");
 	loadProperty("widgets/" + this->getName(), dynamic_cast<Node *>(this));
 	listener = cocos2d::EventListenerTouchOneByOne::create();
+	initSwipeHandle();
 }
 
 void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card) {
@@ -34,5 +36,15 @@ void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card) {
 }
 
 void resultCardWidget::initSwipeHandle() {
-
+	listener->setSwallowTouches(true);
+	listener->onTouchBegan = [this](cocos2d::Touch* touch, cocos2d::Event* event){
+		xTouchPos = 0.f;
+		auto touchLocation = this->convertToNodeSpace(touch->getLocation());
+		auto rect = cocos2d::Rect(0, 0, this->getContentSize().width, this->getContentSize().height);
+		return rect.containsPoint(touchLocation);
+	};
+	listener->onTouchMoved = [this](cocos2d::Touch* touch, cocos2d::Event* event){
+		LOG_ERROR(STRING_FORMAT("move %f %f", touch->getLocation().x, touch->getLocation().y));
+	};
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }

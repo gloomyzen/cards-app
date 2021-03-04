@@ -1,5 +1,5 @@
 {
-  "examCardWidget": {
+  "resultCardWidget": {
     "transformComponent": {
       "anchor": [ 0.5, 0.5 ],
       "pivot": [ 0.5, 0.5 ],

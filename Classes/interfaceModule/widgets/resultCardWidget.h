@@ -22,8 +22,10 @@ namespace cardsApp::interfaceModule {
 
 	private:
 		void initSwipeHandle();
+
 		std::function<void(eCardSwipeDirection)> cardSwipeClb = nullptr;
 		cocos2d::EventListenerTouchOneByOne* listener = nullptr;
+		float xTouchPos = 0.f;
 	};
 }
 

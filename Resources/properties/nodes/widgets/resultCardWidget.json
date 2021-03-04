@@ -1,6 +1,6 @@
 {
   "type": "node",
-  "name": "examCardWidget",
+  "name": "resultCardWidget",
   "child": [
     {
       "type": "scale9sprite",
