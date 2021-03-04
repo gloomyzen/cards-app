@@ -21,7 +21,9 @@ namespace cardsApp::interfaceModule {
 		void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
 
 	private:
+		void initSwipeHandle();
 		std::function<void(eCardSwipeDirection)> cardSwipeClb = nullptr;
+		cocos2d::EventListenerTouchOneByOne* listener = nullptr;
 	};
 }
 

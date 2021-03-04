@@ -80,9 +80,9 @@ void examWindow::goToNextCard() {
 	card->setTouchClb([cardHolder, card, cardData](){
 		auto fadeOut = FadeOut::create(.12);
 		auto clb = cocos2d::CallFunc::create([cardHolder, card, cardData](){
+			cardHolder->removeAllChildren();
 			auto newCard = new resultCardWidget();
 			cardHolder->addChild(newCard);
-			card->removeFromParent();
 			newCard->setData(cardData.second);
 			newCard->setSwipeClb([](resultCardWidget::eCardSwipeDirection){
 				//

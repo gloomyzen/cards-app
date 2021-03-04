@@ -11,12 +11,12 @@
       "name": "gridContainer",
       "child": [
         {
-          "type": "sprite",
-          "name": "picture"
-        },
-        {
           "type": "label",
           "name": "firstWord"
+        },
+        {
+          "type": "sprite",
+          "name": "icon"
         }
       ]
     }

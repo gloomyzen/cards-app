@@ -1,15 +1,14 @@
 #include "resultCardWidget.h"
 #include "common/utilityModule/stringUtility.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
-#include "common/debugModule/logManager.h"
 
 using namespace cardsApp::interfaceModule;
-using namespace cocos2d::network;
 using namespace common::utilityModule;
 
 resultCardWidget::resultCardWidget() {
 	this->setName("resultCardWidget");
 	loadProperty("widgets/" + this->getName(), dynamic_cast<Node *>(this));
+	listener = cocos2d::EventListenerTouchOneByOne::create();
 }
 
 void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card) {
@@ -32,4 +31,8 @@ void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card) {
 		grid->addChild(label);
 	}
 	grid->updateGridTransform();
+}
+
+void resultCardWidget::initSwipeHandle() {
+
 }
