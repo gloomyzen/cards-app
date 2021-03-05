@@ -7,27 +7,27 @@
 
 namespace cardsApp::interfaceModule {
 
-	class resultCardWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
-	public:
-		enum class eCardSwipeDirection {
-			LEFT = 0,
-			RIGHT,
-			};
-		resultCardWidget();
-		~resultCardWidget() = default;
-		CREATE_FUNC(resultCardWidget);
+    class resultCardWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
+      public:
+        enum class eCardSwipeDirection {
+            LEFT = 0,
+            RIGHT,
+        };
+        resultCardWidget();
+        ~resultCardWidget() = default;
+        CREATE_FUNC(resultCardWidget);
 
-		void setData(databasesModule::sCourseCard*);
-		void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
+        void setData(databasesModule::sCourseCard*);
+        void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
 
-	private:
-		void initSwipeHandle();
+      private:
+        void initSwipeHandle();
 
-		std::function<void(eCardSwipeDirection)> cardSwipeClb = nullptr;
-		cocos2d::EventListenerTouchOneByOne* listener = nullptr;
-		float xTouchPos = 0.f;
-	};
-}
+        std::function<void(eCardSwipeDirection)> cardSwipeClb = nullptr;
+        cocos2d::EventListenerTouchOneByOne* listener = nullptr;
+        float xTouchPos = 0.f;
+    };
+}// namespace cardsApp::interfaceModule
 
 
-#endif //CARDS_APP_RESULTCARDWIDGET_H
+#endif// CARDS_APP_RESULTCARDWIDGET_H
