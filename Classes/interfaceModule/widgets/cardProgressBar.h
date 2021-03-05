@@ -7,21 +7,21 @@
 
 namespace cardsApp::interfaceModule {
 
-	class cardProgressBar : public common::coreModule::nodeProperties<cocos2d::Node> {
-	public:
-		cardProgressBar();
-		~cardProgressBar() = default;
+    class cardProgressBar : public common::coreModule::nodeProperties<cocos2d::Node> {
+      public:
+        cardProgressBar();
+        ~cardProgressBar() = default;
 
-		CREATE_FUNC(cardProgressBar);
+        CREATE_FUNC(cardProgressBar);
 
-		void setProgress(int i = 0);
+        void setProgress(int i = 0);
 
-	protected:
-		cocos2d::ui::Scale9Sprite* progressBar = nullptr;
+      protected:
+        cocos2d::ui::Scale9Sprite* progressBar = nullptr;
 
-		cocos2d::Size progressBarSize;
-	};
-}
+        cocos2d::Size progressBarSize;
+    };
+}// namespace cardsApp::interfaceModule
 
 
-#endif //CARDS_APP_CARDPROGRESSBAR_H
+#endif// CARDS_APP_CARDPROGRESSBAR_H

@@ -7,20 +7,22 @@
 #include <vector>
 
 namespace cardsApp {
-	namespace coursesListModule {
+    namespace coursesListModule {
 
-		class coursesListScene : public common::coreModule::nodeProperties<cocos2d::Node>, public taskHolder {
-		public:
-			coursesListScene();
-			~coursesListScene();
-			CREATE_FUNC(coursesListScene);
-			std::deque<nodeTasks> getTasks() override;
+        class coursesListScene
+            : public common::coreModule::nodeProperties<cocos2d::Node>
+            , public taskHolder {
+          public:
+            coursesListScene();
+            ~coursesListScene();
+            CREATE_FUNC(coursesListScene);
+            std::deque<nodeTasks> getTasks() override;
 
-		private:
-			cocos2d::ui::ScrollView* scrollView = nullptr;
-		};
-	}
-}
+          private:
+            cocos2d::ui::ScrollView* scrollView = nullptr;
+        };
+    }// namespace coursesListModule
+}// namespace cardsApp
 
 
-#endif //CARDS_APP_COURSESLISTSCENE_H
+#endif// CARDS_APP_COURSESLISTSCENE_H

@@ -6,16 +6,14 @@
 using namespace cardsApp::interfaceModule;
 using namespace common::utilityModule;
 
-resultCardWidget::resultCardWidget()
-{
+resultCardWidget::resultCardWidget() {
     this->setName("resultCardWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
     listener = cocos2d::EventListenerTouchOneByOne::create();
     initSwipeHandle();
 }
 
-void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card)
-{
+void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card) {
     auto* grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"));
     if (auto* label = dynamic_cast<cocos2d::Label*>(findNode("firstWord"))) {
         label->setString(stringUtility::capitalizeString(card->enWord));
@@ -37,8 +35,7 @@ void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card)
     grid->updateGridTransform();
 }
 
-void resultCardWidget::initSwipeHandle()
-{
+void resultCardWidget::initSwipeHandle() {
     listener->setSwallowTouches(true);
     listener->onTouchBegan = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
         xTouchPos = 0.f;
@@ -49,5 +46,9 @@ void resultCardWidget::initSwipeHandle()
     listener->onTouchMoved = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
         LOG_ERROR(STRING_FORMAT("move %f %f", touch->getLocation().x, touch->getLocation().y));
     };
+    listener->onTouchEnded = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
+        LOG_ERROR(STRING_FORMAT("end %f %f", touch->getLocation().x, touch->getLocation().y));
+    };
+
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }

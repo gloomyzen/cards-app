@@ -7,18 +7,18 @@
 
 namespace cardsApp::interfaceModule {
 
-	class cardBtnWidget : public common::coreModule::soundButton {
-	public:
-		cardBtnWidget();
-		~cardBtnWidget() = default;
+    class cardBtnWidget : public common::coreModule::soundButton {
+      public:
+        cardBtnWidget();
+        ~cardBtnWidget() = default;
 
-		CREATE_FUNC(cardBtnWidget);
+        CREATE_FUNC(cardBtnWidget);
 
-		void setText(const std::string&);
+        void setText(const std::string&);
 
-	private:
-		cocos2d::Label* label = nullptr;
-	};
-}
+      private:
+        cocos2d::Label* label = nullptr;
+    };
+}// namespace cardsApp::interfaceModule
 
-#endif //CARDS_APP_CARDBTNWIDGET_H
+#endif// CARDS_APP_CARDBTNWIDGET_H

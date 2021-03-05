@@ -6,24 +6,23 @@
 
 namespace cardsApp::interfaceModule {
 
-	class testWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
-		public:
-			testWidget();
-			~testWidget() = default;
+    class testWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
+      public:
+        testWidget();
+        ~testWidget() = default;
 
-			CREATE_FUNC(testWidget);
+        CREATE_FUNC(testWidget);
 
-			bool init() {
-				if (!Node::init()) {
-					return false;
-				}
-				return true;
-			}
+        bool init() {
+            if (!Node::init()) {
+                return false;
+            }
+            return true;
+        }
 
-			void someMethod(){}
+        void someMethod() {}
+    };
+}// namespace cardsApp::interfaceModule
 
-		};
-	}//cardsApp::interfaceModule
 
-
-#endif //CARDS_APP_TESTWIDGET_H
+#endif// CARDS_APP_TESTWIDGET_H

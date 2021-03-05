@@ -10,39 +10,36 @@
 #include <vector>
 
 namespace cardsApp {
-	namespace localProfile {
+    namespace localProfile {
 
-		struct sLocalProfileCourse {
-			int id;
-			std::vector<int> goodQuestion;
-			std::vector<int> mediumQuestion;
-			std::vector<int> badQuestion;
+        struct sLocalProfileCourse {
+            int id;
+            std::vector<int> goodQuestion;
+            std::vector<int> mediumQuestion;
+            std::vector<int> badQuestion;
 
-			bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &);
-			bool save(rapidjson::Value &, rapidjson::Document::AllocatorType&);
+            bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject&);
+            bool save(rapidjson::Value&, rapidjson::Document::AllocatorType&);
+        };
 
-		};
+        class localProfileBlock : public common::profileModule::profileBlockInterface {
+          public:
+            localProfileBlock();
+            ~localProfileBlock();
 
-		class localProfileBlock : public common::profileModule::profileBlockInterface {
-		public:
-			localProfileBlock();
-			~localProfileBlock();
+            bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject&) override;
+            bool save(rapidjson::Value&, rapidjson::Document::AllocatorType&) override;
 
-			bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject &) override;
-			bool save(rapidjson::Value &, rapidjson::Document::AllocatorType&) override;
+            std::map<int, sLocalProfileCourse*>& getAllCourses() { return localCourses; }
 
-			std::map<int, sLocalProfileCourse*>& getAllCourses() {
-				return localCourses;
-			}
-
-			sLocalProfileCourse* getCourse(int);
+            sLocalProfileCourse* getCourse(int);
 
 
-		private:
-			std::map<int, sLocalProfileCourse*> localCourses;
-		};
-	}
-}
+          private:
+            std::map<int, sLocalProfileCourse*> localCourses;
+        };
+    }// namespace localProfile
+}// namespace cardsApp
 
 
-#endif //CARDS_APP_LOCALPROFILEBLOCK_H
+#endif// CARDS_APP_LOCALPROFILEBLOCK_H

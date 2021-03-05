@@ -6,10 +6,10 @@
 
 namespace cardsApp::interfaceModule {
 
-		class customNodeTypes {
-		public:
-			static void registerAllCustomNodes();
-		};
-	}
+    class customNodeTypes {
+      public:
+        static void registerAllCustomNodes();
+    };
+}// namespace cardsApp::interfaceModule
 
-#endif //CARDS_APP_CUSTOMNODETYPES_H
+#endif// CARDS_APP_CUSTOMNODETYPES_H

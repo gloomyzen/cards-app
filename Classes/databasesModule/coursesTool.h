@@ -2,13 +2,13 @@
 #define CARDS_APP_COURSESTOOL_H
 
 #include "cocos2d.h"
-#include <string>
 #include <map>
+#include <string>
 #include <vector>
-//all profile block header
+// all profile block header
 #include "common/profileModule/profileManager.h"
 #include "localProfile/localProfileBlock.h"
-//all databases header
+// all databases header
 #include "common/databaseModule/databaseInterface.h"
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
@@ -16,21 +16,21 @@
 #include <tuple>
 
 namespace cardsApp {
-	namespace databasesModule {
+    namespace databasesModule {
 
-		class coursesTool {
-		public:
-			coursesTool();
-			~coursesTool();
-			std::map<int, std::pair<int, sCourseBook*>> getCoursesWithProgress();
+        class coursesTool {
+          public:
+            coursesTool();
+            ~coursesTool();
+            std::map<int, std::pair<int, sCourseBook*>> getCoursesWithProgress();
 
-		private:
-			cardsApp::databasesModule::coursesDatabase* courseDb = nullptr;
-			cardsApp::databasesModule::ipaDatabase* ipaDb = nullptr;
-			cardsApp::localProfile::localProfileBlock* localProfile = nullptr;
-		};
-	}
-}
+          private:
+            cardsApp::databasesModule::coursesDatabase* courseDb = nullptr;
+            cardsApp::databasesModule::ipaDatabase* ipaDb = nullptr;
+            cardsApp::localProfile::localProfileBlock* localProfile = nullptr;
+        };
+    }// namespace databasesModule
+}// namespace cardsApp
 
 
-#endif //CARDS_APP_COURSESTOOL_H
+#endif// CARDS_APP_COURSESTOOL_H

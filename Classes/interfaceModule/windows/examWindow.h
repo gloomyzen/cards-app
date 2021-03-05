@@ -7,19 +7,21 @@
 
 namespace cardsApp::interfaceModule {
 
-	class examWindow : public common::coreModule::windowBase, public taskHolder {
-	public:
-		examWindow();
-		~examWindow();
-		std::deque<nodeTasks> getTasks() override;
+    class examWindow
+        : public common::coreModule::windowBase
+        , public taskHolder {
+      public:
+        examWindow();
+        ~examWindow();
+        std::deque<nodeTasks> getTasks() override;
 
-	private:
-		void initExam(int id);
-		void goToNextCard();
+      private:
+        void initExam(int id);
+        void goToNextCard();
 
-		std::vector<std::pair<int, databasesModule::sCourseCard*>> currentCards;
-	};
-}
+        std::vector<std::pair<int, databasesModule::sCourseCard*>> currentCards;
+    };
+}// namespace cardsApp::interfaceModule
 
 
-#endif //CARDS_APP_EXAMWINDOW_H
+#endif// CARDS_APP_EXAMWINDOW_H
