@@ -17,7 +17,7 @@ namespace cardsApp::interfaceModule {
         ~resultCardWidget() = default;
         CREATE_FUNC(resultCardWidget);
 
-        void setData(databasesModule::sCourseCard*);
+        void setData(databasesModule::sCourseCard*, cocos2d::Node*, cocos2d::Sprite*);
         void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
 
       private:
@@ -25,6 +25,8 @@ namespace cardsApp::interfaceModule {
 
         std::function<void(eCardSwipeDirection)> cardSwipeClb = nullptr;
         cocos2d::EventListenerTouchOneByOne* listener = nullptr;
+        cocos2d::Node* cardHolder = nullptr;
+        cocos2d::Sprite* bgWindow = nullptr;
         float xTouchPos = 0.f;
     };
 }// namespace cardsApp::interfaceModule

@@ -67,19 +67,24 @@ void examWindow::goToNextCard() {
         // todo go to result window
     }
     auto cardHolder = findNode("cardHolder");
+    auto bg = dynamic_cast<cocos2d::Sprite*>(findNode("bg"));
+    // reset changes
     cardHolder->removeAllChildren();
     cardHolder->setOpacity(255);
+    cardHolder->setRotation(0.f);
+    cardHolder->setColor(cocos2d::Color3B(255, 255, 255));
+
     auto card = new examCardWidget();
     cardHolder->addChild(card);
     auto cardData = currentCards.front();
     card->setData(cardData.second);
-    card->setTouchClb([cardHolder, card, cardData]() {
+    card->setTouchClb([cardHolder, cardData, bg]() {
         auto fadeOut = FadeOut::create(.12);
-        auto clb = cocos2d::CallFunc::create([cardHolder, card, cardData]() {
+        auto clb = cocos2d::CallFunc::create([cardHolder, cardData, bg]() {
             cardHolder->removeAllChildren();
             auto newCard = new resultCardWidget();
             cardHolder->addChild(newCard);
-            newCard->setData(cardData.second);
+            newCard->setData(cardData.second, cardHolder, bg);
             newCard->setSwipeClb([](resultCardWidget::eCardSwipeDirection) {
                 //
             });

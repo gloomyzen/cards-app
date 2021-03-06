@@ -13,7 +13,9 @@ resultCardWidget::resultCardWidget() {
     initSwipeHandle();
 }
 
-void resultCardWidget::setData(cardsApp::databasesModule::sCourseCard* card) {
+void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node* node, cocos2d::Sprite* sprite) {
+    cardHolder = node;
+    bgWindow = sprite;
     auto* grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"));
     if (auto* label = dynamic_cast<cocos2d::Label*>(findNode("firstWord"))) {
         label->setString(stringUtility::capitalizeString(card->enWord));
