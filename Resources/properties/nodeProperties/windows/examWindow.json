@@ -12,13 +12,16 @@
       "stretch": [ 1.0, 1.0 ]
     },
     "scale9spriteComponent": {
-      "image": "images/general/bg.png",
+      "image": "images/general/white_bg.png",
       "slice9": {
         "x": 4,
         "y": 4,
         "width": 2,
         "height": 2
       }
+    },
+    "colorComponent": {
+      "color": [45, 156, 219]
     }
   },
   "closeBtn": {

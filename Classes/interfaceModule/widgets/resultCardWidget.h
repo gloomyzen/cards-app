@@ -28,6 +28,7 @@ namespace cardsApp::interfaceModule {
         cocos2d::Node* cardHolder = nullptr;
         cocos2d::Sprite* bgWindow = nullptr;
         float xTouchPos = 0.f;
+        float xPosLimit = 7.f;
     };
 }// namespace cardsApp::interfaceModule
 

@@ -40,16 +40,30 @@ void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node
 void resultCardWidget::initSwipeHandle() {
     listener->setSwallowTouches(true);
     listener->onTouchBegan = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
-        xTouchPos = 0.f;
+        xTouchPos = touch->getLocation().x;
         auto touchLocation = this->convertToNodeSpace(touch->getLocation());
         auto rect = cocos2d::Rect(0, 0, this->getContentSize().width, this->getContentSize().height);
         return rect.containsPoint(touchLocation);
     };
     listener->onTouchMoved = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
-        LOG_ERROR(STRING_FORMAT("move %f %f", touch->getLocation().x, touch->getLocation().y));
+        LOG_ERROR(STRING_FORMAT("----- %f", (xTouchPos - touch->getLocation().x) / 10));
+        auto nextPos = -(xTouchPos - touch->getLocation().x) / 10;
+        if (nextPos > -xPosLimit && nextPos < xPosLimit)
+            cardHolder->setRotation(nextPos);
     };
     listener->onTouchEnded = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
         LOG_ERROR(STRING_FORMAT("end %f %f", touch->getLocation().x, touch->getLocation().y));
+        auto nextPos = -(xTouchPos - touch->getLocation().x) / 10;
+        if (nextPos > -xPosLimit - 1 && nextPos < xPosLimit - 1) {
+            auto rotateAction = cocos2d::RotateTo::create(.1f, 0.f);
+            cardHolder->runAction(rotateAction);
+        } else {
+            if (nextPos < -xPosLimit - 1) {
+                bgWindow->setColor(cocos2d::Color3B(235, 87, 87));
+            } else {
+                bgWindow->setColor(cocos2d::Color3B(111, 207, 157));
+            }
+        }
     };
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);

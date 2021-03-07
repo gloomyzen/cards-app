@@ -18,10 +18,10 @@ namespace cardsApp::interfaceModule {
       private:
         void initExam(int id);
         void goToNextCard();
+        cocos2d::Color3B bgColor;
 
         std::vector<std::pair<int, databasesModule::sCourseCard*>> currentCards;
     };
 }// namespace cardsApp::interfaceModule
-
 
 #endif// CARDS_APP_EXAMWINDOW_H

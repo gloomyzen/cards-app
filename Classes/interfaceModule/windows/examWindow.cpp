@@ -43,7 +43,8 @@ std::deque<nodeTasks> examWindow::getTasks() {
             initExam(cardsId);
             goToNextCard();
         }
-
+        auto bg = findNode("bg");
+        bgColor = bg->getColor();
 
         return eTasksStatus::STATUS_OK;
     });
@@ -72,7 +73,7 @@ void examWindow::goToNextCard() {
     cardHolder->removeAllChildren();
     cardHolder->setOpacity(255);
     cardHolder->setRotation(0.f);
-    cardHolder->setColor(cocos2d::Color3B(255, 255, 255));
+    bg->setColor(bgColor);
 
     auto card = new examCardWidget();
     cardHolder->addChild(card);
