@@ -91,7 +91,7 @@ void examWindow::goToNextCard() {
             auto newCard = new resultCardWidget();
             cardHolder->addChild(newCard);
             newCard->setData(cardData.second, cardHolder, bg);
-            newCard->setColor(bgColor);
+            newCard->setDefaultColor(bgColor);
             newCard->setSwipeClb([](resultCardWidget::eCardSwipeDirection) {
                 //
             });

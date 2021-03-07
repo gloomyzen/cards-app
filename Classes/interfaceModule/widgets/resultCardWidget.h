@@ -19,7 +19,7 @@ namespace cardsApp::interfaceModule {
 
         void setData(databasesModule::sCourseCard*, cocos2d::Node*, cocos2d::Sprite*);
         void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
-        void setColor(cocos2d::Color3B color) { defaultColor = color; }
+        void setDefaultColor(const cocos2d::Color3B& color) { defaultColor = color; }
 
       private:
         void initSwipeHandle();
