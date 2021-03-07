@@ -63,7 +63,7 @@ void examWindow::initExam(int id) {
     std::for_each(cards->cards.begin(), cards->cards.end(), [&](std::pair<int, databasesModule::sCourseCard*> e) {
         currentCards.push_back(e);
     });
-    auto rd = std::random_device{};
+    std::random_device rd;
     auto rng = std::default_random_engine{ rd() };
     std::shuffle(std::begin(currentCards), std::end(currentCards), rng);
 }
