@@ -19,6 +19,7 @@ namespace cardsApp::interfaceModule {
 
         void setData(databasesModule::sCourseCard*, cocos2d::Node*, cocos2d::Sprite*);
         void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }
+        void setColor(cocos2d::Color3B color) { defaultColor = color; }
 
       private:
         void initSwipeHandle();
@@ -27,6 +28,7 @@ namespace cardsApp::interfaceModule {
         cocos2d::EventListenerTouchOneByOne* listener = nullptr;
         cocos2d::Node* cardHolder = nullptr;
         cocos2d::Sprite* bgWindow = nullptr;
+        cocos2d::Color3B defaultColor;
         float xTouchPos = 0.f;
         float xPosLimit = 7.f;
     };

@@ -2,6 +2,7 @@
 #include "common/coreModule/nodes/widgets/gridNode.h"
 #include "common/debugModule/logManager.h"
 #include "common/utilityModule/stringUtility.h"
+#include "common/utilityModule/covertUtility.h"
 
 using namespace cardsApp::interfaceModule;
 using namespace common::utilityModule;
@@ -46,23 +47,24 @@ void resultCardWidget::initSwipeHandle() {
         return rect.containsPoint(touchLocation);
     };
     listener->onTouchMoved = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
-        LOG_ERROR(STRING_FORMAT("----- %f", (xTouchPos - touch->getLocation().x) / 10));
+        using namespace common::utilityModule;
         auto nextPos = -(xTouchPos - touch->getLocation().x) / 10;
         if (nextPos > -xPosLimit && nextPos < xPosLimit)
             cardHolder->setRotation(nextPos);
+           if (nextPos > 0) {
+               bgWindow->setColor(convertUtility::changeColor(defaultColor, cocos2d::Color3B(235, 87, 87), std::abs(nextPos / xPosLimit)));
+               LOG_ERROR(STRING_FORMAT("----- %f, %f", nextPos, nextPos / xPosLimit));
+           } else {
+               bgWindow->setColor(convertUtility::changeColor(defaultColor, cocos2d::Color3B(111, 207, 157), std::abs(nextPos / xPosLimit)));
+           }
     };
     listener->onTouchEnded = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
         LOG_ERROR(STRING_FORMAT("end %f %f", touch->getLocation().x, touch->getLocation().y));
         auto nextPos = -(xTouchPos - touch->getLocation().x) / 10;
         if (nextPos > -xPosLimit - 1 && nextPos < xPosLimit - 1) {
             auto rotateAction = cocos2d::RotateTo::create(.1f, 0.f);
+            bgWindow->setColor(defaultColor);
             cardHolder->runAction(rotateAction);
-        } else {
-            if (nextPos < -xPosLimit - 1) {
-                bgWindow->setColor(cocos2d::Color3B(235, 87, 87));
-            } else {
-                bgWindow->setColor(cocos2d::Color3B(111, 207, 157));
-            }
         }
     };
 

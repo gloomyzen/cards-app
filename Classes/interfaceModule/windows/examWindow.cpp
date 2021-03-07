@@ -32,6 +32,13 @@ std::deque<nodeTasks> examWindow::getTasks() {
     });
 
     result.emplace_back([this]() {
+        auto bg = findNode("bg");
+        bgColor = bg->getColor();
+
+        return eTasksStatus::STATUS_OK;
+    });
+
+    result.emplace_back([this]() {
         auto courseName = getData("courseName", std::string());
         if (!courseName.empty()) {
             if (auto label = dynamic_cast<Label*>(findNode("windowTitle"))) {
@@ -43,8 +50,6 @@ std::deque<nodeTasks> examWindow::getTasks() {
             initExam(cardsId);
             goToNextCard();
         }
-        auto bg = findNode("bg");
-        bgColor = bg->getColor();
 
         return eTasksStatus::STATUS_OK;
     });
@@ -79,13 +84,14 @@ void examWindow::goToNextCard() {
     cardHolder->addChild(card);
     auto cardData = currentCards.front();
     card->setData(cardData.second);
-    card->setTouchClb([cardHolder, cardData, bg]() {
+    card->setTouchClb([cardHolder, cardData, bg, this]() {
         auto fadeOut = FadeOut::create(.12);
-        auto clb = cocos2d::CallFunc::create([cardHolder, cardData, bg]() {
+        auto clb = cocos2d::CallFunc::create([cardHolder, cardData, bg, this]() {
             cardHolder->removeAllChildren();
             auto newCard = new resultCardWidget();
             cardHolder->addChild(newCard);
             newCard->setData(cardData.second, cardHolder, bg);
+            newCard->setColor(bgColor);
             newCard->setSwipeClb([](resultCardWidget::eCardSwipeDirection) {
                 //
             });
