@@ -19,7 +19,7 @@ include(${CMAKE_SOURCE_DIR}/cmake/StandardProjectSettings.cmake)
 add_library(project_dependency ${CMAKE_SOURCE_DIR}/lib/empty.h ${CMAKE_SOURCE_DIR}/lib/empty.cpp)
 #add_library(project_options ${CMAKE_SOURCE_DIR}/lib/empty.cpp)
 #add_library(project_warning ${CMAKE_SOURCE_DIR}/lib/empty.h ${CMAKE_SOURCE_DIR}/lib/empty.cpp)
-set_project_warnings(project_dependency warning)
+#set_project_warnings(project_dependency warning)
 
 #------------------------------------------------------------------------------
 #                         CMake modules and options
@@ -55,7 +55,7 @@ if (${DEBUG})
     include(${CMAKE_SOURCE_DIR}/lib/imgui/CMakeLists.txt)
     add_definitions(-DIMGUI_ENABLED) # <- new cast definition
     target_link_libraries(project_dependency INTERFACE cc_imgui)
-    set_project_warnings(cc_imgui warning)
+#    set_project_warnings(cc_imgui warning)
 endif ()
 
 #------------------------------------------------------------------------------
@@ -80,7 +80,7 @@ endif()
 include(${CMAKE_SOURCE_DIR}/cmake/DragonBones.cmake)
 target_link_libraries(dragonbones_target PRIVATE cocos2d)
 target_link_libraries(project_dependency INTERFACE dragonbones_target)
-set_project_warnings(dragonbones_target warning)
+#set_project_warnings(dragonbones_target warning)
 
 #------------------------------------------------------------------------------
 #                               Build Interface for all dependency

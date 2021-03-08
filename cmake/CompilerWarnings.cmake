@@ -96,20 +96,4 @@ endfunction()
 function(set_project_warnings project_name warning)
     get_project_warnings(${warning})
     target_compile_options(${project_name} INTERFACE ${PROJECT_WARNINGS})
-
 endfunction()
-
-#function(insert_project_warnings project_name warning)
-#    get_project_warnings(${warning})
-#        set(WARNING_STRING)
-#        foreach (warning ${PROJECT_WARNINGS})
-#            message(FATAL_ERROR ${FATAL_ERROR} ${warning})
-#            set(WARNING_STRING "${WARNING_STRING} ${warning}")
-#        endforeach ()
-#    target_compile_options(${project_name} PRIVATE ${PROJECT_WARNINGS})
-#    #    target_compile_options(${project_name} PRIVATE
-#    #            $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
-#    #            ${PROJECT_WARNINGS}>
-#    #            $<$<CXX_COMPILER_ID:MSVC>:
-#    #            ${PROJECT_WARNINGS}>)
-#endfunction()
