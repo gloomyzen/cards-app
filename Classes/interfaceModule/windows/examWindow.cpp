@@ -69,6 +69,7 @@ void examWindow::initExam(int id) {
 }
 
 void examWindow::goToNextCard() {
+//    todo start card from action
     if (currentCards.empty()) {
         // todo go to result window
     }
@@ -92,8 +93,9 @@ void examWindow::goToNextCard() {
             cardHolder->addChild(newCard);
             newCard->setData(cardData.second, cardHolder, bg);
             newCard->setDefaultColor(bgColor);
-            newCard->setSwipeClb([](resultCardWidget::eCardSwipeDirection) {
-                //
+            newCard->setSwipeClb([this](resultCardWidget::eCardSwipeDirection direction) {
+                //todo register answer
+                goToNextCard();
             });
         });
         auto fadeIn = FadeIn::create(.12);
