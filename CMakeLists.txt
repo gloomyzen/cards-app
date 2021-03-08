@@ -108,7 +108,7 @@ endif()
 include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
 target_compile_features(${APP_NAME} PRIVATE cxx_std_17)
 target_compile_options(${APP_NAME} PRIVATE -Wall)
-insert_project_warnings(${APP_NAME})
+set_project_warnings(${APP_NAME} error)
 
 include(${CMAKE_SOURCE_DIR}/lib/project_dependency.cmake)
 target_link_libraries(${APP_NAME} PRIVATE cocos2d project_dependency)
@@ -116,11 +116,12 @@ target_include_directories(${APP_NAME}
         PRIVATE Classes
         PRIVATE ${COCOS2DX_ROOT_PATH}/cocos/audio/include/
         )
-target_compile_options(cocos2d PRIVATE
-        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
-        -Wall>
-        $<$<CXX_COMPILER_ID:MSVC>:
-        /W4>)
+#target_compile_options(cocos2d PRIVATE
+#        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
+#        -Wall>
+#        $<$<CXX_COMPILER_ID:MSVC>:
+#        /W4>)
+set_project_warnings(cocos2d warning)
 
 # mark app resources
 setup_cocos_app_config(${APP_NAME})

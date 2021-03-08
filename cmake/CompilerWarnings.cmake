@@ -2,8 +2,12 @@
 #
 # https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
 
-function(get_project_warnings)
-    option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" TRUE)
+function(get_project_warnings warning)
+    if (${warning} STREQUAL "error")
+        option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" TRUE)
+    else ()
+        option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" FALSE)
+    endif ()
 
     set(MSVC_WARNINGS
             /W4 # Baseline reasonable warnings
@@ -89,23 +93,23 @@ function(get_project_warnings)
     endif ()
 endfunction()
 
-function(set_project_warnings project_name)
-    get_project_warnings()
+function(set_project_warnings project_name warning)
+    get_project_warnings(${warning})
     target_compile_options(${project_name} INTERFACE ${PROJECT_WARNINGS})
 
 endfunction()
 
-function(insert_project_warnings project_name)
-    get_project_warnings()
-    set(WARNING_STRING)
-    foreach (warning ${PROJECT_WARNINGS})
-#        message(FATAL_ERROR ${FATAL_ERROR} ${warning})
-        set(WARNING_STRING "${WARNING_STRING} ${warning}")
-    endforeach ()
+#function(insert_project_warnings project_name warning)
+#    get_project_warnings(${warning})
+#        set(WARNING_STRING)
+#        foreach (warning ${PROJECT_WARNINGS})
+#            message(FATAL_ERROR ${FATAL_ERROR} ${warning})
+#            set(WARNING_STRING "${WARNING_STRING} ${warning}")
+#        endforeach ()
 #    target_compile_options(${project_name} PRIVATE ${PROJECT_WARNINGS})
-    target_compile_options(${project_name} PRIVATE
-            $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
-            ${PROJECT_WARNINGS}>
-            $<$<CXX_COMPILER_ID:MSVC>:
-            ${PROJECT_WARNINGS}>)
-endfunction()
+#    #    target_compile_options(${project_name} PRIVATE
+#    #            $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
+#    #            ${PROJECT_WARNINGS}>
+#    #            $<$<CXX_COMPILER_ID:MSVC>:
+#    #            ${PROJECT_WARNINGS}>)
+#endfunction()
