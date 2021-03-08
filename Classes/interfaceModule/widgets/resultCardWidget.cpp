@@ -3,6 +3,8 @@
 #include "common/debugModule/logManager.h"
 #include "common/utilityModule/covertUtility.h"
 #include "common/utilityModule/stringUtility.h"
+#include "databasesModule/coursesTool.h"
+#include "databasesModule/ipaDatabase.h"
 
 using namespace cardsApp::interfaceModule;
 using namespace common::utilityModule;
@@ -79,8 +81,11 @@ void resultCardWidget::initSwipeHandle() {
                     auto rect = cocos2d::Rect(node->getPositionX(), node->getPositionX(), node->getContentSize().width, node->getContentSize().height);
                     if (rect.containsPoint(touchLocation)) {
                         if (auto label = dynamic_cast<cocos2d::Label*>(node)) {
-                            auto test = label->getString();
-                            auto test2 = "";
+                            auto db = GET_DATABASE_MANAGER().getDatabase<databasesModule::ipaDatabase>("ipaDb");
+                            const auto& text = label->getString();
+                            const auto& transcript = db->findString(text);
+                            std::string temp;
+                            //todo create bubble for transcription
                             return true;
                         }
                     }
