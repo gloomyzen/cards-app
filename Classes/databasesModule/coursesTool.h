@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include <map>
 #include <string>
+#include <tuple>
 #include <vector>
 // all profile block header
 #include "common/profileModule/profileManager.h"
@@ -13,24 +14,21 @@
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "databasesModule/ipaDatabase.h"
-#include <tuple>
 
-namespace cardsApp {
-    namespace databasesModule {
+namespace cardsApp::databasesModule {
 
-        class coursesTool {
-          public:
-            coursesTool();
-            ~coursesTool();
-            std::map<int, std::pair<int, sCourseBook*>> getCoursesWithProgress();
+    class coursesTool {
+      public:
+        coursesTool();
+        ~coursesTool();
+        std::map<int, std::pair<int, sCourseBook*>> getCoursesWithProgress();
 
-          private:
-            cardsApp::databasesModule::coursesDatabase* courseDb = nullptr;
-            cardsApp::databasesModule::ipaDatabase* ipaDb = nullptr;
-            cardsApp::localProfile::localProfileBlock* localProfile = nullptr;
-        };
-    }// namespace databasesModule
-}// namespace cardsApp
+      private:
+        cardsApp::databasesModule::coursesDatabase* courseDb = nullptr;
+        cardsApp::databasesModule::ipaDatabase* ipaDb = nullptr;
+        cardsApp::localProfile::localProfileBlock* localProfile = nullptr;
+    };
+}// namespace cardsApp::databasesModule
 
 
 #endif// CARDS_APP_COURSESTOOL_H

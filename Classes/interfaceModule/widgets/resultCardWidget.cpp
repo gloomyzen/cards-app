@@ -63,16 +63,36 @@ void resultCardWidget::initSwipeHandle() {
     listener->onTouchEnded = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
         auto nextPos = -(xTouchPos - touch->getLocation().x) / 10;
         LOG_ERROR(STRING_FORMAT("end %f", nextPos));
+        auto diffClick = std::abs(xTouchPos) - std::abs(touch->getLocation().x);
+        auto hitClick = diffClick > -3 || diffClick < 3;
         if (nextPos > -xPosLimit - 1 && nextPos < xPosLimit - 1) {
             auto rotateAction = cocos2d::RotateTo::create(.1f, 0.f);
             bgWindow->setColor(defaultColor);
             cardHolder->runAction(rotateAction);
+            if (hitClick) {
+                auto* grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"));
+                if (grid == nullptr) {
+                    return true;
+                }
+                for (auto node : grid->getChildren()) {
+                    auto touchLocation = node->convertToNodeSpace(touch->getLocation());
+                    auto rect = cocos2d::Rect(node->getPositionX(), node->getPositionX(), node->getContentSize().width, node->getContentSize().height);
+                    if (rect.containsPoint(touchLocation)) {
+                        if (auto label = dynamic_cast<cocos2d::Label*>(node)) {
+                            auto test = label->getString();
+                            auto test2 = "";
+                            return true;
+                        }
+                    }
+                }
+            }
         } else {
             if (cardSwipeClb) {
                 bgWindow->setColor(defaultColor);
                 cardSwipeClb(nextPos < -xPosLimit ? eCardSwipeDirection::LEFT : eCardSwipeDirection::RIGHT);
             }
         }
+           return true;
     };
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);

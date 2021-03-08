@@ -9,26 +9,24 @@
 #include <string>
 #include <vector>
 
-namespace cardsApp {
-    namespace databasesModule {
+namespace cardsApp::databasesModule {
 
-        typedef std::map<std::string, std::string> sLetter;
+    typedef std::map<std::string, std::string> sLetter;
 
-        class ipaDatabase : public common::databaseModule::databaseInterface {
-          public:
-            ipaDatabase();
-            ~ipaDatabase() = default;
-            void load(const rapidjson::Document&) override;
-            std::string findString(const std::string&) const;
+    class ipaDatabase : public common::databaseModule::databaseInterface {
+      public:
+        ipaDatabase();
+        ~ipaDatabase() = default;
+        void load(const rapidjson::Document&) override;
+        const std::string& findString(const std::string&) const;
 
-          protected:
-            bool loadDictionary(const std::string&, const rapidjson::Document&);
+      protected:
+        bool loadDictionary(const std::string&, const rapidjson::Document&);
 
-          private:
-            std::map<std::string, sLetter> stringMapDb;
-        };
-    }// namespace databasesModule
-}// namespace cardsApp
+      private:
+        std::map<std::string, sLetter> stringMapDb;
+    };
+}// namespace cardsApp::databasesModule
 
 
 #endif// CARDS_APP_IPADATABASE_H

@@ -5,6 +5,8 @@
 
 using namespace cardsApp::databasesModule;
 
+static std::string emptyString{};
+
 ipaDatabase::ipaDatabase() {}
 
 void ipaDatabase::load(const rapidjson::Document& data) {
@@ -56,13 +58,13 @@ bool ipaDatabase::loadDictionary(const std::string& mapKey, const rapidjson::Doc
     return true;
 }
 
-std::string ipaDatabase::findString(const std::string& word) const {
+const std::string& ipaDatabase::findString(const std::string& word) const {
     auto string = common::utilityModule::stringUtility::trim(word);
     if (string.empty())
-        return std::string();
+        return emptyString;
     std::string letter = string.substr(0, 1);
     if (letter.empty())
-        return std::string();
+        return emptyString;
     if (stringMapDb.find(letter) != stringMapDb.end()) {
         auto dictionary = stringMapDb.find(letter)->second;
         if (dictionary.find(word) != dictionary.end()) {
@@ -70,5 +72,5 @@ std::string ipaDatabase::findString(const std::string& word) const {
         }
     }
 
-    return std::string();
+    return emptyString;
 }

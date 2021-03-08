@@ -9,38 +9,36 @@
 #include <string>
 #include <vector>
 
-namespace cardsApp {
-    namespace databasesModule {
+namespace cardsApp::databasesModule {
 
-        struct sCourseCard {
-            int id;
-            std::string enWord;
-            std::string enDescription;
-            std::string enSentence;
-            std::string ruWord;
-            std::string ruSentence;
-        };
+    struct sCourseCard {
+        int id;
+        std::string enWord;
+        std::string enDescription;
+        std::string enSentence;
+        std::string ruWord;
+        std::string ruSentence;
+    };
 
-        struct sCourseBook {
-            int id;
-            std::string name;
-            std::map<int, sCourseCard*> cards;
-            bool load(const rapidjson::Document&);
-        };
+    struct sCourseBook {
+        int id;
+        std::string name;
+        std::map<int, sCourseCard*> cards;
+        bool load(const rapidjson::Document&);
+    };
 
-        class coursesDatabase : public common::databaseModule::databaseInterface {
-          public:
-            coursesDatabase();
-            ~coursesDatabase() = default;
-            void load(const rapidjson::Document&) override;
-            std::map<int, sCourseBook*> getCourses() { return coursesDb; }
-            sCourseBook* getCourseById(int);
+    class coursesDatabase : public common::databaseModule::databaseInterface {
+      public:
+        coursesDatabase();
+        ~coursesDatabase() = default;
+        void load(const rapidjson::Document&) override;
+        std::map<int, sCourseBook*> getCourses() { return coursesDb; }
+        sCourseBook* getCourseById(int);
 
-          private:
-            std::map<int, sCourseBook*> coursesDb;
-        };
-    }// namespace databasesModule
-}// namespace cardsApp
+      private:
+        std::map<int, sCourseBook*> coursesDb;
+    };
+}// namespace cardsApp::databasesModule
 
 
 #endif// CARDS_APP_COURSESDATABASE_H
