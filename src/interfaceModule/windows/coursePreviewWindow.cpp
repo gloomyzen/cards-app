@@ -24,7 +24,12 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
     result.emplace_back([this]() {
         auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"));
         if (closeBtn) {
-            closeBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) { closeWindow(); });
+            closeBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) {
+                auto closeClb = getData<std::function<void()>>("onClose", []() {});
+                if (closeClb)
+                    closeClb();
+                closeWindow();
+            });
         }
 
         return eTasksStatus::STATUS_OK;

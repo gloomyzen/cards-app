@@ -36,10 +36,18 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
             auto card = new cardWidget();
             auto cardsId = item.first;
             auto courseName = item.second.second->name;
-            card->setOnTouchEnded([cardsId, courseName](cocos2d::Touch* touch, cocos2d::Event* event) {
+            card->setOnTouchEnded([cardsId, courseName, card](cocos2d::Touch* touch, cocos2d::Event* event) {
                 if (auto window = GET_GAME_MANAGER().requestWindow("coursePreviewWindow")) {
                     window->setData("cardsId", cardsId);
                     window->setData("courseName", courseName);
+                    window->setData("onClose", [card, cardsId]() {
+                        databasesModule::coursesTool tool;
+                        auto list = tool.getCoursesWithProgress();
+                        auto find = list.find(cardsId);
+                        if (find != list.end()) {
+                            card->initCard(find->second);
+                        }
+                    });
                 }
             });
             card->initCard(item.second);
