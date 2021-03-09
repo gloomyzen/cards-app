@@ -110,7 +110,7 @@ void examWindow::goToNextCard() {
                     }
                     databasesModule::coursesTool tool;
                     tool.setProgress(
-                        courseId, cardData.first, direction == resultCardWidget::eCardSwipeDirection::RIGHT);
+                        courseId, cardData.first, direction == resultCardWidget::eCardSwipeDirection::LEFT);
                     auto it = std::find_if(
                         currentCards.begin(), currentCards.end(), [cardData](std::pair<int, databasesModule::sCourseCard*> item) {
                             return item.first == cardData.first;

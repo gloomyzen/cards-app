@@ -91,11 +91,11 @@ bool sLocalProfileCourse::save(Value& data, Document::AllocatorType& allocator) 
     rapidjson::Value mediumQuestionArray;
     mediumQuestionArray.SetArray();
     for (auto item : mediumQuestion) { mediumQuestionArray.PushBack(item, allocator); }
-    data.AddMember("goodQuestion", mediumQuestionArray, allocator);
+    data.AddMember("mediumQuestion", mediumQuestionArray, allocator);
     rapidjson::Value badQuestionArray;
     badQuestionArray.SetArray();
     for (auto item : badQuestion) { badQuestionArray.PushBack(item, allocator); }
-    data.AddMember("goodQuestion", badQuestionArray, allocator);
+    data.AddMember("badQuestion", badQuestionArray, allocator);
     return true;
 }
 
@@ -128,7 +128,7 @@ void sLocalProfileCourse::updateAnswers(int cardId, bool isCorrect) {
             if (isCorrect) {
                 goodQuestion.push_back(cardId);
             } else {
-                mediumQuestion.push_back(cardId);
+                badQuestion.push_back(cardId);
             }
         } else {
             if (isCorrect) {
@@ -144,8 +144,9 @@ sLocalProfileCourse* localProfileBlock::getCourse(int id) {
     if (localCourses.find(id) != localCourses.end()) {
         return localCourses.find(id)->second;
     } else {
-        localCourses[id] = new sLocalProfileCourse();
-        localCourses[id]->id = id;
+        auto item = new sLocalProfileCourse();
+        item->id = id;
+        localCourses.insert({id, item});
+        return localCourses.find(id)->second;
     }
-    return localCourses[id];
 }
