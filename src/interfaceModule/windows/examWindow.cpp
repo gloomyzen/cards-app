@@ -3,6 +3,7 @@
 #include "common/databaseModule/databaseInterface.h"
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
+#include "databasesModule/coursesTool.h"
 #include "interfaceModule/widgets/examCardWidget.h"
 #include "interfaceModule/widgets/resultCardWidget.h"
 #include <tuple>
@@ -60,6 +61,7 @@ std::deque<nodeTasks> examWindow::getTasks() {
 void examWindow::initExam(int id) {
     auto coursesDb = GET_DATABASE_MANAGER().getDatabase<databasesModule::coursesDatabase>("coursesDb");
     auto cards = coursesDb->getCourseById(id);
+    courseId = id;
     std::for_each(cards->cards.begin(), cards->cards.end(), [&](std::pair<int, databasesModule::sCourseCard*> e) {
         currentCards.push_back(e);
     });
@@ -73,7 +75,7 @@ void examWindow::goToNextCard() {
     auto bg = dynamic_cast<cocos2d::Sprite*>(findNode("bg"));
     if (currentCards.empty()) {
         // todo go to result window
-        closeWindow(); // todo remove this after result window is done
+        closeWindow();// todo remove this after result window is done
         return;
     } else {
         if (cardHolder->getChildren().empty()) {
@@ -85,32 +87,45 @@ void examWindow::goToNextCard() {
         }
     }
     auto clb = cocos2d::CallFunc::create([cardHolder, bg, this]() {
-           // reset changes
-           cardHolder->removeAllChildren();
-           cardHolder->setRotation(0.f);
-           bg->setColor(bgColor);
+        // reset changes
+        cardHolder->removeAllChildren();
+        cardHolder->setRotation(0.f);
+        bg->setColor(bgColor);
 
-           auto card = new examCardWidget();
-           cardHolder->addChild(card);
-           auto cardData = currentCards.front();
-           card->setData(cardData.second);
-           card->setTouchClb([cardHolder, cardData, bg, this]() {
-                  auto fadeOut = FadeOut::create(.12);
-                  auto clb = cocos2d::CallFunc::create([cardHolder, cardData, bg, this]() {
-                         cardHolder->removeAllChildren();
-                         auto newCard = new resultCardWidget();
-                         cardHolder->addChild(newCard);
-                         newCard->setData(cardData.second, cardHolder, bg);
-                         newCard->setDefaultColor(bgColor);
-                         newCard->setSwipeClb([this](resultCardWidget::eCardSwipeDirection direction) {
-                                //todo register answer
-                                goToNextCard();
-                         });
-                  });
-                  auto fadeIn = FadeIn::create(.12);
-                  auto seq = Sequence::create(fadeOut, clb, fadeIn, nullptr);
-                  cardHolder->runAction(seq);
-           });
+        auto card = new examCardWidget();
+        cardHolder->addChild(card);
+        auto cardData = currentCards.front();
+        card->setData(cardData.second);
+        card->setTouchClb([cardHolder, cardData, bg, this]() {
+            auto fadeOut = FadeOut::create(.12);
+            auto clb = cocos2d::CallFunc::create([cardHolder, cardData, bg, this]() {
+                cardHolder->removeAllChildren();
+                auto newCard = new resultCardWidget();
+                cardHolder->addChild(newCard);
+                newCard->setData(cardData.second, cardHolder, bg);
+                newCard->setDefaultColor(bgColor);
+                newCard->setSwipeClb([this, cardData](resultCardWidget::eCardSwipeDirection direction) {
+                    if (courseId == 0) {
+                        return false;
+                    }
+                    databasesModule::coursesTool tool;
+                    tool.setProgress(
+                        courseId, cardData.first, direction == resultCardWidget::eCardSwipeDirection::RIGHT);
+                    auto it = std::find_if(
+                        currentCards.begin(), currentCards.end(), [cardData](std::pair<int, databasesModule::sCourseCard*> item) {
+                            return item.first == cardData.first;
+                        });
+                    if (it != currentCards.end()) {
+                        currentCards.erase(it);
+                    }
+                    goToNextCard();
+                    return true;
+                });
+            });
+            auto fadeIn = FadeIn::create(.12);
+            auto seq = Sequence::create(fadeOut, clb, fadeIn, nullptr);
+            cardHolder->runAction(seq);
+        });
     });
     auto fadeIn = FadeIn::create(.12);
     auto currentAction = cardHolder->getActionByTag(0);

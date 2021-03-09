@@ -6,7 +6,12 @@ using namespace rapidjson;
 
 localProfileBlock::localProfileBlock() {}
 
-localProfileBlock::~localProfileBlock() {}
+localProfileBlock::~localProfileBlock() {
+    for (auto item : localCourses) {
+        delete item.second;
+    }
+    localCourses.clear();
+}
 
 bool localProfileBlock::load(const GenericValue<UTF8<char>>::ConstObject& data) {
     auto coursesArray = data.FindMember("courses");
@@ -94,9 +99,53 @@ bool sLocalProfileCourse::save(Value& data, Document::AllocatorType& allocator) 
     return true;
 }
 
+void sLocalProfileCourse::updateAnswers(int cardId, bool isCorrect) {
+    auto findAnswer = [](std::vector<int>& list, int id, bool correct) {
+           auto it = std::find_if(list.begin(), list.end(), [id](int i) { return i == id; });
+           bool result = it != list.end();
+           if (result) {
+               list.erase(it);
+           }
+           return result;
+    };
+    bool isBad = findAnswer(badQuestion, cardId, isCorrect);
+    bool isMed = findAnswer(mediumQuestion, cardId, isCorrect);
+    bool isGood = findAnswer(goodQuestion, cardId, isCorrect);
+    if (!isBad && !isMed && !isGood) {
+        if (isCorrect) {
+            mediumQuestion.push_back(cardId);
+        } else {
+            badQuestion.push_back(cardId);
+        }
+    } else {
+        if (isBad) {
+            if (isCorrect) {
+                mediumQuestion.push_back(cardId);
+            } else {
+                badQuestion.push_back(cardId);
+            }
+        } else if (isMed) {
+            if (isCorrect) {
+                goodQuestion.push_back(cardId);
+            } else {
+                mediumQuestion.push_back(cardId);
+            }
+        } else {
+            if (isCorrect) {
+                goodQuestion.push_back(cardId);
+            } else {
+                mediumQuestion.push_back(cardId);
+            }
+        }
+    }
+}
+
 sLocalProfileCourse* localProfileBlock::getCourse(int id) {
     if (localCourses.find(id) != localCourses.end()) {
         return localCourses.find(id)->second;
+    } else {
+        localCourses[id] = new sLocalProfileCourse();
+        localCourses[id]->id = id;
     }
-    return nullptr;
+    return localCourses[id];
 }

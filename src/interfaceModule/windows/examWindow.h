@@ -20,6 +20,7 @@ namespace cardsApp::interfaceModule {
         void goToNextCard();
         cocos2d::Color3B bgColor;
 
+        int courseId = 0;
         std::vector<std::pair<int, databasesModule::sCourseCard*>> currentCards;
     };
 }// namespace cardsApp::interfaceModule

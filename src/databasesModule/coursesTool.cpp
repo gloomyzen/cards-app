@@ -34,3 +34,13 @@ std::map<int, std::pair<int, sCourseBook*>> coursesTool::getCoursesWithProgress(
     }
     return result;
 }
+void coursesTool::setProgress(int courseId, int cardId, bool isCorrect) {
+    if (courseDb == nullptr || localProfile == nullptr) {
+        LOG_ERROR("coursesTool::setProgress: databases is not loaded!");
+        return;
+    }
+    auto course = localProfile->getCourse(courseId);
+    if (course != nullptr) {
+        course->updateAnswers(cardId, isCorrect);
+    }
+}

@@ -22,6 +22,7 @@ namespace cardsApp::databasesModule {
         coursesTool();
         ~coursesTool();
         std::map<int, std::pair<int, sCourseBook*>> getCoursesWithProgress();
+        void setProgress(int courseId, int cardId, bool isCorrect = false);
 
       private:
         cardsApp::databasesModule::coursesDatabase* courseDb = nullptr;

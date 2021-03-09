@@ -35,6 +35,7 @@ AppDelegate::~AppDelegate() {
 #if USE_AUDIO_ENGINE
 	CocosDenshion::SimpleAudioEngine::getInstance()->end();
 #endif
+    GET_PROFILE().cleanup();
 }
 
 // if you want a different context, modify the value of glContextAttrs
