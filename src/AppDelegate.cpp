@@ -77,8 +77,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// set FPS. the default value is 1.0/60 if you don't call this
 	director->setAnimationInterval(1.0f / 60);
 
-	// set
+	// set project view mode
 	director->setProjection(Director::Projection::_2D);
+    cocos2d::Sprite::setUsePixelMode(currentResolution->spritePixel);
 
 	// Set the design resolution
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)

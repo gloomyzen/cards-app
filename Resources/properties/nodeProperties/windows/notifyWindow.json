@@ -21,7 +21,7 @@
       }
     },
     "colorComponent": {
-      "color": [45, 156, 219]
+      "color": [255, 255, 255]
     }
   },
   "windowText": {
@@ -41,7 +41,7 @@
       "maxLineWidth": 1000
     },
     "colorComponent": {
-      "color": [255, 255, 255]
+      "color": [0, 0, 0]
     }
   },
   "closeBtn": {
