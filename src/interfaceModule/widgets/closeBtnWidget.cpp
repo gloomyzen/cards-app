@@ -12,7 +12,7 @@ std::deque<nodeTasks> closeBtnWidget::getTasks() {
 
     result.emplace_back([this]() {
         bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("btnBg"));
-        setOnTouchBegan([this](auto touch, auto event) {
+        setOnTouch([this](auto touch, auto event) {
             if (closeClb) {
                 closeClb();
             }

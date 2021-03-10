@@ -26,7 +26,7 @@ std::deque<nodeTasks> examWindow::getTasks() {
     result.emplace_back([this]() {
         auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"));
         if (closeBtn) {
-            closeBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) { closeWindow(); });
+            closeBtn->setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) { closeWindow(); });
         }
 
         return eTasksStatus::STATUS_OK;

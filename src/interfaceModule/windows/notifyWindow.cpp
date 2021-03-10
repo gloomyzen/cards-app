@@ -11,7 +11,7 @@ std::deque<nodeTasks> notifyWindow::getTasks() {
 
     result.emplace_back([this]() {
         if (auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"))) {
-            closeBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) { closeWindow(); });
+            closeBtn->setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) { closeWindow(); });
         }
 
         return eTasksStatus::STATUS_OK;
@@ -19,7 +19,7 @@ std::deque<nodeTasks> notifyWindow::getTasks() {
 
     result.emplace_back([this]() {
         if (auto proceedBtn = dynamic_cast<soundButton*>(findNode("proceedBtn"))) {
-            proceedBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) {
+            proceedBtn->setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) {
                 auto closeClb = getData<std::function<void()>>("onClose", []() {});
                 if (closeClb)
                     closeClb();

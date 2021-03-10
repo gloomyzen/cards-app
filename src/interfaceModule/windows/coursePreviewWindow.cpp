@@ -25,7 +25,7 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 
     result.emplace_back([this]() {
         if (auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"))) {
-            closeBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) {
+            closeBtn->setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) {
                 auto closeClb = getData<std::function<void()>>("onClose", []() {});
                 if (closeClb)
                     closeClb();
@@ -99,7 +99,7 @@ void coursePreviewWindow::showList(int cardsId, std::string name) {
         scrollView->setScrollBarAutoHideEnabled(false);
     }
     if (auto btn = dynamic_cast<cardBtnWidget*>(findNode("cardBtnWidget"))) {
-        btn->setOnTouchEnded([cardsId, name](cocos2d::Touch* touch, cocos2d::Event* event) {
+        btn->setOnTouch([cardsId, name](cocos2d::Touch* touch, cocos2d::Event* event) {
             if (auto window = GET_GAME_MANAGER().requestWindow("examWindow", true)) {
                 window->setData("cardsId", cardsId);
                 window->setData("courseName", name);

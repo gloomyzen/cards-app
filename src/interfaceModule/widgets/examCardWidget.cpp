@@ -9,7 +9,7 @@ examCardWidget::examCardWidget() {
     this->setName("examCardWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
     bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
-    setOnTouchBegan([this](cocos2d::Touch* touch, cocos2d::Event* event) {
+    setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) {
         if (cardTouchClb)
             cardTouchClb();
     });
