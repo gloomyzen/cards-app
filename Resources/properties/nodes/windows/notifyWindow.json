@@ -1,0 +1,24 @@
+{
+  "type": "node",
+  "name": "notifyWindow",
+  "child": [
+    {
+      "type": "scale9sprite",
+      "name": "bg",
+      "child": [
+        {
+          "type": "label",
+          "name": "windowText"
+        },
+        {
+          "type": "cardBtnWidget",
+          "name": "closeBtn"
+        },
+        {
+          "type": "cardBtnWidget",
+          "name": "proceedBtn"
+        }
+      ]
+    }
+  ]
+}

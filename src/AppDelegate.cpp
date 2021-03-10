@@ -13,11 +13,8 @@
 #include "databasesModule/ipaDatabase.h"
 //all scenes
 #include "coursesListModule/coursesListScene.h"
-//all widgets
+//widgets
 #include "interfaceModule/customNodeTypes.h"
-//all windows
-#include "interfaceModule/windows/coursePreviewWindow.h"
-#include "interfaceModule/windows/examWindow.h"
 
 #define USE_AUDIO_ENGINE 1
 
@@ -102,9 +99,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	GET_DATABASE_MANAGER().executeLoadData();
 	//register external node types
 	cardsApp::interfaceModule::customNodeTypes::registerAllCustomNodes();
-	// register all windows
-	GET_GAME_MANAGER().registerWindow("coursePreviewWindow", [](){ return new cardsApp::interfaceModule::coursePreviewWindow(); });
-	GET_GAME_MANAGER().registerWindow("examWindow", [](){ return new cardsApp::interfaceModule::examWindow(); });
 	// register all states
 	GET_SCENES_FACTORY().registerState("coursesListScene", [](Layer* node)->Layer*{
 		auto scene = new cardsApp::coursesListModule::coursesListScene();

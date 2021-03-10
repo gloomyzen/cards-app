@@ -9,7 +9,9 @@
 
 namespace cardsApp::interfaceModule {
 
-    class closeBtnWidget : public common::coreModule::soundButton, public taskHolder {
+    class closeBtnWidget
+        : public common::coreModule::soundButton
+        , public taskHolder {
       public:
         closeBtnWidget();
         ~closeBtnWidget() = default;
@@ -17,7 +19,7 @@ namespace cardsApp::interfaceModule {
         CREATE_FUNC(closeBtnWidget);
         std::deque<nodeTasks> getTasks() override;
 
-        void setCloseClb(std::function<void()> clb) { closeClb = std::move(clb); }
+        void setCloseClb(std::function<void()> clb) { closeClb = clb; }
 
       private:
         std::function<void()> closeClb = nullptr;

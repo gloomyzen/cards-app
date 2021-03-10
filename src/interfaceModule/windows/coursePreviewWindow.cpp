@@ -6,6 +6,7 @@
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "interfaceModule/widgets/cardBtnWidget.h"
+#include "interfaceModule/widgets/closeBtnWidget.h"
 
 using namespace cardsApp::interfaceModule;
 using namespace common::coreModule;
@@ -43,6 +44,19 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
             if (auto label = dynamic_cast<Label*>(findNode("windowTitle"))) {
                 label->setString(courseName);
             }
+        }
+
+        return eTasksStatus::STATUS_OK;
+    });
+
+    result.emplace_back([this]() {
+        auto cardsId = getData("cardsId", 0);
+        if (auto closeBtn = dynamic_cast<closeBtnWidget*>(findNode("closeBtnWidget"))) {
+            closeBtn->setCloseClb([](){
+                if (auto window = GET_GAME_MANAGER().requestWindow("notifyWindow", true)) {
+                    //
+                }
+            });
         }
 
         return eTasksStatus::STATUS_OK;
