@@ -43,7 +43,8 @@
     "transformComponent": {
       "pivot": [ 1.0, 1.0 ],
       "anchor": [ 0.5, 0.5 ],
-      "position": [-40, -40]
+      "position": [-40, -40],
+      "scale": 0.5
     },
     "spriteComponent": {
       "image": "images/windows/coursePreviewWindow/close_btn.png",
@@ -100,6 +101,13 @@
       "pivot": [ 0.5, 0.0 ],
       "anchor": [ 0.5, 0.5 ],
       "position": [0, 86]
+    }
+  },
+  "closeBtnWidget": {
+    "transformComponent": {
+      "pivot": [ 0.5, 0.0 ],
+      "anchor": [ 0.5, 0.5 ],
+      "position": [251, 86]
     }
   }
 }

@@ -54,17 +54,15 @@ void resultCardWidget::initSwipeHandle() {
         if (nextPos > -xPosLimit && nextPos < xPosLimit)
             cardHolder->setRotation(nextPos);
         if (nextPos > 0) {
-            bgWindow->setColor(convertUtility::changeColor(
+            bgWindow->setColor(convertUtility::changeColorFromTo(
                 defaultColor, cocos2d::Color3B(235, 87, 87), std::abs(nextPos / xPosLimit)));
-            LOG_ERROR(STRING_FORMAT("----- %f, %f", nextPos, nextPos / xPosLimit));
         } else {
-            bgWindow->setColor(convertUtility::changeColor(
+            bgWindow->setColor(convertUtility::changeColorFromTo(
                 defaultColor, cocos2d::Color3B(111, 207, 157), std::abs(nextPos / xPosLimit)));
         }
     };
     listener->onTouchEnded = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
         auto nextPos = -(xTouchPos - touch->getLocation().x) / 10;
-        LOG_ERROR(STRING_FORMAT("end %f", nextPos));
         auto diffClick = std::abs(xTouchPos) - std::abs(touch->getLocation().x);
         auto hitClick = diffClick > -3 || diffClick < 3;
         if (nextPos > -xPosLimit - 1 && nextPos < xPosLimit - 1) {

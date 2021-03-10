@@ -21,6 +21,10 @@
     {
       "type": "cardBtnWidget",
       "name": "cardBtnWidget"
+    },
+    {
+      "type": "closeBtnWidget",
+      "name": "closeBtnWidget"
     }
   ]
 }
