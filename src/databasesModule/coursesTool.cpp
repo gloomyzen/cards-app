@@ -44,3 +44,10 @@ void coursesTool::setProgress(int courseId, int cardId, bool isCorrect) {
         course->updateAnswers(cardId, isCorrect);
     }
 }
+void coursesTool::resetProgress(int courseId) {
+    if (localProfile == nullptr) {
+        LOG_ERROR("coursesTool::setProgress: databases is not loaded!");
+        return;
+    }
+    localProfile->resetCourseProgress(courseId);
+}

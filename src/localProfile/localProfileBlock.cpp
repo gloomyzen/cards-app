@@ -150,3 +150,11 @@ sLocalProfileCourse* localProfileBlock::getCourse(int id) {
         return localCourses.find(id)->second;
     }
 }
+void localProfileBlock::resetCourseProgress(int courseId) {
+    if (localCourses.find(courseId) != localCourses.end()) {
+        auto item = new sLocalProfileCourse();
+        item->id = localCourses[courseId]->id;
+        localCourses.erase(localCourses.find(courseId));
+        localCourses.insert({item->id, item});
+    }
+}

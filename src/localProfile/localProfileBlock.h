@@ -34,6 +34,7 @@ namespace cardsApp {
             std::map<int, sLocalProfileCourse*>& getAllCourses() { return localCourses; }
 
             sLocalProfileCourse* getCourse(int);
+            void resetCourseProgress(int courseId);
 
 
           private:

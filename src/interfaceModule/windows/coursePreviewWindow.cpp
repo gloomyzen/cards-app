@@ -5,6 +5,7 @@
 #include "common/databaseModule/databaseInterface.h"
 #include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
+#include "databasesModule/coursesTool.h"
 #include "interfaceModule/widgets/cardBtnWidget.h"
 #include "interfaceModule/widgets/closeBtnWidget.h"
 
@@ -23,8 +24,7 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
     std::deque<nodeTasks> result;
 
     result.emplace_back([this]() {
-        auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"));
-        if (closeBtn) {
+        if (auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"))) {
             closeBtn->setOnTouchEnded([this](cocos2d::Touch* touch, cocos2d::Event* event) {
                 auto closeClb = getData<std::function<void()>>("onClose", []() {});
                 if (closeClb)
@@ -50,11 +50,18 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
     });
 
     result.emplace_back([this]() {
-        auto cardsId = getData("cardsId", 0);
         if (auto closeBtn = dynamic_cast<closeBtnWidget*>(findNode("closeBtnWidget"))) {
-            closeBtn->setCloseClb([](){
+            closeBtn->setCloseClb([this]() {
                 if (auto window = GET_GAME_MANAGER().requestWindow("notifyWindow", true)) {
-                    //
+                    auto cardsId = getData<int>("cardsId", 0);
+                    auto closeClb = getData<std::function<void()>>("onClose", []() {});
+                    std::function removeClb = [cardsId, closeClb]() {
+                        databasesModule::coursesTool tool;
+                        tool.resetProgress(cardsId);
+                        if (closeClb)
+                            closeClb();
+                    };
+                    window->setData<std::function<void()>>("onClose", removeClb);
                 }
             });
         }

@@ -11,12 +11,24 @@
           "name": "windowText"
         },
         {
-          "type": "cardBtnWidget",
-          "name": "closeBtn"
+          "type": "soundButton",
+          "name": "proceedBtn",
+          "child": [
+            {
+              "type": "label",
+              "name": "proceedBtnLbl"
+            }
+          ]
         },
         {
-          "type": "cardBtnWidget",
-          "name": "proceedBtn"
+          "type": "soundButton",
+          "name": "closeBtn",
+          "child": [
+            {
+              "type": "label",
+              "name": "closeBtnLbl"
+            }
+          ]
         }
       ]
     }

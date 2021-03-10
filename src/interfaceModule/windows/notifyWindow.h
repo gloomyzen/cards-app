@@ -8,10 +8,12 @@
 namespace cardsApp::interfaceModule {
 
     class notifyWindow
-        : public common::coreModule::windowBase {
+        : public common::coreModule::windowBase
+        , public taskHolder {
       public:
         notifyWindow();
         ~notifyWindow() = default;
+        std::deque<nodeTasks> getTasks() override;
     };
 }// namespace cardsApp::interfaceModule
 

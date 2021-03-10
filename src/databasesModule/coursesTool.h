@@ -23,6 +23,7 @@ namespace cardsApp::databasesModule {
         ~coursesTool();
         std::map<int, std::pair<int, sCourseBook*>> getCoursesWithProgress();
         void setProgress(int courseId, int cardId, bool isCorrect = false);
+        void resetProgress(int courseId);
 
       private:
         cardsApp::databasesModule::coursesDatabase* courseDb = nullptr;
