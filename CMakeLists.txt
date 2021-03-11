@@ -150,7 +150,7 @@ target_include_directories(${APP_NAME}
 #------------------------------------------------------------------------------
 #                               Tests section
 #------------------------------------------------------------------------------
-if (DEBUG)
-    enable_testing()
-    add_subdirectory(tests)
-endif ()
+#if (DEBUG)
+#    enable_testing()
+#    add_subdirectory(tests)
+#endif ()

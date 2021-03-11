@@ -49,7 +49,7 @@ For Visual Studio Community 2019
 ```bash
 mkdir build && cd build
 cmake .. -G"Visual Studio 16 2019" -Tv142 -A Win32 -DDEBUG=1
-and open .sln file from `proj.win32` folder
+and open .sln file from `build` folder
 ```
 
 For Android studio:

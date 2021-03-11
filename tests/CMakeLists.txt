@@ -1,3 +1,4 @@
+return()
 include(${CMAKE_SOURCE_DIR}/cmake/AddGoogleTest.cmake)
 
 set(TEST_HEADER)
