@@ -56,10 +56,10 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
                     auto cardsId = getData<int>("cardsId", 0);
                     auto closeClb = getCallback("onClose");
                     window->setCallback("onClose", [cardsId, closeClb]() {
-                           databasesModule::coursesTool tool;
-                           tool.resetProgress(cardsId);
-                           if (closeClb)
-                               closeClb();
+                        databasesModule::coursesTool tool;
+                        tool.resetProgress(cardsId);
+                        if (closeClb)
+                            closeClb();
                     });
                 }
             });

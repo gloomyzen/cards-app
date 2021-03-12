@@ -41,12 +41,12 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
                     window->setData("cardsId", cardsId);
                     window->setData("courseName", courseName);
                     window->setCallback("onClose", [card, cardsId]() {
-                           databasesModule::coursesTool tool;
-                           auto list = tool.getCoursesWithProgress();
-                           auto find = list.find(cardsId);
-                           if (find != list.end()) {
-                               card->initCard(find->second);
-                           }
+                        databasesModule::coursesTool tool;
+                        auto list = tool.getCoursesWithProgress();
+                        auto find = list.find(cardsId);
+                        if (find != list.end()) {
+                            card->initCard(find->second);
+                        }
                     });
                 }
             });
