@@ -26,7 +26,7 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
     result.emplace_back([this]() {
         if (auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"))) {
             closeBtn->setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) {
-                auto closeClb = getData<std::function<void()>>("onClose", []() {});
+                auto closeClb = getCallback("onClose");
                 if (closeClb)
                     closeClb();
                 closeWindow();
@@ -54,14 +54,13 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
             closeBtn->setCloseClb([this]() {
                 if (auto window = GET_GAME_MANAGER().requestWindow("notifyWindow", true)) {
                     auto cardsId = getData<int>("cardsId", 0);
-                    auto closeClb = getData<std::function<void()>>("onClose", []() {});
-                    std::function removeClb = [cardsId, closeClb]() {
-                        databasesModule::coursesTool tool;
-                        tool.resetProgress(cardsId);
-                        if (closeClb)
-                            closeClb();
-                    };
-                    window->setData<std::function<void()>>("onClose", removeClb);
+                    auto closeClb = getCallback("onClose");
+                    window->setCallback("onClose", [cardsId, closeClb]() {
+                           databasesModule::coursesTool tool;
+                           tool.resetProgress(cardsId);
+                           if (closeClb)
+                               closeClb();
+                    });
                 }
             });
         }

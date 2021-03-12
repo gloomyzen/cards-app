@@ -40,15 +40,14 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
                 if (auto window = GET_GAME_MANAGER().requestWindow("coursePreviewWindow")) {
                     window->setData("cardsId", cardsId);
                     window->setData("courseName", courseName);
-                    std::function<void()> clb = [card, cardsId]() {
+                    window->setCallback("onClose", [card, cardsId]() {
                            databasesModule::coursesTool tool;
                            auto list = tool.getCoursesWithProgress();
                            auto find = list.find(cardsId);
                            if (find != list.end()) {
                                card->initCard(find->second);
                            }
-                    };
-                    window->setData("onClose", clb);
+                    });
                 }
             });
             card->initCard(item.second);

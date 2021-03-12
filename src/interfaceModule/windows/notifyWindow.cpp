@@ -20,7 +20,7 @@ std::deque<nodeTasks> notifyWindow::getTasks() {
     result.emplace_back([this]() {
         if (auto proceedBtn = dynamic_cast<soundButton*>(findNode("proceedBtn"))) {
             proceedBtn->setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) {
-                auto closeClb = getData<std::function<void()>>("onClose", []() {});
+                auto closeClb = getCallback("onClose");
                 if (closeClb)
                     closeClb();
                 closeWindow();
