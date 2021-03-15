@@ -142,15 +142,10 @@ if (LINUX OR WINDOWS)
     cocos_copy_target_res(${APP_NAME} LINK_TO ${APP_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
 endif ()
 
-target_include_directories(${APP_NAME}
-        PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-        )
-
 #------------------------------------------------------------------------------
 #                               Tests section
 #------------------------------------------------------------------------------
-#if (DEBUG)
-#    enable_testing()
-#    add_subdirectory(tests)
-#endif ()
+if (DEBUG)
+    enable_testing()
+    add_subdirectory(tests)
+endif ()
