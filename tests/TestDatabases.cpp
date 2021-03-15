@@ -37,5 +37,5 @@ TEST_F(TempClass, cardsAppDatabaseTest) {
                                             new cardsApp::databasesModule::ipaDatabase());
     GET_DATABASE_MANAGER().executeLoadData();
     auto ipaDb = GET_DATABASE_MANAGER().getDatabase<ipaDatabase>("ipaDb");
-//    EXPECT_TRUE(ipaDb->isLoaded());
+    EXPECT_TRUE(ipaDb->isLoaded());
 }

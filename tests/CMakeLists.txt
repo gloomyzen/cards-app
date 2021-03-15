@@ -20,11 +20,33 @@ target_compile_features(${TESTLIB_NAME} PRIVATE cxx_std_17)
 target_compile_options(${TESTLIB_NAME} PRIVATE -Wall)
 
 function(INIT_TEST ARG_TARGET)
-    add_executable(${ARG_TARGET} ${ARGN})
+    set(GAME_RES_FOLDER
+            "${CMAKE_SOURCE_DIR}/Resources"
+            )
+    if (APPLE OR WINDOWS)
+        cocos_mark_multi_resources(common_res_files RES_TO "Resources" FOLDERS ${GAME_RES_FOLDER})
+    endif ()
+    add_executable(${ARG_TARGET} ${ARGN} ${common_res_files})
     target_compile_features(${ARG_TARGET} PRIVATE cxx_std_17)
     target_compile_options(${ARG_TARGET} PRIVATE -Wall)
     add_gtest(${ARG_TARGET})
     add_deps_to_test(${ARG_TARGET} ${TESTLIB_NAME})
+
+    # mark app resources
+    setup_cocos_app_config(${ARG_TARGET})
+    if (APPLE)
+        set_target_properties(${ARG_TARGET} PROPERTIES RESOURCE "${APP_UI_RES}")
+        if (MACOSX)
+            set_xcode_property(${ARG_TARGET} INFOPLIST_FILE "${CMAKE_SOURCE_DIR}/proj.ios_mac/mac/Info.plist")
+        endif ()
+    elseif (WINDOWS)
+        cocos_copy_target_dll(${ARG_TARGET})
+    endif ()
+
+    if (LINUX OR WINDOWS)
+        cocos_get_resource_path(APP_RES_DIR ${ARG_TARGET})
+        cocos_copy_target_res(${ARG_TARGET} LINK_TO ${APP_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
+    endif ()
 endfunction()
 
 function(ADD_DEPS_TO_TEST ARG_TARGET)
