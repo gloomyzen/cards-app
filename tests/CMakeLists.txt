@@ -9,11 +9,11 @@ file(GLOB_RECURSE TEST_SOURCE ${CMAKE_SOURCE_DIR}/src/*.cpp)
 add_library(${TESTLIB_NAME} SHARED ${TEST_HEADER} ${TEST_SOURCE})
 target_include_directories(${TESTLIB_NAME}
         PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src>
         )
 target_link_libraries(${TESTLIB_NAME} cocos2d project_dependency)
 target_include_directories(${TESTLIB_NAME}
-        PRIVATE ../src
+        PRIVATE ${CMAKE_SOURCE_DIR}/src
         PRIVATE ${COCOS2DX_ROOT_PATH}/cocos/audio/include/
         )
 target_compile_features(${TESTLIB_NAME} PRIVATE cxx_std_17)
