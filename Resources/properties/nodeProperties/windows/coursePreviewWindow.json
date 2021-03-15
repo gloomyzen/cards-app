@@ -33,7 +33,8 @@
       "fontFile": "fonts/SFProText_Regular.ttf",
       "bold": true,
       "italics": false,
-      "alight": "center"
+      "alight": "center",
+      "maxLineWidth": 1000
     },
     "colorComponent": {
       "color": [255, 255, 255, 110]

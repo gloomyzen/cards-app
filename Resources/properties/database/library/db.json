@@ -1,22 +1,42 @@
 {
   "courses": [
     {
-      "id": 1,
-      "name": "4000 words, A1 level",
-      "path": "properties/database/library/courses/A1"
+      "id": 10001,
+      "name": "Book #1 - Unit 1: The Lion and the Rabbit",
+      "path": "properties/database/library/courses/A1-1"
     },
     {
-      "id": 2,
+      "id": 10002,
+      "name": "Book #1 - Unit 2: The Laboratory",
+      "path": "properties/database/library/courses/A1-2"
+    },
+    {
+      "id": 10003,
+      "name": "Book #1 - Unit 3: The Report",
+      "path": "properties/database/library/courses/A1-3"
+    },
+    {
+      "id": 10004,
+      "name": "Book #1 - Unit 4: The Dog’s Bell",
+      "path": "properties/database/library/courses/A1-4"
+    },
+    {
+      "id": 10005,
+      "name": "Book #1 - Unit 5: The Jackal and the Sun Child",
+      "path": "properties/database/library/courses/A1-5"
+    },
+    {
+      "id": 20001,
       "name": "Useful English #1",
       "path": "properties/database/library/courses/useful1"
     },
     {
-      "id": 3,
+      "id": 20002,
       "name": "Useful English #2",
       "path": "properties/database/library/courses/useful2"
     },
     {
-      "id": 4,
+      "id": 20003,
       "name": "English Phrases",
       "path": "properties/database/library/courses/phrases"
     }

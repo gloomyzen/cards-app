@@ -26,15 +26,17 @@
   "countCardsLabel": {
     "transformComponent": {
       "pivot": [ 0.0, 1.0 ],
-      "anchor": [ 0.0, 0.0 ],
-      "position": [48, -58]
+      "anchor": [ 0.0, 1.0 ],
+      "position": [48, -26],
+      "size": [10, 10]
     },
     "labelComponent": {
       "text": "1-20",
       "fontType": "ttf",
       "fontSize": 28.0,
       "fontFile": "fonts/SFProText_Regular.ttf",
-      "alight": "left"
+      "alight": "left",
+      "maxLineWidth": 1000
     },
     "colorComponent": {
       "color": [70, 70, 70]
@@ -44,7 +46,7 @@
     "transformComponent": {
       "pivot": [ 0.0, 1.0 ],
       "anchor": [ 0.0, 0.0 ],
-      "position": [48, -128]
+      "position": [48, -155]
     },
     "labelComponent": {
       "text": "B1",
@@ -62,7 +64,7 @@
     "transformComponent": {
       "pivot": [ 1.0, 1.0 ],
       "anchor": [ 1.0, 0.0 ],
-      "position": [-55, -128]
+      "position": [-55, -155]
     },
     "labelComponent": {
       "text": "45%",

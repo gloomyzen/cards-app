@@ -3,8 +3,24 @@
   "findDiapason": "A2:E",
   "pages": [
     {
-      "sheet": "bookA1",
-      "output": "../Resources/properties/database/library/courses/A1.json"
+      "sheet": "book4000 - Unit 1: The Lion and the Rabbit",
+      "output": "../Resources/properties/database/library/courses/A1-1.json"
+    },
+    {
+      "sheet": "book4000 - Unit 2: The Laboratory",
+      "output": "../Resources/properties/database/library/courses/A1-2.json"
+    },
+    {
+      "sheet": "book4000 - Unit 3: The Report",
+      "output": "../Resources/properties/database/library/courses/A1-3.json"
+    },
+    {
+      "sheet": "book4000 - Unit 4: The Dog’s Bell",
+      "output": "../Resources/properties/database/library/courses/A1-4.json"
+    },
+    {
+      "sheet": "book4000 - Unit 5: The Jackal and the Sun Child",
+      "output": "../Resources/properties/database/library/courses/A1-5.json"
     },
     {
       "sheet": "usefulEnglish1",
