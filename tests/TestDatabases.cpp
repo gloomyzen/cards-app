@@ -30,6 +30,15 @@ TEST_F(TempClass, cocos2dSimpleIntegrationTest) {
 TEST_F(TempClass, commonStringUtilsTest) {
     EXPECT_EQ(stringUtility::capitalizeString("test room is awesome!"), std::string("Test room is awesome!"));
     EXPECT_EQ(stringUtility::toLowerString("Test RoOm IS aweSome!"), std::string("test room is awesome!"));
+    auto stringArray = stringUtility::explodeString("test room is awesome!");
+    EXPECT_TRUE(!stringArray.empty());
+    EXPECT_TRUE(stringArray.size() == 4);
+    auto stringArray1 = stringUtility::explodeString("test room is awesome!", &stringUtility::capitalizeString);
+    EXPECT_TRUE(!stringArray1.empty());
+    EXPECT_EQ(stringArray1.front(),  std::string("Test"));
+    auto stringArray2 = stringUtility::explodeString("TEST ROOM IS AWESOME!", &stringUtility::toLowerString);
+    EXPECT_TRUE(!stringArray2.empty());
+    EXPECT_EQ(stringArray2.front(),  std::string("test"));
 }
 
 TEST_F(TempClass, cardsAppDatabaseTest) {
@@ -38,4 +47,5 @@ TEST_F(TempClass, cardsAppDatabaseTest) {
     GET_DATABASE_MANAGER().executeLoadData();
     auto ipaDb = GET_DATABASE_MANAGER().getDatabase<ipaDatabase>("ipaDb");
     EXPECT_TRUE(ipaDb->isLoaded());
+    EXPECT_EQ(ipaDb->findString("car"), "k\xC9\x91\xCB\x90r");
 }
