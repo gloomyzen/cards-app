@@ -61,7 +61,6 @@ bool ipaDatabase::loadDictionary(const std::string& mapKey, const rapidjson::Doc
 const std::string& ipaDatabase::findString(const std::string& word) const {
     auto string = common::utilityModule::stringUtility::trim(word);
     string = common::utilityModule::stringUtility::toLowerString(string);
-    //todo explode long sentence and find every word
     if (string.empty())
         return emptyString;
     std::string letter = string.substr(0, 1);

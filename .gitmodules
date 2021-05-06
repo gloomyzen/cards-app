@@ -1,15 +1,3 @@
-[submodule "lib/imgui"]
-	path = lib/imgui
-	url = git@github.com:gloomyzen/cocos2d-x-imgui.git
-	branch = master
-[submodule "lib/dragonBones"]
-	path = lib/dragonBones
-	url = git@github.com:gloomyzen/cocos2d-dragonbones.git
-	branch = master
-[submodule "cocos2d"]
-	path = cocos2d
-	url = git@github.com:gloomyzen/cocos2d.git
-	branch = master
 [submodule "src/common"]
 	path = src/common
 	url = git@github.com:gloomyzen/cocos2d-common.git
