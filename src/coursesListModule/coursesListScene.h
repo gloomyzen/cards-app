@@ -10,7 +10,8 @@ namespace cardsApp {
     namespace coursesListModule {
 
         class coursesListScene
-            : public common::coreModule::nodeProperties<cocos2d::Node>
+            : public common::coreModule::nodeProperties
+			, public cocos2d::Layer
             , public taskHolder {
           public:
             coursesListScene();

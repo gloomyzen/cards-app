@@ -6,7 +6,7 @@
 
 namespace cardsApp::interfaceModule {
 
-    class testWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
+    class testWidget : public common::coreModule::nodeProperties, public cocos2d::Node {
       public:
         testWidget();
         ~testWidget() = default;

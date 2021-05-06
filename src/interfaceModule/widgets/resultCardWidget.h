@@ -7,7 +7,7 @@
 
 namespace cardsApp::interfaceModule {
 
-    class resultCardWidget : public common::coreModule::nodeProperties<cocos2d::Node> {
+    class resultCardWidget : public common::coreModule::nodeProperties, public cocos2d::Node {
       public:
         enum class eCardSwipeDirection {
             LEFT = 0,

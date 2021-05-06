@@ -7,9 +7,7 @@ using namespace rapidjson;
 localProfileBlock::localProfileBlock() {}
 
 localProfileBlock::~localProfileBlock() {
-    for (auto item : localCourses) {
-        delete item.second;
-    }
+    for (auto item : localCourses) { delete item.second; }
     localCourses.clear();
 }
 
@@ -22,7 +20,7 @@ bool localProfileBlock::load(const GenericValue<UTF8<char>>::ConstObject& data) 
     for (auto it = courses.Begin(); it != courses.End(); ++it) {
         if (it->IsObject()) {
             auto item = new sLocalProfileCourse();
-            if (item->load(it->GetObjectJ())) {
+            if (item->load(it->GetObject())) {
                 localCourses.insert({ item->id, item });
             }
         }
@@ -101,12 +99,12 @@ bool sLocalProfileCourse::save(Value& data, Document::AllocatorType& allocator) 
 
 void sLocalProfileCourse::updateAnswers(int cardId, bool isCorrect) {
     auto findAnswer = [](std::vector<int>& list, int id, bool correct) {
-           auto it = std::find_if(list.begin(), list.end(), [id](int i) { return i == id; });
-           bool result = it != list.end();
-           if (result) {
-               list.erase(it);
-           }
-           return result;
+        auto it = std::find_if(list.begin(), list.end(), [id](int i) { return i == id; });
+        bool result = it != list.end();
+        if (result) {
+            list.erase(it);
+        }
+        return result;
     };
     bool isBad = findAnswer(badQuestion, cardId, isCorrect);
     bool isMed = findAnswer(mediumQuestion, cardId, isCorrect);
@@ -146,7 +144,7 @@ sLocalProfileCourse* localProfileBlock::getCourse(int id) {
     } else {
         auto item = new sLocalProfileCourse();
         item->id = id;
-        localCourses.insert({id, item});
+        localCourses.insert({ id, item });
         return localCourses.find(id)->second;
     }
 }
@@ -155,6 +153,6 @@ void localProfileBlock::resetCourseProgress(int courseId) {
         auto item = new sLocalProfileCourse();
         item->id = localCourses[courseId]->id;
         localCourses.erase(localCourses.find(courseId));
-        localCourses.insert({item->id, item});
+        localCourses.insert({ item->id, item });
     }
 }

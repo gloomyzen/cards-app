@@ -3,15 +3,15 @@
 #include "common/coreModule/gameManager.h"
 #include "common/coreModule/resources/resourceManager.h"
 #include "common/coreModule/resources/settings/settingManager.h"
-#include "common/coreModule/scenes/scenesFactory/scenesFactoryInstance.h"
 #include "common/coreModule/scenes/mainScene.h"
+#include "common/coreModule/scenes/scenesFactory/scenesFactoryInstance.h"
 // all profile block header
 #include "common/profileModule/profileManager.h"
 #include "localProfile/localProfileBlock.h"
-//all databases header
+// all databases header
 #include "common/databaseModule/databaseInterface.h"
-#include "databasesModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
+#include "databasesModule/databaseManager.h"
 #include "databasesModule/ipaDatabase.h"
 // all scenes
 #include "coursesListModule/coursesListScene.h"
@@ -94,18 +94,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // preload sounds
     GET_AUDIO_ENGINE().stopAll();
     // register all profile
-	GET_PROFILE().registerBlock("local", [](){ return new cardsApp::localProfile::localProfileBlock(); });
-	GET_PROFILE().executeLoad();
+    GET_PROFILE().registerBlock("local", []() { return new cardsApp::localProfile::localProfileBlock(); });
+    GET_PROFILE().executeLoad();
     // register all databases
-	GET_DATABASE_MANAGER().addDatabase(databaseManager::eDatabaseList::COURSES_DB, "properties/database/library/db.json", new cardsApp::databasesModule::coursesDatabase());
-	GET_DATABASE_MANAGER().addDatabase(databaseManager::eDatabaseList::IPA_DB, "properties/database/dictionary/db.json", new cardsApp::databasesModule::ipaDatabase());
-	GET_DATABASE_MANAGER().executeLoadData();
+    GET_DATABASE_MANAGER().addDatabase(databaseManager::eDatabaseList::COURSES_DB,
+                                       "properties/database/library/db.json",
+                                       new cardsApp::databasesModule::coursesDatabase());
+    GET_DATABASE_MANAGER().addDatabase(databaseManager::eDatabaseList::IPA_DB,
+                                       "properties/database/dictionary/db.json",
+                                       new cardsApp::databasesModule::ipaDatabase());
+    GET_DATABASE_MANAGER().executeLoadData();
     // register external node types
-	cardsApp::interfaceModule::customNodeTypes::registerAllCustomNodes();
+    cardsApp::interfaceModule::customNodeTypes::registerAllCustomNodes();
     // register all states
-	GET_SCENES_FACTORY().registerState("coursesListScene", [](){
-		return new cardsApp::coursesListModule::coursesListScene();
-	});
+    GET_SCENES_FACTORY().registerState("coursesListScene",
+                                       []() { return new cardsApp::coursesListModule::coursesListScene(); });
 
     // run first scene
     GET_GAME_MANAGER().run("coursesListScene");

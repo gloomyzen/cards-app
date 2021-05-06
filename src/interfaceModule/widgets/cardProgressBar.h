@@ -7,7 +7,7 @@
 
 namespace cardsApp::interfaceModule {
 
-    class cardProgressBar : public common::coreModule::nodeProperties<cocos2d::Node> {
+    class cardProgressBar : public common::coreModule::nodeProperties, public cocos2d::Node {
       public:
         cardProgressBar();
         ~cardProgressBar() = default;

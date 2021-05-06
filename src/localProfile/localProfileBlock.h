@@ -2,15 +2,14 @@
 #define CARDS_APP_LOCALPROFILEBLOCK_H
 
 #include "common/profileModule/profileBlockInterface.h"
-#include "json/document.h"
-#include "json/ostreamwrapper.h"
+#include "rapidjson/document.h"
+#include "rapidjson/ostreamwrapper.h"
 #include <map>
 #include <string>
 #include <utility>
 #include <vector>
 
-namespace cardsApp {
-    namespace localProfile {
+namespace cardsApp::localProfile {
 
         struct sLocalProfileCourse {
             int id;
@@ -40,8 +39,7 @@ namespace cardsApp {
           private:
             std::map<int, sLocalProfileCourse*> localCourses;
         };
-    }// namespace localProfile
-}// namespace cardsApp
+    }// namespace cardsApp
 
 
 #endif// CARDS_APP_LOCALPROFILEBLOCK_H

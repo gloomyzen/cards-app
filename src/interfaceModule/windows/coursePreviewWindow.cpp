@@ -3,7 +3,7 @@
 #include "common/debugModule/logManager.h"
 
 #include "common/databaseModule/databaseInterface.h"
-#include "common/databaseModule/databaseManager.h"
+#include "databasesModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "databasesModule/coursesTool.h"
 #include "interfaceModule/widgets/cardBtnWidget.h"
