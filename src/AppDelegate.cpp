@@ -97,9 +97,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	GET_PROFILE().registerBlock("local", [](){ return new cardsApp::localProfile::localProfileBlock(); });
 	GET_PROFILE().executeLoad();
     // register all databases
-//	GET_DATABASE_MANAGER().addDatabase()
-	GET_DATABASE_MANAGER().registerDatabase({"coursesDb", "properties/database/library/db.json"}, new cardsApp::databasesModule::coursesDatabase());
-	GET_DATABASE_MANAGER().registerDatabase({"ipaDb", "properties/database/dictionary/db.json"}, new cardsApp::databasesModule::ipaDatabase());
+	GET_DATABASE_MANAGER().addDatabase(databaseManager::eDatabaseList::COURSES_DB, "properties/database/library/db.json", new cardsApp::databasesModule::coursesDatabase());
+	GET_DATABASE_MANAGER().addDatabase(databaseManager::eDatabaseList::IPA_DB, "properties/database/dictionary/db.json", new cardsApp::databasesModule::ipaDatabase());
 	GET_DATABASE_MANAGER().executeLoadData();
     // register external node types
 	cardsApp::interfaceModule::customNodeTypes::registerAllCustomNodes();

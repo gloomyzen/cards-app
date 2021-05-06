@@ -12,9 +12,8 @@ namespace cardsApp::databasesModule {
     class databaseManager : public common::databaseModule::databaseManagerInterface {
       public:
         enum class eDatabaseList {
-            CHARACTER_DB = 0,
-            TILES_DB,
-            MAPS_DB,
+            COURSES_DB = 0,
+            IPA_DB,
         };
         databaseManager();
         ~databaseManager() override;
