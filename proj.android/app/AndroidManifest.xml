@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.efreyu.CardsApp"
+    package="com.efreyu.cards-app"
     android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -14,7 +14,7 @@
         
         <!-- Tell Cocos2dxActivity the name of our .so -->
         <meta-data android:name="android.app.lib_name"
-                   android:value="CardsApp" />
+                   android:value="cards-app" />
 
         <activity
             android:name="org.cocos2dx.cpp.AppActivity"
