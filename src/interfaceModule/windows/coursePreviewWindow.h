@@ -20,7 +20,7 @@ namespace cardsApp::interfaceModule {
         std::deque<nodeTasks> getTasks() override;
 
       private:
-        void showList(int, std::string);
+        void showList(int, const std::string&);
     };
 }// namespace cardsApp::interfaceModule
 
