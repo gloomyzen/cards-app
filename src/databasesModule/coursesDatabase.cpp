@@ -1,10 +1,11 @@
 #include "coursesDatabase.h"
 #include "common/coreModule/resources/resourceManager.h"
 #include "common/debugModule/logManager.h"
+#include "common/utilityModule/stringUtility.h"
 
 using namespace cardsApp::databasesModule;
 
-coursesDatabase::coursesDatabase() {}
+coursesDatabase::coursesDatabase() = default;
 
 void coursesDatabase::load(const rapidjson::Document& data) {
     if (getPath().empty()) {

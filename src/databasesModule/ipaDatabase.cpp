@@ -7,7 +7,7 @@ using namespace cardsApp::databasesModule;
 
 static std::string emptyString{};
 
-ipaDatabase::ipaDatabase() {}
+ipaDatabase::ipaDatabase() = default;
 
 void ipaDatabase::load(const rapidjson::Document& data) {
     if (getPath().empty()) {

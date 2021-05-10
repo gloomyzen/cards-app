@@ -19,7 +19,7 @@ namespace cardsApp::localProfile {
 
             bool load(const rapidjson::GenericValue<rapidjson::UTF8<char>>::ConstObject&);
             bool save(rapidjson::Value&, rapidjson::Document::AllocatorType&);
-            void updateAnswers(int cardId, bool isCorrect);
+            void updateAnswers(int cardId, bool answerId);
         };
 
         class localProfileBlock : public common::profileModule::profileBlockInterface {

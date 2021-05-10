@@ -21,7 +21,7 @@ namespace cardsApp::databasesModule {
         static databaseManager& getInstance();
         void cleanup() override;
 
-        void addDatabase(eDatabaseList id, std::string value, common::databaseModule::databaseInterface* db);
+        void addDatabase(eDatabaseList id, const std::string& value, common::databaseModule::databaseInterface* db);
 
         template<typename T>
         T* getDatabase(eDatabaseList key) {

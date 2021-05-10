@@ -11,7 +11,6 @@
 #include "localProfile/localProfileBlock.h"
 // all databases header
 #include "common/databaseModule/databaseInterface.h"
-#include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "databasesModule/ipaDatabase.h"
 

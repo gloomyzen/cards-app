@@ -4,9 +4,9 @@ using namespace cardsApp::databasesModule;
 
 static databaseManager* databaseManagerInstance = nullptr;
 
-databaseManager::databaseManager() {}
+databaseManager::databaseManager() = default;
 
-databaseManager::~databaseManager() {}
+databaseManager::~databaseManager() = default;
 
 databaseManager& databaseManager::getInstance() {
     if (databaseManagerInstance == nullptr) {
@@ -22,7 +22,7 @@ void databaseManager::cleanup() {
     }
 }
 
-void databaseManager::addDatabase(databaseManager::eDatabaseList id, std::string value, common::databaseModule::databaseInterface* db) {
+void databaseManager::addDatabase(databaseManager::eDatabaseList id, const std::string& value, common::databaseModule::databaseInterface* db) {
     auto type = static_cast<int>(id);
     registerDatabase({type, value}, db);
 }

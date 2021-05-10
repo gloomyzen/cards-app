@@ -1,4 +1,5 @@
 #include "cardWidget.h"
+#include "common/utilityModule/stringUtility.h"
 
 using namespace cardsApp::interfaceModule;
 

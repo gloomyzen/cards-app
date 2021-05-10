@@ -4,6 +4,7 @@
 #include "common/coreModule/scenes/windows/windowBase.h"
 #include "databasesModule/coursesTool.h"
 #include "interfaceModule/widgets/cardWidget.h"
+#include "common/utilityModule/stringUtility.h"
 
 using namespace cardsApp::coursesListModule;
 using namespace cardsApp::interfaceModule;
@@ -36,7 +37,7 @@ std::deque<nodeTasks> coursesListScene::getTasks() {
             auto card = new cardWidget();
             auto cardsId = item.first;
             auto courseName = item.second.second->name;
-            card->setOnTouch([cardsId, courseName, card](cocos2d::Touch* touch, cocos2d::Event* event) {
+            card->setOnTouchEnded([cardsId, courseName, card]() {
                 if (auto window = GET_GAME_MANAGER().requestWindow("coursePreviewWindow")) {
                     window->setData("cardsId", cardsId);
                     window->setData("courseName", courseName);

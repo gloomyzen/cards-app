@@ -1,17 +1,18 @@
 #include "coursesTool.h"
 #include "common/debugModule/logManager.h"
+#include "databasesModule/databaseManager.h"
 
 using namespace cardsApp::databasesModule;
 using namespace cardsApp::localProfile;
 
 
 coursesTool::coursesTool() {
-    courseDb = GET_DATABASE_MANAGER().getDatabase<coursesDatabase>("coursesDb");
-    ipaDb = GET_DATABASE_MANAGER().getDatabase<ipaDatabase>("ipaDb");
+    courseDb = GET_DATABASE_MANAGER().getDatabase<coursesDatabase>(databaseManager::eDatabaseList::COURSES_DB);
+    ipaDb = GET_DATABASE_MANAGER().getDatabase<ipaDatabase>(databaseManager::eDatabaseList::IPA_DB);
     localProfile = GET_PROFILE().getBlock<localProfileBlock>("local");
 }
 
-coursesTool::~coursesTool() {}
+coursesTool::~coursesTool() = default;
 
 std::map<int, std::pair<int, sCourseBook*>> coursesTool::getCoursesWithProgress() {
     std::map<int, std::pair<int, sCourseBook*>> result;

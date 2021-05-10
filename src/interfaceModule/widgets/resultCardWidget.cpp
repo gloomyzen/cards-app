@@ -3,6 +3,7 @@
 #include "common/debugModule/logManager.h"
 #include "common/utilityModule/covertUtility.h"
 #include "common/utilityModule/stringUtility.h"
+#include "databasesModule/databaseManager.h"
 #include "databasesModule/coursesTool.h"
 #include "databasesModule/ipaDatabase.h"
 
@@ -26,14 +27,14 @@ void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node
     if (!card->enDescription.empty()) {
         auto* label = new cocos2d::Label();
         label->setName("labelDescription");
-        loadComponent("widgets/" + this->getName(), label);
+        loadComponent(label);
         label->setString(STRING_FORMAT("(%s)", stringUtility::capitalizeString(card->enDescription).c_str()));
         grid->addChild(label);
     }
     if (!card->enSentence.empty()) {
         auto* label = new cocos2d::Label();
         label->setName("label");
-        loadComponent("widgets/" + this->getName(), label);
+        loadComponent(label);
         label->setString(stringUtility::capitalizeString(card->enSentence));
         grid->addChild(label);
     }
@@ -41,6 +42,7 @@ void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node
 }
 
 void resultCardWidget::initSwipeHandle() {
+    using namespace cardsApp::databasesModule;
     listener->setSwallowTouches(true);
     listener->onTouchBegan = [this](cocos2d::Touch* touch, cocos2d::Event* event) {
         xTouchPos = touch->getLocation().x;
@@ -76,14 +78,17 @@ void resultCardWidget::initSwipeHandle() {
                 }
                 for (auto node : grid->getChildren()) {
                     auto touchLocation = node->convertToNodeSpace(touch->getLocation());
-                    auto rect = cocos2d::Rect(node->getPositionX(), node->getPositionX(), node->getContentSize().width, node->getContentSize().height);
+                    auto rect = cocos2d::Rect(node->getPositionX(),
+                                              node->getPositionX(),
+                                              node->getContentSize().width,
+                                              node->getContentSize().height);
                     if (rect.containsPoint(touchLocation)) {
                         if (auto label = dynamic_cast<cocos2d::Label*>(node)) {
-                            auto db = GET_DATABASE_MANAGER().getDatabase<databasesModule::ipaDatabase>("ipaDb");
+                            auto db = GET_DATABASE_MANAGER().getDatabase<ipaDatabase>(databaseManager::eDatabaseList::IPA_DB);
                             const auto& text = label->getString();
                             const auto& transcript = db->findString(text);
                             std::string temp;
-                            //todo create bubble for transcription
+                            // todo create bubble for transcription
                             return true;
                         }
                     }
@@ -95,7 +100,7 @@ void resultCardWidget::initSwipeHandle() {
                 cardSwipeClb(nextPos < -xPosLimit ? eCardSwipeDirection::LEFT : eCardSwipeDirection::RIGHT);
             }
         }
-           return true;
+        return true;
     };
 
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);

@@ -9,7 +9,7 @@ examCardWidget::examCardWidget() {
     this->setName("examCardWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
     bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
-    setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) {
+    setOnTouchEnded([this]() {
         if (cardTouchClb)
             cardTouchClb();
     });
@@ -24,7 +24,7 @@ void examCardWidget::setData(cardsApp::databasesModule::sCourseCard* card) {
     if (!card->ruSentence.empty()) {
         auto label = new cocos2d::Label();
         label->setName("label");
-        loadComponent("widgets/" + this->getName(), label);
+        loadComponent(label);
         label->setString(stringUtility::capitalizeString(card->ruSentence));
         grid->addChild(label);
     }

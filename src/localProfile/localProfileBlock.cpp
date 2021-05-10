@@ -4,7 +4,7 @@ using namespace cardsApp::localProfile;
 using namespace rapidjson;
 
 
-localProfileBlock::localProfileBlock() {}
+localProfileBlock::localProfileBlock() = default;
 
 localProfileBlock::~localProfileBlock() {
     for (auto item : localCourses) { delete item.second; }
@@ -98,8 +98,8 @@ bool sLocalProfileCourse::save(Value& data, Document::AllocatorType& allocator) 
 }
 
 void sLocalProfileCourse::updateAnswers(int cardId, bool isCorrect) {
-    auto findAnswer = [](std::vector<int>& list, int id, bool correct) {
-        auto it = std::find_if(list.begin(), list.end(), [id](int i) { return i == id; });
+    auto findAnswer = [](std::vector<int>& list, int answerId, bool correct) {
+        auto it = std::find_if(list.begin(), list.end(), [answerId](int i) { return i == answerId; });
         bool result = it != list.end();
         if (result) {
             list.erase(it);

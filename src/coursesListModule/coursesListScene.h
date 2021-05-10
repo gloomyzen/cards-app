@@ -11,7 +11,7 @@ namespace cardsApp {
 
         class coursesListScene
             : public common::coreModule::nodeProperties
-			, public cocos2d::Layer
+            , public cocos2d::Layer
             , public taskHolder {
           public:
             coursesListScene();

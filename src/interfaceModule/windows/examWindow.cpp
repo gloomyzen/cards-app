@@ -1,14 +1,15 @@
 #include "examWindow.h"
 
 #include "common/databaseModule/databaseInterface.h"
-#include "common/databaseModule/databaseManager.h"
 #include "databasesModule/coursesDatabase.h"
 #include "databasesModule/coursesTool.h"
+#include "databasesModule/databaseManager.h"
 #include "interfaceModule/widgets/examCardWidget.h"
 #include "interfaceModule/widgets/resultCardWidget.h"
 #include <tuple>
 
 using namespace cardsApp::interfaceModule;
+using namespace cardsApp::databasesModule;
 using namespace cocos2d;
 using namespace common::coreModule;
 
@@ -18,7 +19,7 @@ examWindow::examWindow() {
     setHandleMissClick(false);
 }
 
-examWindow::~examWindow() {}
+examWindow::~examWindow() = default;
 
 std::deque<nodeTasks> examWindow::getTasks() {
     std::deque<nodeTasks> result;
@@ -26,7 +27,7 @@ std::deque<nodeTasks> examWindow::getTasks() {
     result.emplace_back([this]() {
         auto closeBtn = dynamic_cast<soundButton*>(findNode("closeBtn"));
         if (closeBtn) {
-            closeBtn->setOnTouch([this](cocos2d::Touch* touch, cocos2d::Event* event) { closeWindow(); });
+            closeBtn->setOnTouchEnded([this]() { closeWindow(); });
         }
 
         return eTasksStatus::STATUS_OK;
@@ -59,7 +60,7 @@ std::deque<nodeTasks> examWindow::getTasks() {
 }
 
 void examWindow::initExam(int id) {
-    auto coursesDb = GET_DATABASE_MANAGER().getDatabase<databasesModule::coursesDatabase>("coursesDb");
+    auto coursesDb = GET_DATABASE_MANAGER().getDatabase<coursesDatabase>(databaseManager::eDatabaseList::COURSES_DB);
     auto cards = coursesDb->getCourseById(id);
     courseId = id;
     std::for_each(cards->cards.begin(), cards->cards.end(), [&](std::pair<int, databasesModule::sCourseCard*> e) {
@@ -111,10 +112,11 @@ void examWindow::goToNextCard() {
                     databasesModule::coursesTool tool;
                     tool.setProgress(
                         courseId, cardData.first, direction == resultCardWidget::eCardSwipeDirection::LEFT);
-                    auto it = std::find_if(
-                        currentCards.begin(), currentCards.end(), [cardData](std::pair<int, databasesModule::sCourseCard*> item) {
-                            return item.first == cardData.first;
-                        });
+                    auto it = std::find_if(currentCards.begin(),
+                                           currentCards.end(),
+                                           [cardData](std::pair<int, databasesModule::sCourseCard*> item) {
+                                               return item.first == cardData.first;
+                                           });
                     if (it != currentCards.end()) {
                         currentCards.erase(it);
                     }

@@ -10,7 +10,7 @@ namespace cardsApp::interfaceModule {
     class cardBtnWidget : public common::coreModule::soundButton {
       public:
         cardBtnWidget();
-        ~cardBtnWidget() = default;
+        ~cardBtnWidget() override = default;
 
         CREATE_FUNC(cardBtnWidget);
 
