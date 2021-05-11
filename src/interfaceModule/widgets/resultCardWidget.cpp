@@ -8,7 +8,6 @@
 #include "databasesModule/ipaDatabase.h"
 
 using namespace cardsApp::interfaceModule;
-using namespace common::utilityModule;
 
 resultCardWidget::resultCardWidget() {
     this->setName("resultCardWidget");
@@ -22,20 +21,20 @@ void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node
     bgWindow = sprite;
     auto* grid = dynamic_cast<common::coreModule::gridNode*>(findNode("gridContainer"));
     if (auto* label = dynamic_cast<cocos2d::Label*>(findNode("firstWord"))) {
-        label->setString(stringUtility::capitalizeString(card->enWord));
+        label->setString(common::utilityModule::capitalizeString(card->enWord));
     }
     if (!card->enDescription.empty()) {
         auto* label = new cocos2d::Label();
         label->setName("labelDescription");
         loadComponent(label);
-        label->setString(STRING_FORMAT("(%s)", stringUtility::capitalizeString(card->enDescription).c_str()));
+        label->setString(STRING_FORMAT("(%s)", common::utilityModule::capitalizeString(card->enDescription).c_str()));
         grid->addChild(label);
     }
     if (!card->enSentence.empty()) {
         auto* label = new cocos2d::Label();
         label->setName("label");
         loadComponent(label);
-        label->setString(stringUtility::capitalizeString(card->enSentence));
+        label->setString(common::utilityModule::capitalizeString(card->enSentence));
         grid->addChild(label);
     }
     grid->updateGridTransform();
