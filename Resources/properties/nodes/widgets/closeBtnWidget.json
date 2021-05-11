@@ -3,10 +3,6 @@
   "name": "closeBtnWidget",
   "child": [
     {
-      "type": "scale9sprite",
-      "name": "btnBg"
-    },
-    {
       "type": "sprite",
       "name": "closeImg"
     }

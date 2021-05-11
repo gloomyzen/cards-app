@@ -7,8 +7,10 @@ cardWidget::cardWidget() {
     this->setName("cardWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
     progressBar = dynamic_cast<cardProgressBar*>(findNode("cardProgressBar"));
-    setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(findNode("cardBg")));
-//    bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
+    auto bg = new cocos2d::ui::Scale9Sprite();
+    bg->setName("cardBg");
+    loadComponent(bg);
+    setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(bg));
 }
 
 void cardWidget::initCard(std::pair<int, cardsApp::databasesModule::sCourseBook*> pair) {

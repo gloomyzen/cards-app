@@ -6,8 +6,10 @@ using namespace cardsApp::interfaceModule;
 cardBtnWidget::cardBtnWidget() {
     this->setName("cardBtnWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
-    setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(findNode("cardBg")));
-//    bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
+    auto bg = new cocos2d::ui::Scale9Sprite();
+    bg->setName("cardBg");
+    loadComponent(bg);
+    setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(bg));
     label = dynamic_cast<cocos2d::Label*>(findNode("btnText"));
 }
 

@@ -3,10 +3,6 @@
   "name": "cardBtnWidget",
   "child": [
     {
-      "type": "scale9sprite",
-      "name": "cardBg"
-    },
-    {
       "type": "label",
       "name": "btnText"
     }
