@@ -8,7 +8,8 @@ using namespace cardsApp::interfaceModule;
 examCardWidget::examCardWidget() {
     this->setName("examCardWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
-    bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
+    setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(findNode("cardBg")));
+//    bgNode = dynamic_cast<cocos2d::ui::Scale9Sprite*>(findNode("cardBg"));
     setOnTouchEnded([this]() {
         if (cardTouchClb)
             cardTouchClb();
