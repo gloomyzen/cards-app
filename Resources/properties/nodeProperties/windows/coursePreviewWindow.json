@@ -44,8 +44,14 @@
     "transformComponent": {
       "pivot": [ 1.0, 1.0 ],
       "anchor": [ 0.5, 0.5 ],
-      "position": [-40, -40],
-      "scale": 0.5
+      "position": [-15, -15],
+      "scale": 0.5,
+      "size": [96, 96]
+    }
+  },
+  "buttonNode": {
+    "transformComponent": {
+      "size": [96, 96]
     },
     "spriteComponent": {
       "image": "images/windows/coursePreviewWindow/close_btn.png",

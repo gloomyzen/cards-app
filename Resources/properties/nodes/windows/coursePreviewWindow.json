@@ -12,7 +12,13 @@
     },
     {
       "type": "soundButton",
-      "name": "closeBtn"
+      "name": "closeBtn",
+      "child": [
+        {
+          "type": "sprite",
+          "name": "buttonNode"
+        }
+      ]
     },
     {
       "type": "scrollView",
