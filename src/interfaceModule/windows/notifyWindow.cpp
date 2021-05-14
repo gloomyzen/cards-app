@@ -5,6 +5,7 @@ using namespace cardsApp::interfaceModule;
 notifyWindow::notifyWindow() {
     this->setName("notifyWindow");
     loadProperty("windows/" + this->getName(), dynamic_cast<Node*>(this));
+    setCloseAnim(eWindowAnim::FADE);
 }
 std::deque<nodeTasks> notifyWindow::getTasks() {
     std::deque<nodeTasks> result;
