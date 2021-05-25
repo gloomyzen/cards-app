@@ -10,12 +10,12 @@ namespace cardsApp::interfaceModule {
     class examWindow
         : public common::coreModule::windowBase
         , public taskHolder {
-      public:
+    public:
         examWindow();
         ~examWindow();
         std::deque<nodeTasks> getTasks() override;
 
-      private:
+    private:
         void initExam(int id);
         void goToNextCard();
         cocos2d::Color3B bgColor;

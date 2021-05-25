@@ -7,6 +7,7 @@ notifyWindow::notifyWindow() {
     loadProperty("windows/" + this->getName(), dynamic_cast<Node*>(this));
     setCloseAnim(eWindowAnim::FADE);
 }
+
 std::deque<nodeTasks> notifyWindow::getTasks() {
     std::deque<nodeTasks> result;
 

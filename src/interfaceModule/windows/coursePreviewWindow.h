@@ -14,12 +14,12 @@ namespace cardsApp::interfaceModule {
     class coursePreviewWindow
         : public common::coreModule::windowBase
         , public taskHolder {
-      public:
+    public:
         coursePreviewWindow();
         ~coursePreviewWindow();
         std::deque<nodeTasks> getTasks() override;
 
-      private:
+    private:
         void showList(int, const std::string&);
     };
 }// namespace cardsApp::interfaceModule
