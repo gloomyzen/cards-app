@@ -75,66 +75,78 @@ void examWindow::goToNextCard() {
     auto cardHolder = findNode("cardHolder");
     auto bg = dynamic_cast<cocos2d::Sprite*>(findNode("bg"));
     if (currentCards.empty()) {
-        // todo go to result window
+        //         todo go to result window
         closeWindow();// todo remove this after result window is done
         return;
     } else {
-        if (cardHolder->getChildren().empty()) {
-            cardHolder->setOpacity(0);
-        } else {
-            auto seq = Sequence::create(FadeOut::create(.12), nullptr);
-            seq->setTag(0);
-            cardHolder->runAction(seq);
-        }
-    }
-    auto clb = cocos2d::CallFunc::create([cardHolder, bg, this]() {
-        // reset changes
-        cardHolder->removeAllChildren();
-        cardHolder->setRotation(0.f);
-        bg->setColor(bgColor);
-
-        auto card = new examCardWidget();
-        cardHolder->addChild(card);
-        auto cardData = currentCards.front();
-        card->setData(cardData.second);
-        card->setTouchClb([cardHolder, cardData, bg, this]() {
-            auto fadeOut = FadeOut::create(.12);
-            auto clb = cocos2d::CallFunc::create([cardHolder, cardData, bg, this]() {
-                cardHolder->removeAllChildren();
-                auto newCard = new resultCardWidget();
-                cardHolder->addChild(newCard);
-                newCard->setData(cardData.second, cardHolder, bg);
-                newCard->setDefaultColor(bgColor);
-                newCard->setSwipeClb([this, cardData](resultCardWidget::eCardSwipeDirection direction) {
-                    if (courseId == 0) {
-                        return false;
-                    }
-                    databasesModule::coursesTool tool;
-                    tool.setProgress(
-                        courseId, cardData.first, direction == resultCardWidget::eCardSwipeDirection::LEFT);
-                    auto it = std::find_if(currentCards.begin(),
-                                           currentCards.end(),
-                                           [cardData](std::pair<int, databasesModule::sCourseCard*> item) {
-                                               return item.first == cardData.first;
-                                           });
-                    if (it != currentCards.end()) {
-                        currentCards.erase(it);
-                    }
-                    goToNextCard();
-                    return true;
-                });
-            });
-            auto fadeIn = FadeIn::create(.12);
-            auto seq = Sequence::create(fadeOut, clb, fadeIn, nullptr);
-            cardHolder->runAction(seq);
-        });
-    });
-    auto fadeIn = FadeIn::create(.12);
-    auto currentAction = cardHolder->getActionByTag(0);
-    if (currentAction != nullptr && !currentAction->isDone()) {
-        auto actionFadeOut = dynamic_cast<cocos2d::Sequence*>(currentAction);
-        cardHolder->runAction(Sequence::create(actionFadeOut, clb, fadeIn, nullptr));
-    } else {
-        cardHolder->runAction(Sequence::create(clb, fadeIn, nullptr));
+        //
     }
 }
+
+// void examWindow::goToNextCard() {
+//     auto cardHolder = findNode("cardHolder");
+//     auto bg = dynamic_cast<cocos2d::Sprite*>(findNode("bg"));
+//     if (currentCards.empty()) {
+//          todo go to result window
+//         closeWindow();// todo remove this after result window is done
+//         return;
+//     } else {
+//         if (cardHolder->getChildren().empty()) {
+//             cardHolder->setOpacity(0);
+//         } else {
+//             auto seq = Sequence::create(FadeOut::create(.12), nullptr);
+//             seq->setTag(0);
+//             cardHolder->runAction(seq);
+//         }
+//     }
+//     auto clb = cocos2d::CallFunc::create([cardHolder, bg, this]() {
+reset changes
+    //        cardHolder->removeAllChildren();
+    //        cardHolder->setRotation(0.f);
+    //        bg->setColor(bgColor);
+    //
+    //        auto card = new examCardWidget();
+    //        cardHolder->addChild(card);
+    //        auto cardData = currentCards.front();
+    //        card->setData(cardData.second);
+    //        card->setTouchClb([cardHolder, cardData, bg, this]() {
+    //            auto fadeOut = FadeOut::create(.12);
+    //            auto clb = cocos2d::CallFunc::create([cardHolder, cardData, bg, this]() {
+    //                cardHolder->removeAllChildren();
+    //                auto newCard = new resultCardWidget();
+    //                cardHolder->addChild(newCard);
+    //                newCard->setData(cardData.second, cardHolder, bg);
+    //                newCard->setDefaultColor(bgColor);
+    //                newCard->setSwipeClb([this, cardData](resultCardWidget::eCardSwipeDirection direction) {
+    //                    if (courseId == 0) {
+    //                        return false;
+    //                    }
+    //                    databasesModule::coursesTool tool;
+    //                    tool.setProgress(
+    //                        courseId, cardData.first, direction == resultCardWidget::eCardSwipeDirection::LEFT);
+    //                    auto it = std::find_if(currentCards.begin(),
+    //                                           currentCards.end(),
+    //                                           [cardData](std::pair<int, databasesModule::sCourseCard*> item) {
+    //                                               return item.first == cardData.first;
+    //                                           });
+    //                    if (it != currentCards.end()) {
+    //                        currentCards.erase(it);
+    //                    }
+    //                    goToNextCard();
+    //                    return true;
+    //                });
+    //            });
+    //            auto fadeIn = FadeIn::create(.12);
+    //            auto seq = Sequence::create(fadeOut, clb, fadeIn, nullptr);
+    //            cardHolder->runAction(seq);
+    //        });
+    //    });
+    //    auto fadeIn = FadeIn::create(.12);
+    //    auto currentAction = cardHolder->getActionByTag(0);
+    //    if (currentAction != nullptr && !currentAction->isDone()) {
+    //        auto actionFadeOut = dynamic_cast<cocos2d::Sequence*>(currentAction);
+    //        cardHolder->runAction(Sequence::create(actionFadeOut, clb, fadeIn, nullptr));
+    //    } else {
+    //        cardHolder->runAction(Sequence::create(clb, fadeIn, nullptr));
+    //    }
+    //}
