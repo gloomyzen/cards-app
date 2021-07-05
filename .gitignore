@@ -1,5 +1,6 @@
 # Clion build folders
 build
+build-*
 cmake-build-*
 public
 
