@@ -13,8 +13,6 @@ namespace cardsApp::interfaceModule {
         testWidget();
         ~testWidget() = default;
 
-        CREATE_FUNC(testWidget);
-
         bool init() {
             if (!Node::init()) {
                 return false;

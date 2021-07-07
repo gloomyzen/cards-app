@@ -14,8 +14,6 @@ namespace cardsApp::interfaceModule {
         cardProgressBar();
         ~cardProgressBar() = default;
 
-        CREATE_FUNC(cardProgressBar);
-
         void setProgress(int i = 0);
 
       protected:

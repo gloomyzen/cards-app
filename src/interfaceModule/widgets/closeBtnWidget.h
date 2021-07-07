@@ -16,7 +16,6 @@ namespace cardsApp::interfaceModule {
         closeBtnWidget();
         ~closeBtnWidget() = default;
 
-        CREATE_FUNC(closeBtnWidget);
         std::deque<nodeTasks> getTasks() override;
 
         void setCloseClb(std::function<void()> clb) { closeClb = clb; }

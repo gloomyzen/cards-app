@@ -12,8 +12,6 @@ namespace cardsApp::interfaceModule {
         cardBtnWidget();
         ~cardBtnWidget() override = default;
 
-        CREATE_FUNC(cardBtnWidget);
-
         void setText(const std::string&);
 
       private:

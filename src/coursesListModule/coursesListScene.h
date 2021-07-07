@@ -16,7 +16,6 @@ namespace cardsApp {
           public:
             coursesListScene();
             ~coursesListScene();
-            CREATE_FUNC(coursesListScene);
             std::deque<nodeTasks> getTasks() override;
 
           private:

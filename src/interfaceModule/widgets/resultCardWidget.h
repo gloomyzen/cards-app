@@ -17,7 +17,6 @@ namespace cardsApp::interfaceModule {
         };
         resultCardWidget();
         ~resultCardWidget() = default;
-        CREATE_FUNC(resultCardWidget);
 
         void setData(databasesModule::sCourseCard*, cocos2d::Node*, cocos2d::Sprite*);
         void setSwipeClb(std::function<void(eCardSwipeDirection)> clb) { cardSwipeClb = std::move(clb); }

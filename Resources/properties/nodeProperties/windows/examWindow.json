@@ -32,7 +32,7 @@
       "scale": 0.5
     },
     "spriteComponent": {
-      "image": "images/windows/coursePreviewWindow/close_btn.png",
+      "image": "images/general/close_btn.png",
       "polygon": false
     }
   },

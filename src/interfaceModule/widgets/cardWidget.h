@@ -15,8 +15,6 @@ namespace cardsApp::interfaceModule {
         cardWidget();
         ~cardWidget() = default;
 
-        CREATE_FUNC(cardWidget);
-
         void initCard(std::pair<int, cardsApp::databasesModule::sCourseBook*>);
 
       protected:
