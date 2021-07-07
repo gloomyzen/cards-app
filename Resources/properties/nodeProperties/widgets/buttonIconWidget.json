@@ -1,5 +1,5 @@
 {
-  "closeBtnWidget": {
+  "buttonIconWidget": {
     "transformComponent": {
       "anchor": [ 0.0, 1.0 ],
       "pivot": [ 0.0, 1.0 ],

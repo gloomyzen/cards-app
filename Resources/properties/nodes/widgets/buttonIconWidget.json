@@ -1,6 +1,6 @@
 {
   "type": "node",
-  "name": "closeBtnWidget",
+  "name": "buttonIconWidget",
   "child": [
     {
       "type": "sprite",

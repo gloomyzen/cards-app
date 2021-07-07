@@ -1,5 +1,5 @@
-#ifndef CARDS_APP_CLOSEBTNWIDGET_H
-#define CARDS_APP_CLOSEBTNWIDGET_H
+#ifndef CARDS_APP_BUTTONICONWIDGET_H
+#define CARDS_APP_BUTTONICONWIDGET_H
 
 #include "cocos2d.h"
 #include "common/coreModule/nodes/nodeProperties.h"
@@ -9,21 +9,23 @@
 
 namespace cardsApp::interfaceModule {
 
-    class closeBtnWidget
+    class buttonIconWidget
         : public common::coreModule::soundButton
         , public taskHolder {
-      public:
-        closeBtnWidget();
-        ~closeBtnWidget() = default;
+    public:
+        buttonIconWidget();
+        ~buttonIconWidget() override = default;
 
         std::deque<nodeTasks> getTasks() override;
 
-        void setCloseClb(std::function<void()> clb) { closeClb = clb; }
+        void buttonClickClb(std::function<void()> clb) {
+            closeClb = std::move(clb);
+        }
 
-      private:
+    private:
         std::function<void()> closeClb = nullptr;
     };
 }// namespace cardsApp::interfaceModule
 
 
-#endif// CARDS_APP_CLOSEBTNWIDGET_H
+#endif// CARDS_APP_BUTTONICONWIDGET_H

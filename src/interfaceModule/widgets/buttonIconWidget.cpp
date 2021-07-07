@@ -1,13 +1,13 @@
-#include "closeBtnWidget.h"
+#include "buttonIconWidget.h"
 #include "cocos-ext.h"
 
 using namespace cardsApp::interfaceModule;
 
-closeBtnWidget::closeBtnWidget() {
-    this->setName("closeBtnWidget");
+buttonIconWidget::buttonIconWidget() {
+    this->setName("buttonIconWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
 }
-std::deque<nodeTasks> closeBtnWidget::getTasks() {
+std::deque<nodeTasks> buttonIconWidget::getTasks() {
     std::deque<nodeTasks> result;
 
     result.emplace_back([this]() {

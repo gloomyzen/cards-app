@@ -112,7 +112,7 @@
       "position": [0, 86]
     }
   },
-  "closeBtnWidget": {
+  "buttonIconWidget": {
     "transformComponent": {
       "pivot": [ 0.5, 0.0 ],
       "anchor": [ 0.5, 0.5 ],
