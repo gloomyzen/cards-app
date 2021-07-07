@@ -13,17 +13,22 @@ namespace cardsApp::interfaceModule {
         : public common::coreModule::soundButton
         , public taskHolder {
     public:
+        enum class eButtonIcon {
+            CLOSE = 0,
+            RECYCLE
+        };
         buttonIconWidget();
         ~buttonIconWidget() override = default;
 
         std::deque<nodeTasks> getTasks() override;
 
-        void buttonClickClb(std::function<void()> clb) {
-            closeClb = std::move(clb);
-        }
+        void buttonClickClb(const std::function<void()> &clb);
+
+        void setIcon(eButtonIcon);
 
     private:
         std::function<void()> closeClb = nullptr;
+        eButtonIcon iconType = eButtonIcon::CLOSE;
     };
 }// namespace cardsApp::interfaceModule
 

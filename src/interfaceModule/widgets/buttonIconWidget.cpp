@@ -7,6 +7,7 @@ buttonIconWidget::buttonIconWidget() {
     this->setName("buttonIconWidget");
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
 }
+
 std::deque<nodeTasks> buttonIconWidget::getTasks() {
     std::deque<nodeTasks> result;
 
@@ -25,4 +26,23 @@ std::deque<nodeTasks> buttonIconWidget::getTasks() {
     });
 
     return result;
+}
+
+void buttonIconWidget::buttonClickClb(const std::function<void()>& clb) {
+    closeClb = clb;
+}
+
+void buttonIconWidget::setIcon(buttonIconWidget::eButtonIcon type) {
+    switch (type) {
+    case buttonIconWidget::eButtonIcon::CLOSE:
+        if (auto node = findNode("icon")) {
+            loadComponent(node, "closeIcon");
+        }
+        break;
+    case eButtonIcon::RECYCLE:
+        if (auto node = findNode("icon")) {
+            loadComponent(node, "recycleIcon");
+        }
+        break;
+    }
 }

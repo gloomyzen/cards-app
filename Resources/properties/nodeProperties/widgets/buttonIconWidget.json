@@ -25,7 +25,7 @@
       "color": [235, 87, 87]
     }
   },
-  "closeImg": {
+  "icon": {
     "transformComponent": {
       "anchor": [ 0.5, 0.5 ],
       "pivot": [ 0.5, 0.5 ],
@@ -33,6 +33,18 @@
     },
     "spriteComponent": {
       "image": "images/general/close_btn.png",
+      "polygon": false
+    }
+  },
+  "closeIcon": {
+    "spriteComponent": {
+      "image": "images/general/close_btn.png",
+      "polygon": false
+    }
+  },
+  "recycleIcon": {
+    "spriteComponent": {
+      "image": "images/general/recycle_btn.png",
       "polygon": false
     }
   }
