@@ -15,7 +15,8 @@ namespace cardsApp::interfaceModule {
     public:
         enum class eButtonIcon {
             CLOSE = 0,
-            RECYCLE
+            RECYCLE,
+            RETURN
         };
         buttonIconWidget();
         ~buttonIconWidget() override = default;

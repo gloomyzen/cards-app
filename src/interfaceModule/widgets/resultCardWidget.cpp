@@ -1,10 +1,10 @@
 #include "resultCardWidget.h"
+#include "buttonIconWidget.h"
 #include "common/coreModule/nodes/widgets/gridNode.h"
-#include "common/debugModule/logManager.h"
 #include "common/utilityModule/covertUtility.h"
 #include "common/utilityModule/stringUtility.h"
-#include "databasesModule/databaseManager.h"
 #include "databasesModule/coursesTool.h"
+#include "databasesModule/databaseManager.h"
 #include "databasesModule/ipaDatabase.h"
 
 using namespace cardsApp::interfaceModule;
@@ -14,6 +14,10 @@ resultCardWidget::resultCardWidget() {
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
     listener = cocos2d::EventListenerTouchOneByOne::create();
     initSwipeHandle();
+    //todo only for tests
+    auto button = new buttonIconWidget();
+    addChild(button);
+    button->setIcon(buttonIconWidget::eButtonIcon::RETURN);
 }
 
 void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node* node, cocos2d::Sprite* sprite) {

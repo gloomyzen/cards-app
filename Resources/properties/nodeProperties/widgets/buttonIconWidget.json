@@ -47,5 +47,11 @@
       "image": "images/general/recycle_btn.png",
       "polygon": false
     }
+  },
+  "returnIcon": {
+    "spriteComponent": {
+      "image": "images/general/return_btn.png",
+      "polygon": false
+    }
   }
 }

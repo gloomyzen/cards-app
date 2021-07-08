@@ -33,16 +33,17 @@ void buttonIconWidget::buttonClickClb(const std::function<void()>& clb) {
 }
 
 void buttonIconWidget::setIcon(buttonIconWidget::eButtonIcon type) {
-    switch (type) {
-    case buttonIconWidget::eButtonIcon::CLOSE:
-        if (auto node = findNode("icon")) {
+    if (auto node = findNode("icon")) {
+        switch (type) {
+        case buttonIconWidget::eButtonIcon::CLOSE:
             loadComponent(node, "closeIcon");
-        }
-        break;
-    case eButtonIcon::RECYCLE:
-        if (auto node = findNode("icon")) {
+            break;
+        case eButtonIcon::RECYCLE:
             loadComponent(node, "recycleIcon");
+            break;
+        case eButtonIcon::RETURN:
+            loadComponent(node, "returnIcon");
+            break;
         }
-        break;
     }
 }
