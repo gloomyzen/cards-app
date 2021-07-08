@@ -18,6 +18,11 @@ namespace cardsApp::interfaceModule {
             RECYCLE,
             RETURN
         };
+        enum class eButtonBgColor {
+            RED = 0,
+            WHITE
+        };
+
         buttonIconWidget();
         ~buttonIconWidget() override = default;
 
@@ -26,10 +31,10 @@ namespace cardsApp::interfaceModule {
         void buttonClickClb(const std::function<void()> &clb);
 
         void setIcon(eButtonIcon);
+        void setBgColor(eButtonBgColor);
 
     private:
         std::function<void()> closeClb = nullptr;
-        eButtonIcon iconType = eButtonIcon::CLOSE;
     };
 }// namespace cardsApp::interfaceModule
 

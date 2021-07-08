@@ -47,3 +47,17 @@ void buttonIconWidget::setIcon(buttonIconWidget::eButtonIcon type) {
         }
     }
 }
+
+void buttonIconWidget::setBgColor(buttonIconWidget::eButtonBgColor color) {
+    auto button = new cocos2d::ui::Scale9Sprite();
+    button->setName("btn");
+    switch (color) {
+    case eButtonBgColor::RED:
+        loadComponent(button, "redButton");
+        break;
+    case eButtonBgColor::WHITE:
+        loadComponent(button, "whiteButton");
+        break;
+    }
+    setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(button));
+}

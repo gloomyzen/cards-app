@@ -53,5 +53,35 @@
       "image": "images/general/return_btn.png",
       "polygon": false
     }
+  },
+  "redButton": {
+    "scale9spriteComponent": {
+      "size": [68, 68],
+      "image": "images/general/cardBg.png",
+      "slice9": {
+        "x": 34,
+        "y": 34,
+        "width": 1,
+        "height": 1
+      }
+    },
+    "colorComponent": {
+      "color": [235, 87, 87]
+    }
+  },
+  "whiteButton": {
+    "scale9spriteComponent": {
+      "size": [68, 68],
+      "image": "images/general/cardBgBorder.png",
+      "slice9": {
+        "x": 34,
+        "y": 34,
+        "width": 1,
+        "height": 1
+      }
+    },
+    "colorComponent": {
+      "color": [255, 255, 255]
+    }
   }
 }
