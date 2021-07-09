@@ -12,20 +12,6 @@ std::deque<nodeTasks> buttonIconWidget::getTasks() {
     std::deque<nodeTasks> result;
 
     result.emplace_back([this]() {
-        if (hasPropertyObject("settings")) {
-            auto data = getPropertyObject("settings");
-            for (auto iter = data.MemberBegin(); iter != data.MemberEnd(); ++iter) {
-                if (iter->name.IsString()) {
-                    //
-                }
-            }
-        }
-
-
-        return eTasksStatus::STATUS_OK;
-    });
-
-    result.emplace_back([this]() {
         setBgColor(eButtonBgColor::WHITE);
         setOnTouchEnded([this]() {
             if (closeClb) {

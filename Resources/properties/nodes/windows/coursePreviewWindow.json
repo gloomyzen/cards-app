@@ -30,7 +30,11 @@
     },
     {
       "type": "buttonIconWidget",
-      "name": "buttonIconWidget"
+      "name": "buttonIconWidget",
+      "settings": {
+        "color": "red",
+        "icon": "recycle"
+      }
     }
   ]
 }
