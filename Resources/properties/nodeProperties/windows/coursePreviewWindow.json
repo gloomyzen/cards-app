@@ -113,6 +113,10 @@
     }
   },
   "buttonIconWidget": {
+    "settings": {
+      "color": "red",
+      "icon": "recycle"
+    },
     "transformComponent": {
       "pivot": [ 0.5, 0.0 ],
       "anchor": [ 0.5, 0.5 ],
