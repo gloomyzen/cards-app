@@ -18,7 +18,6 @@ resultCardWidget::resultCardWidget() {
     auto button = new buttonIconWidget();
     addChild(button);
     button->setIcon(buttonIconWidget::eButtonIcon::RETURN);
-    button->setBgColor(buttonIconWidget::eButtonBgColor::WHITE);
 }
 
 void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node* node, cocos2d::Sprite* sprite) {

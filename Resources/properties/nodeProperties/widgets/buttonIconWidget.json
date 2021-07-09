@@ -54,7 +54,11 @@
       "polygon": false
     }
   },
-  "redButton": {
+  "whiteButton": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ]
+    },
     "scale9spriteComponent": {
       "size": [68, 68],
       "image": "images/general/cardBg.png",
@@ -64,24 +68,22 @@
         "width": 1,
         "height": 1
       }
-    },
-    "colorComponent": {
-      "color": [235, 87, 87]
     }
   },
-  "whiteButton": {
+  "whiteBorderButton": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ]
+    },
     "scale9spriteComponent": {
       "size": [68, 68],
-      "image": "images/general/cardBgBorder.png",
+      "image": "images/general/cardBg.png",
       "slice9": {
         "x": 34,
         "y": 34,
         "width": 1,
         "height": 1
       }
-    },
-    "colorComponent": {
-      "color": [255, 255, 255]
     }
   }
 }

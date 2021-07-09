@@ -12,10 +12,7 @@ std::deque<nodeTasks> buttonIconWidget::getTasks() {
     std::deque<nodeTasks> result;
 
     result.emplace_back([this]() {
-        auto bg = new cocos2d::ui::Scale9Sprite();
-        bg->setName("btnBg");
-        loadComponent(bg);
-        setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(bg));
+        setBgColor(eButtonBgColor::WHITE);
         setOnTouchEnded([this]() {
             if (closeClb) {
                 closeClb();
@@ -52,11 +49,11 @@ void buttonIconWidget::setBgColor(buttonIconWidget::eButtonBgColor color) {
     auto button = new cocos2d::ui::Scale9Sprite();
     button->setName("btn");
     switch (color) {
-    case eButtonBgColor::RED:
-        loadComponent(button, "redButton");
-        break;
     case eButtonBgColor::WHITE:
         loadComponent(button, "whiteButton");
+        break;
+    case eButtonBgColor::WHITE_BORDER:
+        loadComponent(button, "whiteBorderButton");
         break;
     }
     setButtonBgSprite(dynamic_cast<cocos2d::Sprite*>(button));

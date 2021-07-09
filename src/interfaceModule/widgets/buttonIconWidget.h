@@ -19,8 +19,8 @@ namespace cardsApp::interfaceModule {
             RETURN
         };
         enum class eButtonBgColor {
-            RED = 0,
-            WHITE
+            WHITE = 0,
+            WHITE_BORDER
         };
 
         buttonIconWidget();
@@ -31,9 +31,9 @@ namespace cardsApp::interfaceModule {
         void buttonClickClb(const std::function<void()> &clb);
 
         void setIcon(eButtonIcon);
-        void setBgColor(eButtonBgColor);
 
     private:
+        void setBgColor(eButtonBgColor);
         std::function<void()> closeClb = nullptr;
     };
 }// namespace cardsApp::interfaceModule
