@@ -1,5 +1,6 @@
 #include "buttonIconWidget.h"
 #include "cocos-ext.h"
+#include "cocos-ext.h"
 
 using namespace cardsApp::interfaceModule;
 
@@ -12,7 +13,19 @@ std::deque<nodeTasks> buttonIconWidget::getTasks() {
     std::deque<nodeTasks> result;
 
     result.emplace_back([this]() {
-        setBgColor(eButtonBgColor::WHITE);
+        auto settings = getSettingsData();
+        if (settings.IsObject()) {
+            if (settings.HasMember("color") && settings["color"].IsString()) {
+                //
+            }
+        } else {
+            setBgColor(eButtonBgColor::WHITE);
+        }
+
+        return eTasksStatus::STATUS_OK;
+    });
+
+    result.emplace_back([this]() {
         setOnTouchEnded([this]() {
             if (closeClb) {
                 closeClb();
