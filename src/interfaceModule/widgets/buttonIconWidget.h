@@ -14,13 +14,15 @@ namespace cardsApp::interfaceModule {
         , public taskHolder {
     public:
         enum class eButtonIcon {
-            CLOSE = 0,
+            NONE = 0,
+            CLOSE,
             RECYCLE,
             RETURN
         };
         enum class eButtonBgColor {
             WHITE = 0,
-            WHITE_BORDER
+            WHITE_BORDER,
+            RED
         };
 
         buttonIconWidget();

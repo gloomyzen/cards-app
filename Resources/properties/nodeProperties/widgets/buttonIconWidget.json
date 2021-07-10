@@ -6,25 +6,6 @@
       "size": [68, 68]
     }
   },
-  "btnBg": {
-    "transformComponent": {
-      "anchor": [ 0.5, 0.5 ],
-      "pivot": [ 0.5, 0.5 ]
-    },
-    "scale9spriteComponent": {
-      "size": [68, 68],
-      "image": "images/general/cardBg.png",
-      "slice9": {
-        "x": 34,
-        "y": 34,
-        "width": 1,
-        "height": 1
-      }
-    },
-    "colorComponent": {
-      "color": [235, 87, 87]
-    }
-  },
   "icon": {
     "transformComponent": {
       "anchor": [ 0.5, 0.5 ],
@@ -84,6 +65,25 @@
         "width": 1,
         "height": 1
       }
+    }
+  },
+  "redButton": {
+    "transformComponent": {
+      "anchor": [ 0.5, 0.5 ],
+      "pivot": [ 0.5, 0.5 ]
+    },
+    "scale9spriteComponent": {
+      "size": [68, 68],
+      "image": "images/general/cardBg.png",
+      "slice9": {
+        "x": 34,
+        "y": 34,
+        "width": 1,
+        "height": 1
+      }
+    },
+    "colorComponent": {
+      "color": [235, 87, 87]
     }
   }
 }

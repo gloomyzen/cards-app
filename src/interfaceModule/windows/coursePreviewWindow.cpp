@@ -52,7 +52,6 @@ std::deque<nodeTasks> coursePreviewWindow::getTasks() {
 
     result.emplace_back([this]() {
         if (auto closeBtn = dynamic_cast<buttonIconWidget*>(findNode("buttonIconWidget"))) {
-            closeBtn->setIcon(buttonIconWidget::eButtonIcon::RECYCLE);
             closeBtn->buttonClickClb([this]() {
                 if (auto window = GET_GAME_MANAGER().requestWindow("notifyWindow", true)) {
                     auto cardsId = getData<int>("cardsId", 0);
