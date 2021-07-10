@@ -14,10 +14,6 @@ resultCardWidget::resultCardWidget() {
     loadProperty("widgets/" + this->getName(), dynamic_cast<Node*>(this));
     listener = cocos2d::EventListenerTouchOneByOne::create();
     initSwipeHandle();
-    //todo only for tests
-    auto button = new buttonIconWidget();
-    addChild(button);
-    button->setIcon(buttonIconWidget::eButtonIcon::RETURN);
 }
 
 void resultCardWidget::setData(databasesModule::sCourseCard* card, cocos2d::Node* node, cocos2d::Sprite* sprite) {
